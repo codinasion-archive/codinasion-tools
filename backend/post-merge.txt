@@ -1,0 +1,9 @@
+# For backend server only :
+# This script will help in refresing the server after 'git pull'
+#
+# How to use :
+# - Add the below code to 'post-merge' file in '.git/hooks' folder
+# - make it executable 'chmod +x .git/hooks/post-merge'
+
+#!/bin/sh
+touch /var/www/username_pythonanywhere_com_wsgi.py
