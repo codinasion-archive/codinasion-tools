@@ -1,6 +1,6 @@
 {
   "name": "open-tools",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Collection of open source tools",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -22,8 +22,8 @@
     "check": "yarn lint && yarn format && yarn build && yarn test",
     "prepare": "yarn build",
     "prepublishOnly": "yarn test && yarn lint",
-    "preversion": "yarn lint",
-    "version": "yarn run check && git add -A src",
+    "preversion": "yarn run check",
+    "version": "git add -A src",
     "postversion": "git push && git push --tags"
   },
   "devDependencies": {
