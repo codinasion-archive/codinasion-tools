@@ -1,4 +1,5 @@
 ---
+package: npm
 title: Add Two Numbers
 description: Add two numbers together
 slug: add-two-numbers

@@ -67,6 +67,7 @@ export default async function convertDocs(OWNER, REPO, TOKEN) {
       // contributors (later)
 
       let data = {
+        package: matterResult.data.package ? matterResult.data.package : "npm",
         title: matterResult.data.title ? matterResult.data.title : jsonFileName,
         description: matterResult.data.description
           ? matterResult.data.description
