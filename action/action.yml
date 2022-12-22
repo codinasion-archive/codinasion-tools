@@ -1,0 +1,27 @@
+name: "Convert Docs Data"
+
+description: "Convert Docs data to JSON format"
+
+inputs:
+  OWNER:
+    description: "repo owner"
+    required: true
+    default: "codinasion"
+
+  REPO:
+    description: "repo name"
+    required: true
+    default: "open-tools"
+
+  TOKEN:
+    description: "github token"
+    required: true
+
+  CONVERT_DATA:
+    description: "convert docs data"
+    required: true
+    default: "false"
+
+runs:
+  using: "node16"
+  main: "action.js"

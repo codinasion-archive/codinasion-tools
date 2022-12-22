@@ -1,0 +1,63 @@
+name: Convert Docs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  convert_docs:
+    if: github.repository == 'codinasion/open-tools'
+
+    runs-on: ubuntu-latest
+    name: Convert Docs Data
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.API_TOKEN }}
+
+      ##########  Get Date  ##########
+      - name: Get Date
+        id: date
+        uses: nanzm/get-time-action@v1.1
+        with:
+          timeZone: 5.5
+          format: "YYYY-MM-DD-hh-mm"
+
+      # Cache node_modules
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('action/yarn.lock') }}
+
+      # Install dependencies
+      - name: Yarn
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: |
+          cd action 
+          yarn
+
+      ##########  convert docs data  ##########
+      - name: Convert Docs Data
+        uses: ./action/
+        with:
+          CONVERT_DATA: true
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit Docs Data
+        uses: crazy-max/ghaction-github-pages@v3.0.0
+        with:
+          target_branch: docs
+          build_dir: docs-data
+          keep_history: false
+          committer: Harsh Raj <harshraj8843@users.noreply.github.com>
+          author: Harsh Raj <harshraj8843@users.noreply.github.com>
+          commit_message: |
+            docs data - ${{ steps.date.outputs.time }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.API_TOKEN }}
