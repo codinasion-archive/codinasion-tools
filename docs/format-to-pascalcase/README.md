@@ -1,5 +1,6 @@
 ---
-package: npm
+package:
+    - npm
 title: Format to PascalCase
 description: Convert a string to PascalCase
 slug: format-to-pascalcase

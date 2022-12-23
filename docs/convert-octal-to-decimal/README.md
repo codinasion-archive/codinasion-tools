@@ -1,5 +1,6 @@
 ---
-package: npm
+package:
+    - npm
 title: Convert Octal to Decimal
 description: Convert a number from octal to decimal
 slug: convert-octal-to-decimal

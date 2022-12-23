@@ -1,5 +1,6 @@
 ---
-package: npm
+package:
+    - npm
 title: Convert Decimal to Hexadecimal
 description: Convert a number from decimal to hexadecimal
 slug: convert-decimal-to-hexadecimal

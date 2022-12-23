@@ -1,5 +1,6 @@
 ---
-package: npm
+package:
+    - npm
 title: Format to TitleCase
 description: Convert a string to TitleCase
 slug: format-to-titlecase

@@ -1,5 +1,6 @@
 ---
-package: npm
+package:
+    - npm
 title: Format to DotCase
 description: Convert a string to dot.case
 slug: format-to-dotcase

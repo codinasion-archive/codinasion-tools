@@ -1,5 +1,6 @@
 ---
-package: npm
+package:
+    - npm
 title: Convert Binary to Decimal
 description: Convert a binary number to a decimal number
 slug: convert-binary-to-decimal

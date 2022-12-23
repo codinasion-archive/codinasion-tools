@@ -1,5 +1,6 @@
 ---
-package: npm
+package:
+    - npm
 title: Format to KebabCase
 description: Convert a string to kebab-case
 slug: format-to-kebabcase

@@ -1,5 +1,6 @@
 ---
-package: npm
+package:
+    - npm
 title: Convert Binary to Hexadecimal
 description: Convert a binary number to a hexadecimal number
 slug: convert-binary-to-hexadecimal

@@ -1,5 +1,6 @@
 ---
-package: npm
+package:
+    - npm
 title: Convert Octal to Hexadecimal
 description: Convert a number from octal to hexadecimal
 slug: convert-octal-to-hexadecimal

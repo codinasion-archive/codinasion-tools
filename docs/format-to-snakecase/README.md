@@ -1,5 +1,6 @@
 ---
-package: npm
+package:
+    - npm
 title: Format to SnakeCase
 description: Convert a string to snake_case
 slug: format-to-snakecase
