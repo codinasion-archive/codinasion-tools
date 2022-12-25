@@ -1,4 +1,4 @@
-def ConvertHexadecimalToOctal(hexadecimal: str) -> str:
+def ConvertHexadecimalToOctal(hexadecimal: str) -> int:
     """Convert a hexadecimal number to an octal number."""
     hexadecimal = hexadecimal.upper()
     decimal = 0
@@ -8,4 +8,4 @@ def ConvertHexadecimalToOctal(hexadecimal: str) -> str:
     while decimal != 0:
         octal = str(decimal % 8) + octal
         decimal = decimal // 8
-    return octal
+    return int(octal)
