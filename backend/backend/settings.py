@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     # Webhooks app
     "webhooks.apps.WebhooksConfig",
+    # API app
+    "api.apps.ApiConfig",
 ]
 
 MIDDLEWARE = [

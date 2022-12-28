@@ -1,5 +1,5 @@
-export default function ConvertOctalToDecimal(octalString: string): number {
-  let octal = parseInt(octalString, 10);
+export default function ConvertOctalToDecimal(octalString: number): number {
+  let octal = octalString;
   let decimal = 0;
   let i = 0;
 

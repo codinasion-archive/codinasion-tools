@@ -1,6 +1,6 @@
 {
   "name": "open-tools",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Collection of open source tools",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
