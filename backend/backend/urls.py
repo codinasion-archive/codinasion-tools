@@ -24,6 +24,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # Webhooks
     path("api/webhooks/", include("webhooks.urls")),
+    # API (to execute tools)
+    path("api/", include("api.urls")),
 ]
 
 
