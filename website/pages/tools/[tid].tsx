@@ -51,8 +51,8 @@ function Tid() {
                 />
               </span>
             </div>
-            <div className="space-y-5 p-3 ">
-              <div>
+            <div className="space-y-5 lg:px-4 p-3 ">
+              <div className="space-y-3">
                 <h1 className="text-3xl font-semibold">Binary Convertor</h1>
                 <hr />
                 <p className="tracking-wider opacity-90">
@@ -65,8 +65,13 @@ function Tid() {
               <div>
                 <h3 className="text-xl font-medium  py-2">Try now</h3>
                 <p className="opacity-90">Live editor</p>
-                <div className="live editor goes here w-full h-[500px] border dark:border-dark-blue mt-3 rounded-xl flex justify-center items-center">
-                  <p>add Live editor here</p>
+                <div className="live editor goes here w-full mt-3 rounded-xl flex justify-center items-center">
+                  <iframe
+                    src="https://codesandbox.io/embed//goodbye-daft-punk-ti2os?file=/index.html?codemirror=1&highlights=5,12,13,14&fontsize=12&forcerefresh=1&view=split&autoresize&hidenavigation=1&hidedevtools=0"
+                    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                    className="w-full rounded-xl h-[500px] border-2 shadow-2xl dark:shadow-dark-blue dark:border-dark-blue"
+                    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                  ></iframe>
                 </div>
               </div>
               <div className="live editor goes here w-full h-[500px] border mt-3 dark:border-dark-blue rounded-xl flex justify-center items-center">

@@ -83,14 +83,6 @@
     }
 
     /* testimonials styles */
-    /* #testimonial-0, #testimonial-1, #testimonial-2 {
-
-    } */
-
-
-    /* #testimonial-2 {
-        grid-column: 1 / span 2;
-    } */
     @media screen and (min-width:1024px) {
         #testimonialX-2 {
             grid-column: 3 / span 3 !important;
