@@ -69,7 +69,8 @@ function ImportantToolsCard() {
         <hr className="w-full bottom-2 border-white" />
         <UrlBtn
           name="More_tools"
-          href="#"
+          href="/tools"
+          ariaLabel="Explore more tools of open-tools by codinasion"
           cssStyle="hover:!border-transparent text-lg hover:text-white"
         />
       </motion.div>

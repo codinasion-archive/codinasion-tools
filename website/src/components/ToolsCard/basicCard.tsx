@@ -62,6 +62,7 @@ const BasicCard: React.FC<ToolsCardProp> = ({
         </div>
         <Btn
           href={"/tools/"}
+          ariaLabel={'Go to tools page'}
           text="Read Docs"
           cssStyle="mx-auto text-lg !py-2 !px-5"
           icon={<FaChevronRight />}

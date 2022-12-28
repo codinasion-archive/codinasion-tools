@@ -8,13 +8,11 @@ import Btn from "../Button/Btn";
 import { FaGithub } from "react-icons/fa";
 import { HiMoon, HiSun } from "react-icons/hi";
 
-
-interface menuProp{
-    themeState: string,
+interface menuProp {
+  themeState: string;
 }
 
-function Menu({themeState='light'}:menuProp) {
-    
+function Menu({ themeState = "light" }: menuProp) {
   const defaultImg: string =
     "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80";
 
@@ -53,12 +51,14 @@ function Menu({themeState='light'}:menuProp) {
           <UrlBtn
             href="/"
             name="Home"
+            ariaLabel="Go to home page"
             cssStyle="!p-3 w-full block shadow-lg hover:bg-white hover:text-very-dark-blue rounded-2xl border !py-10 bg-very-light-blue text-very-dark-blue dark:bg-dark-blue"
           />
         </motion.li>
         <motion.li variants={animateItem}>
           <UrlBtn
             href="/tools"
+            ariaLabel="Go to tools page"
             name="Tools"
             cssStyle="!p-3 w-full block rounded-2xl !py-10 bg-dark-blue"
           />
@@ -66,6 +66,7 @@ function Menu({themeState='light'}:menuProp) {
         <motion.li variants={animateItem} className="row-span-3">
           <UrlBtn
             href="/about"
+            ariaLabel="Go to tools about page"
             name="About"
             cssStyle="!p-3 w-full border group grid justify-center block rounded-2xl !py-10 h-full bg-dark-blue"
             icon={<BsBuilding className="text-6xl group:hover-scale-1.2" />}
@@ -74,6 +75,7 @@ function Menu({themeState='light'}:menuProp) {
         <motion.li variants={animateItem} className="row-span-3">
           <UrlBtn
             href="/dev"
+            ariaLabel="Go to tools dev page"
             name="Dev"
             cssStyle="!p-3 w-full h-full block rounded-2xl !py-10 bg-very-dark-blue"
             icon={
@@ -91,6 +93,7 @@ function Menu({themeState='light'}:menuProp) {
         >
           <UrlBtn
             href="/#footer"
+            ariaLabel="Go to footer"
             name="More"
             cssStyle="!p-3 w-full block rounded-2xl !py-10 bg-very-light-blue !text-very-dark-blue"
           />
@@ -112,7 +115,9 @@ function Menu({themeState='light'}:menuProp) {
       </ul>
       <motion.div variants={animateItem}>
         <Box>
-          <h2 className="text-xl font-medium mb-5" id="orgInfo-menu">Codinasion</h2>
+          <h2 className="text-xl font-medium mb-5" id="orgInfo-menu">
+            Codinasion
+          </h2>
           <p className="tracking-wider" aria-labelledby="orgInfo-menu">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ea
             et, perspiciatis sit optio quibusdam labore beatae officia deleniti
@@ -120,7 +125,10 @@ function Menu({themeState='light'}:menuProp) {
             tempora et facilis.
           </p>
           <Btn
+            href={"https://github.com/codinasion/"}
+            target={"_blank"}
             text={"Join Codinasion"}
+            ariaLabel={"Join Codinasion open source projects"}
             cssStyle={`w-full rounded-2xl mt-5`}
             icon={<FaGithub />}
           />

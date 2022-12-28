@@ -70,6 +70,7 @@ function Index({
             <GoRepo />
             <UrlBtn
               href={repoUrl}
+              ariaLabel={`Go to ${repoUrl} github page`}
               name="Repository"
               cssStyle="!p-0 !border-0"
               target="_blank"
@@ -89,6 +90,7 @@ function Index({
         </div>
         <Btn
           href={docsUrl}
+          ariaLabel={`Read Documentations of ${title}`}
           text="Read Docs"
           icon={<FaChevronRight />}
           cssStyle={"w-fit mt-5 !rounded-2xl !py-2"}

@@ -154,6 +154,7 @@ function ToolsLayout() {
                 <div className="flex flex-wrap gap-2 mt-5">
                   {tags.map((item) => (
                     <UrlBtn
+                      ariaLabel={`More tools related ${item}`}
                       href={`/tools/${item}`}
                       key={Math.random() * 500}
                       cssStyle=" hover:opacity-75 p-[2px] px-3 rounded-full bg-very-light-blue dark:!text-very-dark-blue"
@@ -176,6 +177,8 @@ function ToolsLayout() {
                   </Link>
                 </div>
                 <Btn
+                  ariaLabel="Collebrate to open-tools with us on Github"
+                  target="_blank"
                   text={"Collebrate"}
                   cssStyle={`w-full rounded-2xl mt-5`}
                   icon={<FaGithub />}
@@ -190,6 +193,9 @@ function ToolsLayout() {
                   rerum dolorum tempora et facilis.
                 </p>
                 <Btn
+                  ariaLabel="Join Codinasion open source project"
+                  href={'https://github.com/codinasion/open-tools'}
+                  target="_blank"
                   text={"Join Codinasion"}
                   cssStyle={`w-full rounded-2xl mt-5`}
                   icon={<FaGithub />}

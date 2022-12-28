@@ -51,6 +51,7 @@ function Intro() {
       >
         We looked all over, but that page seems to have gotten away from us. Try
         <UrlBtn
+          ariaLabel="Go to tools page"
           href="/tools"
           name="Tools page"
           cssStyle="border-b-2 border-black"
@@ -63,6 +64,7 @@ function Intro() {
         viewport={{ amount: 0.6, once: false }}
       >
         <Btn
+          ariaLabel="Go to home page"
           href={"/"}
           text={"Redirecting to home page"}
           icon={<span className="shadow-xl px-2 py-1 rounded-xl">{timer}</span>}

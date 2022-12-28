@@ -50,6 +50,7 @@ const ProfileImg: React.FC<profileImgProp> = ({
               href={profileUrl}
               target="_blank"
               text={"Github"}
+              ariaLabel={`Go to ${name} github profile page`}
               cssStyle={"!p-1 mt-3 text-lg"}
               icon={<FiExternalLink />}
             />
