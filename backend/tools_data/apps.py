@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class ApiConfig(AppConfig):
+class ToolsDataConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "api"
-    verbose_name = "API"
+    name = "tools_data"
+    verbose_name = "Tools Data"
