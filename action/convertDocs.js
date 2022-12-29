@@ -63,22 +63,42 @@ export default async function convertDocs(OWNER, REPO, TOKEN) {
         .process(matterResult.content);
       let contentHtml = processedContent.toString();
 
-      // latest update (later)
+      const packages = [];
+      for (let item of matterResult.data.package) {
+        packages.push({
+          title: item,
+        });
+      }
+
+      const categories = [];
+      for (let item of matterResult.data.category) {
+        categories.push({
+          title: item,
+        });
+      }
+
+      // last updated (later)
+      let last_updated = dateFns.format(new Date(), "yyyy-MM-dd");
       // contributors (later)
+      let contributors = [
+        {
+          username: "johndoe",
+        },
+      ];
 
       let data = {
-        package: matterResult.data.package ? matterResult.data.package : [],
+        package: packages,
         title: matterResult.data.title ? matterResult.data.title : jsonFileName,
         description: matterResult.data.description
           ? matterResult.data.description
           : "",
         slug: matterResult.data.slug ? matterResult.data.slug : jsonFileName,
         function: matterResult.data.function ? matterResult.data.function : "",
-        category: matterResult.data.category ? matterResult.data.category : [],
+        category: categories,
         contentHtml,
         markdown: matterResult.content,
-        contributors: [],
-        latestUpdate: "",
+        contributors: contributors,
+        last_updated: last_updated,
       };
 
       await fs.promises.writeFile(
