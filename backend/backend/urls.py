@@ -24,8 +24,10 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # Webhooks
     path("api/webhooks/", include("webhooks.urls")),
-    # API (to execute tools)
-    path("api/", include("api.urls")),
+    # Tools API (to execute tools)
+    path("api/tools/", include("tools.urls")),
+    # Tools Data API (to get tools data)
+    path("api/tools-data/", include("tools_data.urls")),
 ]
 
 

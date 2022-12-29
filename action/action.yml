@@ -17,6 +17,14 @@ inputs:
     description: "github token"
     required: true
 
+  BACKEND_URL:
+    description: "backend url"
+    required: true
+
+  BACKEND_ACCESS_TOKEN:
+    description: "backend access token"
+    required: true
+
   CONVERT_DATA:
     description: "convert docs data"
     required: true
