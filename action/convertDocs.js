@@ -10,7 +10,13 @@ import html from "remark-html";
 
 import sleep from "./sleep.js";
 
-export default async function convertDocs(OWNER, REPO, TOKEN) {
+export default async function convertDocs(
+  OWNER,
+  REPO,
+  TOKEN,
+  BACKEND_URL,
+  BACKEND_ACCESS_TOKEN
+) {
   const docsDir = "docs-data";
   await fs.promises.mkdir(docsDir, { recursive: true });
 
@@ -107,6 +113,18 @@ export default async function convertDocs(OWNER, REPO, TOKEN) {
       );
 
       await console.log(`Created ${jsonFileName}.json`);
+
+      await console.log("Sending tool data to backend...");
+      await fetch(`${BACKEND_URL}/tools-data/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${BACKEND_ACCESS_TOKEN}`,
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .catch((error) => console.log(error));
 
       // sleep for 5 seconds to avoid github api rate limit
       await sleep(5000);
