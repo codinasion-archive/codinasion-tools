@@ -16,7 +16,7 @@ function LayoutXComp({
 
   return (
     <>
-      <div className="xl:flex items-center justify-center hidden flex-col space-y-20 z-40 fixed left-2 xl:left-[5%]  bottom-16">
+      <div className="xl:flex items-center justify-center hidden flex-col space-y-[100%] z-40 1400:left-[5%] fixed left-[1%] bottom-[5%]">
         <div className="grid items-center text-xl justify-center gap-2">
           <motion.div
             initial="offscreen"
@@ -68,9 +68,9 @@ function LayoutXComp({
             </Link>
           </motion.div>
         </div>
-        <span className="h-[450px] border border-white "></span>
+        <span className="h-[40vh] border border-white "></span>
       </div>
-      <div className="space-y-20 z-40 fixed right-2 xl:right-[5%] hidden xl:block bottom-16">
+      <div className="space-y-[100%] z-40 fixed 1400:right-[5%] right-[1%] hidden xl:block bottom-[5%]">
         <div className="grid items-center justify-center gap-2">
           {pageNavigator.map((item) => (
             <motion.div

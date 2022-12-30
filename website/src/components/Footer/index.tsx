@@ -4,6 +4,7 @@ import Btn from "../Button/Btn";
 import UrlBtn from "../Button/UrlBtn";
 import { FaGithub } from "react-icons/fa";
 import { stringify } from "querystring";
+import Link from "next/link";
 
 const jura = Jura({
   subsets: ["latin"],
@@ -151,35 +152,87 @@ function Footer() {
           </div>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-10 text-lg sm:text-base md:gap-20 justify-center w-full text-center sm:text-left">
-            <ul className="space-y-3">
+            <ul className="space-y-3 ">
               <li className="mb-4 font-bold pl-1">
                 <h2>Site tour</h2>
               </li>
-              {footerSite.map((item) => (
-                <li key={Math.random() * 500}>
-                  <UrlBtn
-                    href={item.url}
-                    ariaLabel={`Footer element:- Go to ${item.text} page`}
-                    name={item.text}
-                    cssStyle="pl-1 border-l-2 hover:border-very-dark-blue dark:!text-black"
-                  />
-                </li>
-              ))}
+              <li>
+                <Link
+                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
+                  aria-label="Go to home page"
+                  href={"/"}
+                >
+                  home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
+                  aria-label="Go to about page"
+                  href={"/about"}
+                >
+                  about
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
+                  aria-label="Go to tools page"
+                  href={"/tools"}
+                >
+                  tools
+                </Link>
+              </li>
             </ul>
             <ul className="space-y-3">
               <li className="mb-4 font-bold pl-1">
                 <h2 className="font-bold">Top tolls</h2>
               </li>
-              {footerSite.map((item) => (
-                <li key={Math.random() * 500}>
-                  <UrlBtn
-                    href={`/tools/tool#${item.id}`}
-                    ariaLabel={`Footer element:- Read more about ${item.text} tools`}
-                    name={`Tool name #${item.id}`}
-                    cssStyle="pl-1 border-l-2 hover:border-very-dark-blue dark:!text-black"
-                  />
-                </li>
-              ))}
+              <li>
+                <Link
+                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
+                  aria-label="Go to tools#1 page"
+                  href={"/tools/tools#1"}
+                >
+                  tools#1
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
+                  aria-label="Go to tools#2 page"
+                  href={"/tools/tools#2"}
+                >
+                  tools#2
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
+                  aria-label="Go to tools#3 page"
+                  href={"/tools/tools#3"}
+                >
+                  tools#3
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
+                  aria-label="Go to tools#4 page"
+                  href={"/tools/tools#4"}
+                >
+                  tools#4
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
+                  aria-label="Go to tools#5 page"
+                  href={"/tools/tools#5"}
+                >
+                  tools#5
+                </Link>
+              </li>
             </ul>
             <ul className="space-y-3">
               <li className="mb-4 font-bold pl-1">
@@ -193,7 +246,7 @@ function Footer() {
                     ariaLabel={`Footer element:- Follow us on ${item.text}`}
                     target={item.externalLink ? "_blank" : "_top"}
                     name={item.text}
-                    cssStyle="Zpl-1 border-l-2 hover:border-very-dark-blue dark:!text-black"
+                    cssStyle="Zpl-1 border-b-2 sm:border-b-0 sm:border-l-2 hover:border-very-dark-blue !text-very-dark-blue"
                   />
                 </li>
               ))}

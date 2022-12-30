@@ -7,12 +7,14 @@ import Box from "../Box";
 import Btn from "../Button/Btn";
 import { FaGithub } from "react-icons/fa";
 import { HiMoon, HiSun } from "react-icons/hi";
+import Link from "next/link";
 
 interface menuProp {
   themeState: string;
+  setState: (e: boolean) => void;
 }
 
-function Menu({ themeState = "light" }: menuProp) {
+function Menu({ themeState = "light", setState }: menuProp) {
   const defaultImg: string =
     "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80";
 
@@ -39,6 +41,13 @@ function Menu({ themeState = "light" }: menuProp) {
       opacity: 1,
     },
   };
+
+  const handleClick = (e: any) => {
+    e.preventDefault;
+    console.log("hii");
+    setState(false);
+  };
+
   return (
     <motion.menu
       variants={animateContainer}
@@ -46,44 +55,50 @@ function Menu({ themeState = "light" }: menuProp) {
       animate="show"
       className="w-full fixed top-0 h-screen overflow-y-auto overflow-x-hidden bg-very-light-blue/75 dark:bg-very-dark-blue/75 !backdrop-blur-md p-3 md:hidden z-40"
     >
-      <ul className="grid grid-cols-2 grid-rows-5 text-center mt-16 text-white dark:text-very-dark-blue gap-2 h-fit">
+      <ul className="grid grid-cols-2 grid-rows-5 text-center mt-16 text-very-light-blue gap-2 h-fit">
         <motion.li variants={animateItem} className="col-span-2 ">
-          <UrlBtn
-            href="/"
-            name="Home"
-            ariaLabel="Go to home page"
-            cssStyle="!p-3 w-full block shadow-lg hover:bg-white hover:text-very-dark-blue rounded-2xl border !py-10 bg-very-light-blue text-very-dark-blue dark:bg-dark-blue"
-          />
+          <Link
+            href={"/"}
+            aria-label="Go to home page"
+            onClick={handleClick}
+            className="!p-3 w-full block shadow-lg hover:bg-white hover:text-very-dark-blue rounded-2xl !py-10 text-dark-blue dark:text-white bg-very-light-blue  dark:bg-dark-blue"
+          >
+            Home
+          </Link>
         </motion.li>
         <motion.li variants={animateItem}>
-          <UrlBtn
-            href="/tools"
-            ariaLabel="Go to tools page"
-            name="Tools"
-            cssStyle="!p-3 w-full block rounded-2xl !py-10 bg-dark-blue"
-          />
+          <Link
+            href={"/tools"}
+            aria-label="Go to tools page"
+            onClick={handleClick}
+            className="!p-3 w-full block rounded-2xl !py-10 bg-dark-blue"
+          >
+            Tools
+          </Link>
         </motion.li>
         <motion.li variants={animateItem} className="row-span-3">
-          <UrlBtn
-            href="/about"
-            ariaLabel="Go to tools about page"
-            name="About"
-            cssStyle="!p-3 w-full border group grid justify-center block rounded-2xl !py-10 h-full bg-dark-blue"
-            icon={<BsBuilding className="text-6xl group:hover-scale-1.2" />}
-          />
+          <Link
+            href={"/about"}
+            aria-label="Go to about page"
+            onClick={handleClick}
+            className="!p-3 w-full group grid justify-center hover:opacity-70 rounded-2xl !py-10 h-full bg-dark-blue"
+          >
+            About
+            <BsBuilding className="text-6xl group:hover-scale-1.2" />
+          </Link>
         </motion.li>
         <motion.li variants={animateItem} className="row-span-3">
-          <UrlBtn
-            href="/dev"
-            ariaLabel="Go to tools dev page"
-            name="Dev"
-            cssStyle="!p-3 w-full h-full block rounded-2xl !py-10 bg-very-dark-blue"
-            icon={
-              <div className="flex border w-full mt-2 h-full bg-very-light-blue hover:bg-white rounded-xl items-center justify-center">
-                <ProfileImg imgUrl={defaultImg} />
-              </div>
-            }
-          />
+          <Link
+            href={"/tools"}
+            aria-label="Go to dev page"
+            onClick={handleClick}
+            className="!p-3 w-full h-full block rounded-2xl !py-10 bg-very-dark-blue"
+          >
+            Dev
+            <div className="flex border w-full mt-2 h-full bg-very-light-blue hover:bg-white rounded-xl items-center justify-center">
+              <ProfileImg imgUrl={defaultImg} />
+            </div>
+          </Link>
         </motion.li>
         <motion.li
           variants={animateItem}
@@ -91,12 +106,15 @@ function Menu({ themeState = "light" }: menuProp) {
             "flex border bg-very-light-blue !text-very-dark-blue rounded-2xl"
           }
         >
-          <UrlBtn
-            href="/#footer"
-            ariaLabel="Go to footer"
-            name="More"
-            cssStyle="!p-3 w-full block rounded-2xl !py-10 bg-very-light-blue !text-very-dark-blue"
-          />
+          <Link
+            href={"#footer"}
+            aria-label="Go to footer"
+            onClick={handleClick}
+            className="!p-3 w-full block rounded-2xl !py-10 bg-very-light-blue !text-very-dark-blue"
+          >
+            More
+          </Link>
+
           <div className="p-3 h-full">
             <button
               className=" mx-auto bg-white dark:bg-very-dark-blue rounded-2xl flex justify-center items-center w-full  text-2xl px-3 h-full dark:text-very-light-blue shadow-very-dark-blue group"

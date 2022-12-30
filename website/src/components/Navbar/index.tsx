@@ -6,6 +6,7 @@ import UrlBtn from "../Button/UrlBtn";
 import { useEffect, useState } from "react";
 import Btn from "../Button/Btn";
 import Menu from "./Menu";
+import Link from "next/link";
 
 const jura = Jura({
   subsets: ["latin"],
@@ -77,11 +78,11 @@ export default function Navbar() {
             text={""}
             icon={<FiSearch />}
             cssStyle={"!px-2 bg-transparent border-0"}
-            ariaLabel={'Search button click to write your query'}
+            ariaLabel={"Search button click to write your query"}
           />
           <Btn
             text={""}
-            ariaLabel={'Toggle menu button'}
+            ariaLabel={"Toggle menu button"}
             icon={menuState ? <IoClose /> : <HiMenuAlt3 />}
             cssStyle={"!px-2 border-0"}
             state={menuState}
@@ -91,25 +92,45 @@ export default function Navbar() {
       </div>
 
       {/* menu section */}
-      {menuState && <Menu themeState={themeState} />}
+      {menuState && <Menu themeState={themeState} setState={setMenuState}/>}
 
       <div className="w-full hidden md:flex justify-center items-center gap-2 text-lg">
-        {navElementsList.map((item) => (
-          <UrlBtn
-            key={Math.random() * 500}
-            ariaLabel={`Go to ${item.text} page`}
-            name={item.text}
-            href={item.url}
-            cssStyle={item.cssStyle}
-            target={item.externalLink ? "_blank" : "_top"}
-          />
-        ))}
+        <Link
+          className="text-very-dark-blue py-2 px-3 border-b-2 border-transparent hover:border-white dark:text-white"
+          aria-label="Go to home page"
+          href={"/"}
+        >
+          home
+        </Link>
+        <Link
+          className="text-very-dark-blue py-2 px-3 border-b-2 border-transparent hover:border-white dark:text-white"
+          aria-label="Go to about page"
+          href={"/about"}
+        >
+          about
+        </Link>
+        <Link
+          className="text-very-dark-blue py-2 px-3 border-b-2 border-transparent hover:border-white dark:text-white"
+          aria-label="Go to tools page"
+          href={"/tools"}
+        >
+          tools
+        </Link>
+        <Link
+          className="text-very-dark-blue py-2 px-3 border-b-2 border-transparent hover:border-white dark:text-white"
+          aria-label="Go to github page"
+          target={"_blank"}
+          href={"https://github.com/codinasion/open-tools"}
+        >
+          GitHub
+        </Link>
+
         <span className="w-[2px] h-[30px] bg-very-dark-blue block mx-3 dark:bg-very-light-blue"></span>
         <button
           className="rounded-full text-2xl px-3 dark:text-very-light-blue shadow-very-dark-blue group"
           aria-label={`toggle dark mode ${themeState}`}
           onClick={() => {
-            alert("activate dark mode");
+            alert("Themes are in progress but we support system default theme");
           }}
         >
           {themeState === "dark" ? (
@@ -127,7 +148,6 @@ export default function Navbar() {
           <input
             type="search"
             placeholder="Search"
-
             className="px-3 h-full rounded-tl-full rounded-bl-full w-[150px]"
           />
           <button

@@ -14,7 +14,7 @@ const jura = Jura({
 function Intro() {
   return (
     <motion.div
-      className="max-w-[1100px] py-12 h-screen mx-auto flex flex-col justify-center items-center overflow-x-hidden space-y-10 relative px-3"
+      className="max-w-[1100px] py-12 min-h-screen mx-auto flex flex-col justify-center items-center overflow-x-hidden space-y-10 relative px-3"
     >
       <div className="h-24"></div>
       <motion.h1
