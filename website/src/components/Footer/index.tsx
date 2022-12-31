@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Jura } from "@next/font/google";
 import Btn from "../Button/Btn";
 import UrlBtn from "../Button/UrlBtn";
 import { FaGithub } from "react-icons/fa";
 import { stringify } from "querystring";
 import Link from "next/link";
+import { TheContext } from "src/Context/Context";
 
 const jura = Jura({
   subsets: ["latin"],
@@ -31,14 +32,14 @@ const footerSite: footerSiteType[] = [
   {
     id: 2,
     text: "Tools",
-    url: "/tools",
+    url: "tools",
     externalLink: false,
     cssStyle: "",
   },
   {
     id: 3,
     text: "About",
-    url: "/about",
+    url: "about",
     externalLink: false,
     cssStyle: "",
   },
@@ -83,6 +84,7 @@ const footerSocial: footerSocialType[] = [
 ];
 
 function Footer() {
+
   return (
     <div id="footer" className="w-full relative">
       <div className="relative overflow-hidden">
@@ -178,7 +180,7 @@ function Footer() {
                 <Link
                   className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
                   aria-label="Go to tools page"
-                  href={"/tools"}
+                  href={"tools"}
                 >
                   tools
                 </Link>
@@ -192,7 +194,7 @@ function Footer() {
                 <Link
                   className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
                   aria-label="Go to tools#1 page"
-                  href={"/tools/tools#1"}
+                  href={"tools/tools#1"}
                 >
                   tools#1
                 </Link>
@@ -201,7 +203,7 @@ function Footer() {
                 <Link
                   className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
                   aria-label="Go to tools#2 page"
-                  href={"/tools/tools#2"}
+                  href={"tools/tools#2"}
                 >
                   tools#2
                 </Link>
@@ -210,7 +212,7 @@ function Footer() {
                 <Link
                   className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
                   aria-label="Go to tools#3 page"
-                  href={"/tools/tools#3"}
+                  href={"tools/tools#3"}
                 >
                   tools#3
                 </Link>
@@ -219,7 +221,7 @@ function Footer() {
                 <Link
                   className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
                   aria-label="Go to tools#4 page"
-                  href={"/tools/tools#4"}
+                  href={"tools/tools#4"}
                 >
                   tools#4
                 </Link>
@@ -228,7 +230,7 @@ function Footer() {
                 <Link
                   className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
                   aria-label="Go to tools#5 page"
-                  href={"/tools/tools#5"}
+                  href={"tools/tools#5"}
                 >
                   tools#5
                 </Link>

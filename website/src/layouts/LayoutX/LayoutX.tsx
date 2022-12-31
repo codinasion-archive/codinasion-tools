@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import Members from "@/components/Dev/Dev";
 import Navbar from "@/components/Navbar";
 import Testimonial from "@/components/Testimonial/Testimonial";
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import { motion, useScroll, useSpring, useUnmountEffect } from "framer-motion";
 
 // google font
@@ -15,15 +15,26 @@ const rubik = Rubik({
   variable: "--font-rubik",
 });
 
+interface devsType {
+  devs: string[];
+}
+interface toolsDataType {
+  toolsStatus: boolean;
+  toolsData: null | string[];
+}
 interface Props {
   children?: React.ReactNode;
 }
 function LayoutX({ children }: Props) {
   const { scrollYProgress } = useScroll();
-  const context = useContext<any>(TheContext)
-  const [toolsData, setToolsData] = useState<null|string[]>(null)
+  const context = useContext<any>(TheContext);
+  const [devs, setDevs] = useState<devsType>({ devs: [] });
+  const [toolsData, setToolsData] = useState<toolsDataType>({
+    toolsStatus: false,
+    toolsData: null,
+  });
   return (
-    <TheContext.Provider value={{toolsData, setToolsData}}>
+    <TheContext.Provider value={{ devs, setDevs, toolsData, setToolsData }}>
       <motion.div
         style={{ scaleX: scrollYProgress }}
         className={

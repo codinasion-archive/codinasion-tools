@@ -21,32 +21,7 @@ interface navElementsType {
   cssStyle?: string;
 }
 [];
-const navElementsList: navElementsType[] = [
-  {
-    text: "Home",
-    url: "/",
-    externalLink: false,
-    cssStyle: "pl-1 border-b-2 hover:border-very-dark-blue",
-  },
-  {
-    text: "Tools",
-    url: "/tools",
-    externalLink: false,
-    cssStyle: "pl-1 border-b-2 hover:border-very-dark-blue",
-  },
-  {
-    text: "About",
-    url: "/about",
-    externalLink: false,
-    cssStyle: "pl-1 border-b-2 hover:border-very-dark-blue",
-  },
-  {
-    text: "Github",
-    url: "https://github.com/codinasion",
-    externalLink: true,
-    cssStyle: "pl-1 border-b-2 hover:border-very-dark-blue",
-  },
-];
+
 export default function Navbar() {
   const [themeState, setThemeState] = useState<string>("light");
   const [menuState, setMenuState] = useState<boolean>(false);

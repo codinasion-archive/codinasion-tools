@@ -1,14 +1,18 @@
 import { useRouter } from "next/router";
 import React, { useRef, useMemo } from "react";
 
-function Pagination() {
+interface pagesProp {
+  totalPage: number;
+  setPage: (e: number) => void;
+}
+
+function Pagination({ setPage, totalPage }: pagesProp) {
   const router = useRouter();
   const pageRef = useRef<number>(1);
-  const lastPage: number = 8;
+  const lastPage: number = totalPage;
   if (Number(router.query.page) <= lastPage && Number(router.query.page) >= 1) {
     pageRef.current = Number(router.query.page);
   }
-
   let pagesNo: number[] =
     pageRef.current < lastPage - 2
       ? [pageRef.current, pageRef.current + 1, pageRef.current + 2]
@@ -23,7 +27,8 @@ function Pagination() {
               pageRef.current > 1 || pageRef.current < lastPage
                 ? item
                 : pageRef.current;
-            router.push(`/tools?page=${pageRef.current}`);
+            setPage(pageRef.current);
+            router.push(`tools?page=${pageRef.current}`);
           }}
           style={{
             boxShadow:
@@ -44,7 +49,8 @@ function Pagination() {
         onClick={() => {
           pageRef.current =
             pageRef.current > 1 ? pageRef.current - 1 : pageRef.current;
-          router.push(`/tools?page=${pageRef.current}`);
+          router.push(`tools?page=${pageRef.current}`);
+          setPage(pageRef.current);
         }}
         disabled={pageRef.current <= 1 ? true : false}
         className="p-2 px-4 border rounded-lg hover:opacity-70 bg-very-light-blue dark:bg-dark-blue dark:border-dark-blue/10 disabled:opacity-50"
@@ -66,7 +72,8 @@ function Pagination() {
         onClick={() => {
           pageRef.current =
             pageRef.current < lastPage ? pageRef.current + 1 : pageRef.current;
-          router.push(`/tools?page=${pageRef.current}`);
+          router.push(`tools?page=${pageRef.current}`);
+          setPage(pageRef.current);
         }}
         disabled={pageRef.current >= lastPage ? true : false}
         className="p-2 px-4 border rounded-lg hover:opacity-70 bg-very-light-blue dark:bg-dark-blue dark:border-dark-blue/10 disabled:opacity-50"

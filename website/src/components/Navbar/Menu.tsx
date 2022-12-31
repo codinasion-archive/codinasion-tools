@@ -68,7 +68,7 @@ function Menu({ themeState = "light", setState }: menuProp) {
         </motion.li>
         <motion.li variants={animateItem}>
           <Link
-            href={"/tools"}
+            href={"tools"}
             aria-label="Go to tools page"
             onClick={handleClick}
             className="!p-3 w-full block rounded-2xl !py-10 bg-dark-blue"
@@ -89,14 +89,14 @@ function Menu({ themeState = "light", setState }: menuProp) {
         </motion.li>
         <motion.li variants={animateItem} className="row-span-3">
           <Link
-            href={"/tools"}
+            href={"tools"}
             aria-label="Go to dev page"
             onClick={handleClick}
             className="!p-3 w-full h-full block rounded-2xl !py-10 bg-very-dark-blue"
           >
             Dev
             <div className="flex border w-full mt-2 h-full bg-very-light-blue hover:bg-white rounded-xl items-center justify-center">
-              <ProfileImg imgUrl={defaultImg} />
+              <ProfileImg imgUrl={defaultImg} name="JohnDoe" profileUrl="https://github.com/codinasion"/>
             </div>
           </Link>
         </motion.li>

@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Btn from "../Button/Btn";
-import { FiExternalLink } from "react-icons/fi";
+import Link from "next/link";
 
 interface profileImgProp {
   imgUrl: string;
   alt?: string;
   cssStyle?: string;
   details?: boolean;
-  name?: string;
+  name: string;
   subTitle?: string;
-  profileUrl?: string;
-  hoverIn?: (event:React.MouseEvent)=>void
-  // event?: React.EventHandler<MouseEvent>
+  profileUrl: string;
+  hoverIn?: (event: React.MouseEvent) => void;
 }
 
 const defaultImg =
@@ -25,22 +24,23 @@ const ProfileImg: React.FC<profileImgProp> = ({
   name = "Name",
   subTitle = "Title (GitHub developer)",
   profileUrl = "https://github.com",
-  hoverIn
+  hoverIn,
 }) => {
-
-
-
   return (
-    <div className="w-16 sm:w-20 aspect-square border rounded-full relative" aria-label="Profile">
+    <Link
+      href={profileUrl}
+      className="w-16 sm:w-20 block aspect-square border rounded-full relative"
+      aria-label={`Visit ${name} github profile`}
+      target="_blank"
+    >
       <Image
         src={imgUrl}
         alt={alt}
         width={80}
         height={80}
-        
         className={`w-full h-full object-cover  border-4 border-very-dark-blue ${cssStyle} glow-on rounded-full`}
       />
-      {details && (
+      {/* {details && (
         <div className={`absolute w-48 left-full top-0 p-2 rounded-xl z-10 bg-very-dark-blue text-very-light-blue`}>
           <span className="absolute w-6 rotate-45 -left-3 top-5 bg-very-dark-blue  block aspect-square"></span>
           <div className="relative z-10">
@@ -56,8 +56,8 @@ const ProfileImg: React.FC<profileImgProp> = ({
             />
           </div>
         </div>
-      )}
-    </div>
+      )} */}
+    </Link>
   );
 };
 

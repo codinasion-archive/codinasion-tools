@@ -24,11 +24,11 @@ function index({ path, cssStyle }: pathProp) {
   return (
     <>
       <Link href={`/`} key={Math.random() * 50} className={cssStyle}>
-        {"/home"}
+        {"home"}
       </Link>
       {filtered_path.map((item) => (
         <Link
-          href={`/${path_finder(filtered_path, item)}`}
+          href={`${path_finder(filtered_path, item)}`}
           key={Math.random() * 50}
           className={cssStyle}
         >

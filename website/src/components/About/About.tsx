@@ -23,8 +23,7 @@ function Index() {
           subTitle="most used tools by developer of all over the world"
         />
       </motion.div>
-      <motion.div
-      >
+      <motion.div>
         <motion.p
           initial="offscreen"
           whileInView={"onscreen"}
@@ -32,12 +31,17 @@ function Index() {
           variants={scrollScale(1.2)}
           className="text-xl text-center dark:text-white tracking-wider max-w-[1000px] mx-auto "
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit cum
-          maxime natus dolor sunt officiis blanditiis saepe culpa fugit animi,
-          voluptas, accusantium ipsam ex. Voluptas pariatur aspernatur
-          voluptatem itaque consectetur vel similique, soluta temporibus
-          voluptatum provident cumque dolorum recusandae magni enim ab impedit
-          qui nesciunt mollitia libero omnis. Hic, rem!
+          We are a group of developer/programer from all over the world helps
+          others developer problems by our open-source projects. We provide a
+          wide range of programmings and tools in multiple languages which is
+          created by our independent developers. Our all time favorite repo by
+          developers is{" "}
+          <span className="px-2 bg-[gold] rounded-full text-black">
+            Program
+          </span>
+          , offer you every type of programming in multiple languages. And
+          codinasion is open-source it means any developer who know programmings
+          can contribute us.
         </motion.p>
       </motion.div>
       <div className="mx-auto space-y-2 sm:space-y-0 sm:flex w-full sm:w-fit h-fit gap-3">

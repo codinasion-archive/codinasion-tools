@@ -52,7 +52,7 @@ function NotFound() {
         We looked all over, but that page seems to have gotten away from us. Try
         <UrlBtn
           ariaLabel="Go to tools page"
-          href="/tools"
+          href="tools"
           name="Tools page"
           cssStyle="border-b-2 !border-black"
         />

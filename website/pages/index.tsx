@@ -1,20 +1,35 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import About from "@/components/About/About";
 import Background from "@/layouts/LayoutX/Background";
 import Intro from "@/components/Intro";
 import ImportantToolsCard from "@/components/ImportantToolsCard/ImportantToolsCard";
 import LayoutXComp from "@/layouts/LayoutX/LayoutXComp";
 import { TheContext } from "src/Context/Context";
-import { GetServerSideProps } from "next";
 
-export default function HomePage({data, toolsStatus}:any) {
+export default function HomePage({ data, toolsStatus }: any) {
   const context = useContext(TheContext);
-  
-  if(toolsStatus){
-    context.setToolsData(data)
-  }
 
-  console.log(context);
+  useEffect(() => {
+    if (toolsStatus) {
+      context.setToolsData({ toolsStatus: true, data });
+    }
+    const fetchDevFun = async () => {
+      const fetchDev = await fetch(
+        "https://api.github.com/orgs/codinasion/members?per_page=30"
+      );
+      const data = await fetchDev.json();
+      let fetchStatus = false;
+      if (fetchDev.status === 200) {
+        fetchStatus = true;
+        context.setDevs({ devs: data });
+      } else {
+      }
+    };
+    console.log(context.toolsData);
+    if (context.devs.devs.length === 0) {
+      fetchDevFun();
+    }
+  }, []);
   return (
     <>
       <Background />
