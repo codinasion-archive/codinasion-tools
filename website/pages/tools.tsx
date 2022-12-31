@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import Link from "next/link";
 import ToolsCard from "../src/components/ToolsCard";
 import Path from "../src/components/Path";
@@ -14,6 +15,7 @@ import Box from "@/components/Box";
 import { Variant, Variants, motion } from "framer-motion";
 import { scrollX } from "src/AnimationVariants/animationVariants";
 import { Opacity } from "@mui/icons-material";
+import { TheContext } from "src/Context/Context";
 
 interface toolsListType {
   title: string;
@@ -67,7 +69,25 @@ const toolsList: toolsListType[] = [
   },
 ];
 
-function ToolsLayout() {
+function ToolsLayout({ data, toolsStatus }: any) {
+  // const { toolsData } = useContext(TheContext);
+  const [toggleFilter, setToggleFilter] = useState<boolean>(false);
+  const [toolsPage, setToolsPage] = useState<any>(null);
+  const toolsData = data;
+
+
+  function makePage(arr: any) {
+    let pages: any = [];
+    for (let i: number = 0; i < arr.length; i = i + i) {
+      pages.push(arr.splice(i, 10));
+    }
+    // return pages;
+    setToolsPage(pages)
+  }
+
+
+
+
   const tags = [
     "javascript",
     "object",
@@ -77,10 +97,15 @@ function ToolsLayout() {
     "python",
     "adjust",
   ];
-  const [toggleFilter, setToggleFilter] = useState<boolean>(false);
 
   const defaultImg =
     "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80";
+
+  // console.log(toolsData);
+  useEffect(()=>{
+      makePage(toolsList)
+      console.log(toolsPage, '----------')
+  },[])
 
   return (
     <>
@@ -105,17 +130,17 @@ function ToolsLayout() {
               />
             </div>
             <div className="space-y-3  p-3 ">
-              {toolsList.map((item) => (
-                <ToolsCard
-                  key={Math.random() * 500}
-                  title={item.title}
-                  desc={item.desc}
-                  download={item.download}
-                  repoUrl={item.repoUrl}
-                  docsUrl={item.docsUrl}
-                  tags={item.tags}
-                />
-              ))}
+              {toolsData &&
+                toolsData.map((item: any) => (
+                  <ToolsCard
+                    key={Math.random() * 500}
+                    title={item.title}
+                    desc={item.description}
+                    views={item.views}
+                    docsUrl={`/tools/${item.slug}`}
+                    tags={item.category}
+                  />
+                ))}
               <Pagination />
             </div>
           </motion.div>
@@ -194,7 +219,7 @@ function ToolsLayout() {
                 </p>
                 <Btn
                   ariaLabel="Join Codinasion open source project"
-                  href={'https://github.com/codinasion/open-tools'}
+                  href={"https://github.com/codinasion/open-tools"}
                   target="_blank"
                   text={"Join Codinasion"}
                   cssStyle={`w-full rounded-2xl mt-5`}
@@ -214,3 +239,27 @@ function ToolsLayout() {
 }
 
 export default ToolsLayout;
+export const getServerSideProps = async () => {
+  try {
+    const res = await fetch(
+      "https://opentools.pythonanywhere.com/api/tools-data/?format=json"
+    );
+    const data = await res.json();
+
+    return (
+      res.status === 200 && {
+        props: {
+          toolsStatus: true,
+          data,
+        },
+      }
+    );
+  } catch (error) {
+    return {
+      props: {
+        toolsStatus: false,
+        data: null,
+      },
+    };
+  }
+};

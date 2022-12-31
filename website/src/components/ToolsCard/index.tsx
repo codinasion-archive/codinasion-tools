@@ -10,17 +10,19 @@ import Image from "next/image";
 interface toolsCardProp {
   title: string;
   desc?: string;
-  download: string | number;
-  repoUrl: string;
+  views: number;
   docsUrl: string;
-  tags: string[];
+  tags: any;
 }
+interface tags {
+  title: string;
+}
+[];
 
 function Index({
   title = "Title",
   desc = "description",
-  download = 0,
-  repoUrl,
+  views = 0,
   docsUrl,
   tags,
 }: toolsCardProp) {
@@ -56,38 +58,29 @@ function Index({
       </div>
 
       <div className="relative z-20">
-        <Header
-          title={title}
-          subTitle={desc}
-          cssStyle="!items-start !text-left"
-        />
-        <div className="flex mb-4 mt-5 gap-6 text-xl text-very-dark-blue dark:text-very-light-blue">
-          <span className="flex items-center gap-1">
-            <MdDownload />
-            {download}
-          </span>
-          <span className="flex items-center gap-1">
-            <GoRepo />
-            <UrlBtn
-              href={repoUrl}
-              ariaLabel={`Go to ${repoUrl} github page`}
-              name="Repository"
-              cssStyle="!p-0 !border-0"
-              target="_blank"
-            />
-          </span>
-        </div>
-        <div className="flex gap-2 flex-wrap">
-          {tags &&
-            tags.map((item) => (
-              <span
-                key={Math.random() * 500}
-                className=" hover:opacity-75 !py-[2px] px-3 rounded-full bg-very-light-blue "
-              >
-                {item}
-              </span>
-            ))}
-        </div>
+        <>
+          <Header
+            title={title}
+            subTitle={desc}
+            cssStyle="!items-start !text-left"
+          />
+          <div className="flex mb-4 mt-5 gap-6 text-xl text-very-dark-blue dark:text-very-light-blue">
+            <span className="flex items-center gap-1">Views:- {views}</span>
+          </div>
+          <div className="flex gap-2 flex-wrap">
+            <>
+              {tags &&
+                tags.map((item: tags) => (
+                  <span
+                    key={Math.random() * 500}
+                    className=" hover:opacity-75 !py-[2px] px-3 rounded-full bg-very-light-blue "
+                  >
+                    {item.title}
+                  </span>
+                ))}
+            </>
+          </div>
+        </>
         <Btn
           href={docsUrl}
           ariaLabel={`Read Documentations of ${title}`}

@@ -2,11 +2,12 @@ import Footer from "@/components/Footer";
 import Members from "@/components/Dev/Dev";
 import Navbar from "@/components/Navbar";
 import Testimonial from "@/components/Testimonial/Testimonial";
-import React from "react";
+import React, {useContext, useState} from "react";
 import { motion, useScroll, useSpring, useUnmountEffect } from "framer-motion";
 
 // google font
 import { Rubik } from "@next/font/google";
+import { TheContext } from "src/Context/Context";
 
 const rubik = Rubik({
   weight: ["300", "400", "500", "700"],
@@ -19,9 +20,10 @@ interface Props {
 }
 function LayoutX({ children }: Props) {
   const { scrollYProgress } = useScroll();
-
+  const context = useContext<any>(TheContext)
+  const [toolsData, setToolsData] = useState<null|string[]>(null)
   return (
-    <>
+    <TheContext.Provider value={{toolsData, setToolsData}}>
       <motion.div
         style={{ scaleX: scrollYProgress }}
         className={
@@ -44,7 +46,7 @@ function LayoutX({ children }: Props) {
           <Footer />{" "}
         </div>
       </div>
-    </>
+    </TheContext.Provider>
   );
 }
 

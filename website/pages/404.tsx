@@ -13,7 +13,7 @@ const jura = Jura({
   weight: ["500"],
 });
 
-function Intro() {
+function NotFound() {
   const [timer, setTimer] = useState(10);
   const router = useRouter();
 
@@ -54,7 +54,7 @@ function Intro() {
           ariaLabel="Go to tools page"
           href="/tools"
           name="Tools page"
-          cssStyle="border-b-2 border-black"
+          cssStyle="border-b-2 !border-black"
         />
       </motion.p>
       <motion.div
@@ -74,4 +74,4 @@ function Intro() {
   );
 }
 
-export default Intro;
+export default NotFound;
