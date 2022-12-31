@@ -24,7 +24,7 @@ function ToolsLayout({ data, toolsStatus }: any) {
   const context = useContext(TheContext);
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
   const [toolsPage, setToolsPage] = useState<any>(1);
-  const toolsData = useRef();
+  const toolsData = useRef([]);
   const [devs, setDevs] = useState<any>(null);
 
   const toolsMemo = useMemo(() => {

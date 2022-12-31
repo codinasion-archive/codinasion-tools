@@ -20,7 +20,7 @@ function Index() {
       >
         <Header
           title="Who we are"
-          subTitle="most used tools by developer of all over the world"
+          subTitle="developer from all over the world"
         />
       </motion.div>
       <motion.div>

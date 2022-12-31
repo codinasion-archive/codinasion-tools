@@ -13,9 +13,7 @@ const jura = Jura({
 
 function Intro() {
   return (
-    <motion.div
-      className="max-w-[1100px] py-12 min-h-screen mx-auto flex flex-col justify-center items-center overflow-x-hidden space-y-10 relative px-3"
-    >
+    <motion.div className="max-w-[1100px] py-12 min-h-screen mx-auto flex flex-col justify-center items-center overflow-x-hidden space-y-10 relative px-3">
       <div className="h-24"></div>
       <motion.h1
         initial="offscreen"
@@ -34,10 +32,10 @@ function Intro() {
         viewport={{ amount: 0.6, once: false }}
         className="max-w-[1000px] text-lg sm:text-xl font-normal tracking-wide text-center text-very-dark-blue dark:text-very-light-blue"
       >
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus
-        quibusdam culpa tempore. Repudiandae accusamus laboriosam harum ipsum
-        animi, tempore repellendus fugiat tempora obcaecati, debitis culpa
-        iusto, facilis exercitationem at! Dolore!
+        We are a group of developer/programer from all over the world helps
+        others developer problems by our open-source projects. We provide a wide
+        range of programmings and tools in multiple languages which is created
+        by our independent developers.
       </motion.p>
       <motion.div
         initial="offscreen"
