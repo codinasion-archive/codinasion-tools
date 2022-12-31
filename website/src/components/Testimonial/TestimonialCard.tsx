@@ -30,6 +30,8 @@ const TestimonialCard: React.FC<testimonialCard> = ({
       <ProfileImg
         cssStyle="group-hover:border-white group-hover:shadow-xl"
         imgUrl={profileUrl}
+        name={name}
+        profileUrl={'https://github.com/codinasion'}
       />
       <header className="mt-2" aria-label={`tool name:- ${name}`}>
         <h2 className="text-2xl text-white font-normal" id={`user-${id}`}>
