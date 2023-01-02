@@ -21,3 +21,8 @@ class ToolPackageAdmin(admin.ModelAdmin):
 @admin.register(models.ToolModel)
 class ToolAdmin(admin.ModelAdmin):
     list_display = ("slug", "title", "description")
+
+
+@admin.register(models.TestimonialModel)
+class TestimonialAdmin(admin.ModelAdmin):
+    list_display = ("user", "testimonial")

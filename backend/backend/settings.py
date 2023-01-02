@@ -62,6 +62,8 @@ INSTALLED_APPS = [
     "tools.apps.ToolsConfig",
     # Tools Data app
     "tools_data.apps.ToolsDataConfig",
+    # API app
+    "api.apps.ApiConfig",
 ]
 
 MIDDLEWARE = [

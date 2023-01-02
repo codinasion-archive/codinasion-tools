@@ -28,6 +28,8 @@ urlpatterns = [
     path("api/tools/", include("tools.urls")),
     # Tools Data API (to get tools data)
     path("api/tools-data/", include("tools_data.urls")),
+    # API
+    path("api/", include("api.urls")),
 ]
 
 

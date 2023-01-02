@@ -6,5 +6,7 @@ urlpatterns = [
     path("", views.ToolView.as_view(), name="ToolView"),
     path("<str:slug>/", views.ToolDataView.as_view(), name="ToolDataView"),
     path("ratings/<str:slug>/", views.ToolRatingView.as_view(), name="ToolRatingView"),
-    path("related/<str:slug>/", views.RelatedToolsView.as_view(), name="RelatedToolsView"),
+    path(
+        "related/<str:slug>/", views.RelatedToolsView.as_view(), name="RelatedToolsView"
+    ),
 ]

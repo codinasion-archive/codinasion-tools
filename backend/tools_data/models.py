@@ -68,3 +68,18 @@ class ToolModel(models.Model):
     class Meta:
         verbose_name = "Tool"
         verbose_name_plural = "Tools"
+
+
+class TestimonialModel(models.Model):
+    user = models.ForeignKey(GithubUserModel, on_delete=models.CASCADE)
+    testimonial = models.TextField(default="")
+
+    def __unicode__(self):
+        return self.user.username
+
+    def __str__(self):
+        return self.user.username
+
+    class Meta:
+        verbose_name = "Testimonial"
+        verbose_name_plural = "Testimonials"

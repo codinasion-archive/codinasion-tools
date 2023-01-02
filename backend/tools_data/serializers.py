@@ -138,6 +138,7 @@ class ToolSerializer(serializers.ModelSerializer):
         instance.contributors.set(contributors)
         return instance
 
+
 class ToolListSerializer(serializers.ModelSerializer):
     slug = serializers.CharField(read_only=True)
     title = serializers.CharField(read_only=True)
@@ -158,6 +159,7 @@ class ToolListSerializer(serializers.ModelSerializer):
             "views",
             "used",
         ]
+
 
 class ToolDataSerializer(serializers.ModelSerializer):
     slug = serializers.CharField(read_only=True)
@@ -207,5 +209,30 @@ class ToolRatingSerializer(serializers.ModelSerializer):
         )
         instance.rating = round(updated_rating, 2)
         instance.rating_count = instance.rating_count + 1
+        instance.save()
+        return instance
+
+
+class TestimonialSerializer(serializers.ModelSerializer):
+    user = GithubUserSerializer()
+    testimonial = serializers.CharField(required=True)
+
+    class Meta:
+        model = models.TestimonialModel
+        fields = ["user", "testimonial"]
+
+    def create(self, validated_data):
+        user_data = validated_data.pop("user")
+        user = GithubUserSerializer.create(GithubUserSerializer(), user_data)
+        testimonial = models.TestimonialModel.objects.get_or_create(
+            user=user, **validated_data
+        )[0]
+        return testimonial
+
+    def update(self, instance, validated_data):
+        user_data = validated_data.pop("user")
+        user = GithubUserSerializer.create(GithubUserSerializer(), user_data)
+        instance.user = user
+        instance.testimonial = validated_data.get("testimonial", instance.testimonial)
         instance.save()
         return instance
