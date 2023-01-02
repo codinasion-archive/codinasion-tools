@@ -1,3 +1,102 @@
-a {
-  text-decoration: none !important;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+    * {
+        transition: .3s;
+        scroll-behavior: smooth !important;
+    }
+
+    .txt-shadow {
+        /* text-shadow:; */
+        -webkit-text-stroke: 1px black;
+        text-shadow:
+            3px 3px 0 #000,
+            2px 2px 0 #000,
+            1px 1px 0 #000,
+            4px 4px 0 #000,
+            10px 10px 0px #001E6A,
+            12px 12px 10px #001E6A,
+            10px 10px 20px #001E6A;
+    }
+
+
+
+    .txt-gradient-dark {
+        background-image: linear-gradient(to top, #fff, #000B26, #000B26);
+        -webkit-background-clip: text;
+        display: inline-block;
+        -webkit-text-fill-color: #00000000;
+    }
+    .txt-gradient-light {
+        background-image: linear-gradient(to top, rgb(0, 11, 38), #fff, #fff);
+        -webkit-background-clip: text;
+        display: inline-block;
+        -webkit-text-fill-color: #00000000;
+    }
+
+
+    .grad-light-01 {
+        background: radial-gradient(97.45% 330.08% at 4.95% 10.11%, #DADEEA 0%, rgba(0, 30, 106, 0.5) 100%)
+            /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+        ;
+    }
+
+    .grad-light-02 {
+        background: radial-gradient(46.39% 41.65% at 60.17% 64.78%, #DBE2EA 0%, rgba(255, 255, 255, 0) 100%)
+            /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+        ;
+    }
+
+    .grad-dark-01 {
+        background: radial-gradient(84.58% 83.01% at 47.95% 16.99%, #000B26 0%, #001E6A 18.44%, #000B26 100%)
+            /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+        ;
+    }
+    
+    .glow-dark-on:hover {
+        box-shadow: 0 0 20px #000B26, 0 0 20px #000B26, 0 0 50px #000B26;
+    }
+    .glow-light-on:hover {
+        box-shadow: 0 0 20px #DBE2EA, 0 0 20px #DBE2EA, 0 0 50px #fff;
+    }
+    .glow-light {
+        animation: glow-light 5s infinite linear;
+    }
+
+
+    @keyframes glow-light {
+        50% {
+            box-shadow: 0 0 20px #DBE2EA, 0 0 20px #DBE2EA, 0 0 50px #fff;
+        }
+    }
+    .glow-dark {
+        animation: glow-dark 5s infinite linear;
+    }
+
+
+    @keyframes glow-dark {
+        50% {
+            box-shadow: 0 0 20px #000B26, 0 0 20px #000B26, 0 0 50px #000B26;
+        }
+    }
+
+    /* testimonials styles */
+    @media screen and (min-width:1024px) {
+        #testimonialX-2 {
+            grid-column: 3 / span 3 !important;
+            
+        }
+    }
+    @media screen and (min-width:640px) {
+        #testimonialX-2 {
+            grid-column: 1 / span 2;
+        }
+
+        #testimonial-4 {
+            width: calc(100% / 1);
+        }
+    }
+
 }

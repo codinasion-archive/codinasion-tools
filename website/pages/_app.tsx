@@ -27,6 +27,7 @@ import manifest from "@/public/favicon/manifest.json";
 
 // site meta data
 import siteMetaData from "@/data/siteMetaData";
+import LayoutX from "@/layouts/LayoutX/LayoutX";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -45,7 +46,7 @@ export default function MyApp(props: AppPropsWithLayout) {
 
   // Use the layout defined at the page level, if available
   const getLayout =
-    Component.getLayout || ((page) => <DefaultLayout>{page}</DefaultLayout>);
+    Component.getLayout || ((page) => <LayoutX>{page}</LayoutX>);
 
   return getLayout(
     <CacheProvider value={emotionCache}>
