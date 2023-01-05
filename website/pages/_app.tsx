@@ -17,9 +17,6 @@ import createEmotionCache from "@/utils/createEmotionCache";
 // styles
 import "@/styles/globals.css";
 
-// layout
-import DefaultLayout from "@/layouts/DefaultLayout";
-
 // favicon
 import Favicon from "@/public/favicon/favicon.ico";
 import Logo192 from "@/public/favicon/android-chrome-192x192.png";
