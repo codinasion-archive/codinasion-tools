@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { Dispatch, SetStateAction, ChangeEventHandler } from "react";
+import React from "react";
 
 interface buttonProp {
   text: string | number;
@@ -12,7 +12,7 @@ interface buttonProp {
   setState?: (event: boolean) => void;
 }
 
-const Btn: React.FC<buttonProp> = ({
+const Btn= ({
   text = "button",
   href = null,
   target = "_self",

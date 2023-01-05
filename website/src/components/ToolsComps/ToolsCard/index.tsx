@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
-import Header from "../Header/Header";
+import React, { useState, useEffect, useContext } from "react";
+import Header from "../../Header/Header";
 import { GoRepo } from "react-icons/go";
 import { MdDownload } from "react-icons/md";
 import { FaChevronRight } from "react-icons/fa";
-import UrlBtn from "../Button/UrlBtn";
-import Btn from "../Button/Btn";
+import UrlBtn from "../../Button/UrlBtn";
+import Btn from "../../Button/Btn";
 import Image from "next/image";
+import { TheContext } from "src/Context/Context";
 
 interface toolsCardProp {
   title: string;
@@ -26,23 +27,11 @@ function Index({
   docsUrl,
   tags,
 }: toolsCardProp) {
-  const [themeState, setThemeState] = useState<string>("");
-
-  useEffect(() => {
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? setThemeState("dark")
-      : setThemeState("light");
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (event) => {
-        const theme = event.matches ? "dark" : "light";
-        setThemeState(theme);
-      });
-  }, [themeState]);
+  const context = useContext(TheContext)
   return (
     <article className="rounded-2xl hover:opacity-80 shadow-md grad-light-01 relative overflow-hidden p-5 py-10 bg-gradient-to-tl from-dark-blue/50 dark:from-very-dark-blue dark:via-dark-blue to-very-light-blue  dark:to-dark-blue">
       <Image
-        src={`/img/${themeState === "dark" ? "blob02.png" : "blob01.png"}`}
+        src={`/img/${context.theme === "dark" ? "blob02.png" : "blob01.png"}`}
         alt={"blob"}
         width={500}
         height={500}
@@ -83,7 +72,7 @@ function Index({
         </>
         <Btn
           href={docsUrl}
-          ariaLabel={`Read Documentations of ${title}`}
+          ariaLabel={`Read Docs of tool ${title}`}
           text="Read Docs"
           icon={<FaChevronRight />}
           cssStyle={"w-fit mt-5 !rounded-2xl !py-2"}

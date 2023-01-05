@@ -1,54 +1,30 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import TestimonialCard from "./TestimonialCard";
 import { motion } from "framer-motion";
 import { scrollY } from "src/AnimationVariants/animationVariants";
+import { TheContext } from "src/Context/Context";
+import { idRange } from "src/CommonFun/cF";
 
-const user = [
-  {
-    id: 0,
-    name: "robert",
-    subTital: "CEO of codinasion",
-    text: "Introduction to TypeScript object. object in TypeScript is used to represent the key-value pair form. By the use of ,objects, we can create a key and assign it to a value,",
-  },
-  {
-    id: 1,
-    name: "robert",
-    subTital: "codinasion",
-    text: "Introduction to TypeScript object. object in TypeScript is used to represent the key-value pair form. By the use of objects,but if you’ve opted to customize your letter-spacing scale to use numbers instead of descriptive words like “wide” the negative value modifier can be useful.",
-  },
-  {
-    id: 2,
-    name: "robert",
-    subTital: "codinasion program",
-    text: `To use a negative letter-spacing value, prefix the class name with a dash to convert it to a negative value.
-    Using negative values doesn’t make a ton of sense with the letter-spacing scale Tailwind includes out of the box, `,
-  },
-  {
-    id: 3,
-    name: "robert",
-    subTital: "github developer",
-    text: "Introduction to TypeScript object. object in TypeScript is used to represent the key-value pair form. By the use of objects, we can create a key and assign it to a value,",
-  },
-  {
-    id: 4,
-    name: "robert",
-    subTital: "github developer",
-    text: `You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use md:tracking-wide to apply the tracking-wide utility at only medium screen sizes and above. we can create a key and assign it to a value, we can create a key and assign it to a value, we can create a key and assign it to a value,`,
-  },
-];
+
 function Testimonial() {
-  const row_1 = user.filter((item) => {
-    return item.id < 3 && item;
-  });
-  const row_2 = user.filter((item) => {
-    return item.id >= 3 && item;
-  });
+  const context = useContext(TheContext);
+  const [testimonialData, setTestimonialData] = useState<string[]>([]);
+
+  useEffect(() => {
+    const testimonialX = async () => {
+      const x = idRange(context.testimonialData.apiData);
+      return x;
+    };
+    testimonialX().then((item) => {
+      setTestimonialData(item);
+    });
+  }, [context.testimonialData.apiData]);
 
   return (
-    <div className="relative max-w-[1100px] mx-auto w-full p-3 space-y-2 md:space-y-5 ">
-      <div id="users" className="absolute -mt-32"></div>
+    <div className="relative max-w-[1100px] mx-auto w-full p-3 space-y-2 md:space-y-5">
+      <div id="users" className="relative -mt-10 lg:h-0"></div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 items-end gap-2 md:gap-5 ">
-        {row_1.map((item) => (
+        {testimonialData.slice(0, 3).map((item: any) => (
           <motion.div
             initial="offscreen"
             whileInView={"onscreen"}
@@ -58,30 +34,34 @@ function Testimonial() {
             id={`testimonialX-${item.id}`}
           >
             <TestimonialCard
-              name={"testimonial-" + item.id}
-              subTitle={item.subTital}
-              message={item.text}
+              name={item.user.username}
+              subTitle={"GitHub Developer"}
+              profileUrl={"https://picsum.photos/200"}
+              message={item.testimonial}
               id={`testimonial-${item.id}`}
-              cssStyle={""}
             />
           </motion.div>
         ))}
       </div>
       <div className="flex flex-col sm:flex-row items-start gap-2 md:gap-5">
-        {row_2.map((item) => (
+        {testimonialData.slice(3, 5).map((item: any) => (
           <motion.div
             initial="offscreen"
             whileInView={"onscreen"}
             viewport={{ amount: 0.8, once: true }}
             variants={scrollY(100)}
             key={`testimonial-${item.id}`}
+            id={`testimonialX-${item.id}`}
+            className={"w-full"}
           >
             <TestimonialCard
-              name={"testimonial-" + item.id}
-              subTitle={item.subTital}
-              message={item.text}
+              name={item.login}
+              subTitle={"GitHub Developer"}
+              profileUrl={item.avatar_url}
+              message={
+                "We are a group of developer/programer from all over the world helps others developer problems by our open-source projects. We provide a wide range of programmings and tools in multiple languages which is created by our independent developers."
+              }
               id={`testimonial-${item.id}`}
-              cssStyle={""}
             />
           </motion.div>
         ))}

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, {  useContext, useEffect } from "react";
 import Header from "../Header/Header";
 import ProfileImg from "../ProfileImg/ProfileImg";
 import Btn from "../Button/Btn";
@@ -14,17 +14,28 @@ interface devsProfileType {
   name: string;
 }
 const Dev = () => {
-  const defaultImg =
-    "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80";
   const context = useContext(TheContext);
-  const {
-    devs: { devs },
-  } = context;
+
+  useEffect(() => {
+    const fetchDevFun = async () => {
+      const request = await fetch(
+        "https://api.github.com/orgs/codinasion/members?per_page=30"
+      );
+      const data = await request.json();
+      if (request.status === 200) {
+        context.setDevs({ apiStatus: true, apiData: data });
+      }
+    };
+    if (!context.devs.apiStatus) {
+      fetchDevFun();
+    }
+  }, []);
+
   return (
-    context.devs.devs && (
+    context.devs.apiStatus && (
       <div
         id="dev"
-        className="max-w-[1100px] overflow-x-hidden min-h-screen relative mx-auto flex flex-col justify-center items-center space-y-[50px] p-3"
+        className="max-w-[1100px] overflow-x-hidden py-60 relative mx-auto flex flex-col justify-center items-center space-y-[50px] p-3"
       >
         <motion.div
           initial="offscreen"
@@ -46,7 +57,7 @@ const Dev = () => {
           className="flex max-w-[1000px] flex-wrap items-center justify-center gap-2 sm:gap-5"
         >
           <div className="flex gap-2 sm:gap-5 flex-wrap justify-center">
-            {devs.slice(0, 10).map((item: devsProfileType) => (
+            {context.devs.apiData.slice(0, 10).map((item: devsProfileType) => (
               <ProfileImg
                 key={Math.random() * 50 + "devrow-1"}
                 profileUrl={item.html_url}
@@ -57,7 +68,7 @@ const Dev = () => {
             ))}
           </div>
           <div className="flex gap-2 sm:gap-5 flex-wrap justify-center">
-            {devs.slice(10, 18).map((item: devsProfileType) => (
+            {context.devs.apiData.slice(10, 18).map((item: devsProfileType) => (
               <ProfileImg
                 key={Math.random() * 50 + "devrow-1"}
                 name={item.name}
@@ -68,7 +79,7 @@ const Dev = () => {
             ))}
           </div>
           <div className="flex gap-2 sm:gap-5 flex-wrap justify-center">
-            {devs.slice(18, 26).map((item: devsProfileType) => (
+            {context.devs.apiData.slice(18, 26).map((item: devsProfileType) => (
               <ProfileImg
                 profileUrl={item.html_url}
                 key={Math.random() * 50 + "devrow-1"}

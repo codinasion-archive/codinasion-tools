@@ -21,7 +21,10 @@
             10px 10px 20px #001E6A;
     }
 
-
+    .text-shadow-II{
+        text-shadow: 1px 0px 1px white, 0 1px 1px white
+    }
+    
 
     .txt-gradient-dark {
         background-image: linear-gradient(to top, #fff, #000B26, #000B26);

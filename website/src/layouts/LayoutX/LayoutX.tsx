@@ -2,12 +2,13 @@ import Footer from "@/components/Footer";
 import Members from "@/components/Dev/Dev";
 import Navbar from "@/components/Navbar";
 import Testimonial from "@/components/Testimonial/Testimonial";
-import React, { useContext, useState } from "react";
-import { motion, useScroll, useSpring, useUnmountEffect } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, useScroll} from "framer-motion";
 
 // google font
 import { Rubik } from "@next/font/google";
 import { TheContext } from "src/Context/Context";
+import SearchBox from "@/components/SearchBox/SearchBox";
 
 const rubik = Rubik({
   weight: ["300", "400", "500", "700"],
@@ -15,31 +16,58 @@ const rubik = Rubik({
   variable: "--font-rubik",
 });
 
-interface devsType {
-  devs: string[];
-}
-interface toolsDataType {
-  toolsStatus: boolean;
-  toolsData: null | string[];
+interface uStateType {
+  apiStatus: boolean;
+  apiData: string[];
 }
 interface Props {
   children?: React.ReactNode;
 }
 function LayoutX({ children }: Props) {
   const { scrollYProgress } = useScroll();
-  const context = useContext<any>(TheContext);
-  const [devs, setDevs] = useState<devsType>({ devs: [] });
-  const [toolsData, setToolsData] = useState<toolsDataType>({
-    toolsStatus: false,
-    toolsData: null,
+  const [theme, setTheme] = useState<string>("light");
+  const [isSearchBox, setSearchBox] = useState<boolean>(false);
+  const [devs, setDevs] = useState<uStateType>({
+    apiStatus: false,
+    apiData: [],
   });
+  const [commonTools, setCommonTools] = useState<uStateType>({
+    apiStatus: false,
+    apiData: [],
+  });
+  const [toolsData, setToolsData] = useState<uStateType>({
+    apiStatus: false,
+    apiData: [],
+  });
+  const [testimonialData, setTestimonialData] = useState<uStateType>({
+    apiStatus: false,
+    apiData: [],
+  });
+
+  useEffect(() => {
+    if (localStorage.theme === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
   return (
-    <TheContext.Provider value={{ devs, setDevs, toolsData, setToolsData }}>
+    <TheContext.Provider
+      value={{
+        devs,
+        setDevs,
+        toolsData,
+        setToolsData,
+        theme,
+        setTheme,
+        testimonialData,
+        setTestimonialData,
+        commonTools,
+        setCommonTools
+      }}
+    >
       <motion.div
         style={{ scaleX: scrollYProgress }}
-        className={
-          "h-2 w-full bg-gradient-to-tr dark:from-white dark:via-very-light-blue dark:to-very-light-blue from-very-dark-blue via-dark-blue to-dark-blue overflow-hidden fixed top-0 z-50"
-        }
+        className={"h-2 w-full  overflow-hidden fixed top-0 z-50"}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
       ></motion.div>
@@ -47,10 +75,11 @@ function LayoutX({ children }: Props) {
         id="home"
         className={`${rubik.className} bg-gradient-to-tr from-white via-very-light-blue to-very-light-blue dark:from-very-dark-blue dark:via-dark-blue dark:to-dark-blue`}
       >
-        <Navbar />
+        <Navbar setSearchBox={setSearchBox} />
+        {isSearchBox && <SearchBox close={setSearchBox} />}
         <main>{children}</main>
 
-        <div className="relative z-20">
+        <div className="relative z-10">
           <div className="grad-dark-01 absolute h-[95%] bottom-0 w-full mt-32"></div>
           <Testimonial />
           <Members />

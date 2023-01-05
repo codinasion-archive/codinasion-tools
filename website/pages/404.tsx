@@ -24,7 +24,7 @@ function NotFound() {
 
     timer === 0 && clearTimeout(createTimer);
     timer === 0 && router.push("/");
-  }, [timer]);
+  }, [router, timer]);
 
   return (
     <motion.div

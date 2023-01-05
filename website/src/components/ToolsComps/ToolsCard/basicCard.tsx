@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { MdDownload } from "react-icons/md";
+import React, { useContext } from "react";
 import { GoRepo } from "react-icons/go";
 import { FaChevronRight } from "react-icons/fa";
-import { Download } from "@mui/icons-material";
-import { url } from "inspector";
-import Btn from "../Button/Btn";
+import Btn from "../../Button/Btn";
 import Image from "next/image";
+import { TheContext } from "src/Context/Context";
 
 interface ToolsCardProp {
   cssStyle?: string;
@@ -19,20 +17,12 @@ const BasicCard: React.FC<ToolsCardProp> = ({
   repoUrl,
   docsUrl,
 }) => {
-  const [themeState, setThemeState] = useState<string>("light");
-
-  useEffect(() => {
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e) => {
-        const newColorScheme = e.matches ? "dark" : "light";
-        setThemeState(newColorScheme);
-      });
-  }, [themeState]);
+  
+  const context = useContext(TheContext)
   return (
     <div className="w-full h-fit p-10 bg-gradient-to-tl from-dark-blue/50 dark:from-very-dark-blue dark:via-dark-blue to-very-light-blue grid justify-center items-center dark:to-dark-blue relative overflow-hidden rounded-xl hover:scale-105 min-h-[300px]">
       <Image
-        src={`/img/${themeState === "dark" ? "blob02.png" : "blob01.png"}`}
+        src={`/img/${context.theme === "dark" ? "blob02.png" : "blob01.png"}`}
         alt={"blob"}
         width={300}
         height={300}
@@ -56,8 +46,8 @@ const BasicCard: React.FC<ToolsCardProp> = ({
             </span>
           </div>
           <Btn
-            href={`tools/${docsUrl}`}
-            ariaLabel={"Go to tools docs page"}
+            href={`/tools/${docsUrl}`}
+            ariaLabel={`Read Docs of tool ${title}`}
             text="Read Docs"
             cssStyle="mx-auto text-lg !py-2 !px-5"
             icon={<FaChevronRight />}
