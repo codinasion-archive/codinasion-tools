@@ -1,6 +1,7 @@
 ---
 package:
     - npm
+    - pip
 title: Format to TitleCase
 description: Convert a string to TitleCase
 slug: format-to-titlecase

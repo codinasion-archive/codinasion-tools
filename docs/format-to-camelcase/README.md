@@ -1,6 +1,7 @@
 ---
 package:
     - npm
+    - pip
 title: Format to CamelCase
 description: Convert a string to camelCase
 slug: format-to-camelcase

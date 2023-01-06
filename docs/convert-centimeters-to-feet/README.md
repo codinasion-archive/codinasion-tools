@@ -1,6 +1,7 @@
 ---
 package:
     - npm
+    - pip
 title: Convert Centimeters to Feet
 description: Convert a length in centimeters to feet
 slug: convert-centimeters-to-feet

@@ -1,6 +1,7 @@
 ---
 package:
     - npm
+    - pip
 title: Format to KebabCase
 description: Convert a string to kebab-case
 slug: format-to-kebabcase
