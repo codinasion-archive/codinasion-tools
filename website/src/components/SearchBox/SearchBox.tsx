@@ -1,9 +1,9 @@
 import Link from "next/link";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import SearchCard from "./SearchCard";
 import { TheContext } from "src/Context/Context";
-import { categoryFun, categoryFunII, categoryFunIII } from "src/CommonFun/cF";
+import { categoryFun, categoryFunIII } from "src/CommonFun/cF";
 
 interface searchBoxProp {
   close: (e: boolean) => void;

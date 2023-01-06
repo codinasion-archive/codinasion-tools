@@ -13,7 +13,9 @@ export const categoryFun = async (arr: any, category: string) => {
   for (let i = 0; i < arr.length; i++) {
     const element = arr[i];
     element.category.map((item: any) => {
-      item.title.toLowerCase() == category.toLowerCase() && xl.push(element);
+      if ((item.title.toLowerCase() == category.toLowerCase()) && category.length>2) {
+        xl.push(element);
+      }
     });
   }
   return xl;
@@ -34,8 +36,9 @@ export const categoryFunIII = async (arr: any, category: string) => {
   for (let i = 0; i < arr.length; i++) {
     const element = arr[i];
     if (
-      element.title.toLowerCase().includes(category) ||
-      element.description.toLowerCase().includes(category)
+      (element.title.toLowerCase().includes(category) ||
+        element.description.toLowerCase().includes(category)) &&
+      category.length > 2
     ) {
       xl.push(element);
     }
