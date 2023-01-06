@@ -1,6 +1,3 @@
-import { FaGithub } from "react-icons/fa";
-import Btn from "../Button/Btn";
-
 interface Props {
   children: React.ReactNode;
 }

@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Jura } from "@next/font/google";
 import Btn from "../Button/Btn";
-import UrlBtn from "../Button/UrlBtn";
 import { FaGithub } from "react-icons/fa";
-import { stringify } from "querystring";
 import Link from "next/link";
+import Copyrights from "./Copyrights";
+import { basicSiteUrlTypes, socialTypes } from "src/Objs&Interfaces/Obj";
+import { UrlTypes } from "src/Objs&Interfaces/Interface";
 import { TheContext } from "src/Context/Context";
 
 const jura = Jura({
@@ -13,77 +14,14 @@ const jura = Jura({
   weight: ["500"],
 });
 
-interface footerSiteType {
-  id: number;
-  text: string;
-  url: string;
-  externalLink: boolean;
-  cssStyle?: string;
-}
-[];
-const footerSite: footerSiteType[] = [
-  {
-    id: 1,
-    text: "Home",
-    url: "/",
-    externalLink: false,
-    cssStyle: "",
-  },
-  {
-    id: 2,
-    text: "Tools",
-    url: "tools",
-    externalLink: false,
-    cssStyle: "",
-  },
-  {
-    id: 3,
-    text: "About",
-    url: "about",
-    externalLink: false,
-    cssStyle: "",
-  },
-  {
-    id: 4,
-    text: "Github",
-    url: "https://github.com/codinasion",
-    externalLink: true,
-    cssStyle: "",
-  },
-];
-interface footerSocialType {
-  id: number;
-  text: string;
-  url: string;
-  externalLink: boolean;
-  cssStyle?: string;
-}
-[];
-const footerSocial: footerSocialType[] = [
-  {
-    id: 1,
-    text: "GitHub",
-    url: "https://github.com/codinasion",
-    externalLink: true,
-    cssStyle: "",
-  },
-  {
-    id: 2,
-    text: "Twitter",
-    url: "https://twitter.com",
-    externalLink: true,
-    cssStyle: "",
-  },
-  {
-    id: 3,
-    text: "Discord",
-    url: "https://Discord.com",
-    externalLink: true,
-    cssStyle: "",
-  },
-];
-
 function Footer() {
+  const context = useContext(TheContext);
+  const [commonTools, setCommonTools] = useState<string[]>([]);
+  useEffect(() => {
+    if (context.commonTools.apiStatus) {
+      setCommonTools(context.commonTools.apiData);
+    }
+  }, [context.commonTools.apiData, context.commonTools.apiStatus]);
 
   return (
     <div id="footer" className="w-full relative">
@@ -116,157 +54,87 @@ function Footer() {
         </svg>
       </div>
       <footer
-        className="bg-very-light-blue pb-32 pt-16 lg:pt-0"
+        className="bg-gradient-to-b from-very-light-blue to-white pb-32 pt-16 lg:pt-0"
         aria-labelledby="home"
         aria-label="site copyright privacy license top-tools subscribe"
       >
-        <div className="max-w-[1100px] mx-auto flex flex-col justify-center items-center gap-16 xl:gap-32 relative top-0 px-3">
-          <div className="grid justify-center items-center gap-5">
-            <h2
-              className={`${jura.className} text-4xl lg:text-5xl xl:text-6xl text-center txt-gradient mb-3`}
-            >
-              Open-Tools
-            </h2>
-            <form
-              action="#"
-              className="flex gap-1 w-full sm:w-[450px] items-center"
-              id="subscribe-us"
-              aria-label="subscribe-form"
-            >
-              <input
-                type="email"
-                name="subscribe"
-                id="subscribe"
-                aria-label="subscribe"
-                className="w-full border-2 px-4
-              h-fit p-2 text-lg bg-very-light-blue rounded-xl border-very-dark-blue focus:border-very-dark-blue"
-                placeholder="Enter your email"
-              />
-              <button
-                className="bg-very-dark-blue h-full p-2 px-3 text-lg hover:text-very-dark-blue hover:border-very-dark-blue border-2 border-transparent hover:bg-very-light-blue rounded-xl text-white"
-                type="submit"
-                aria-labelledby="subscribe-us"
-              >
-                Subscribe
-              </button>
-              {/* <Btn text={"Subscribe"} cssStyle={"py-2 !px-4 !text-lg"} /> */}
-            </form>
-          </div>
+        <div className="max-w-[1100px] mx-auto flex flex-col justify-center items-center gap-16 xl:gap-20 relative top-0 px-3">
+          <h2
+            className={`${jura.className} text-4xl lg:text-5xl xl:text-6xl text-center txt-gradient mb-3`}
+          >
+            Open-Tools
+          </h2>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-10 text-lg sm:text-base md:gap-20 justify-center w-full text-center sm:text-left">
-            <ul className="space-y-3 ">
-              <li className="mb-4 font-bold pl-1">
-                <h2>Site tour</h2>
-              </li>
-              <li>
-                <Link
-                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
-                  aria-label="Go to home page"
-                  href={"/"}
-                >
-                  home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
-                  aria-label="Go to about page"
-                  href={"/about"}
-                >
-                  about
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
-                  aria-label="Go to tools page"
-                  href={"tools"}
-                >
-                  tools
-                </Link>
-              </li>
-            </ul>
+            <div>
+              <ul className="space-y-3 ">
+                <li className="mb-4 font-bold pl-1">
+                  <h2>Site tour</h2>
+                </li>
+                {basicSiteUrlTypes.map((item: UrlTypes) => (
+                  <li key={item.id + "siteTour"}>
+                    <Link
+                      className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
+                      aria-label={`Go to ${item.text} page`}
+                      href={item.url}
+                    >
+                      {item.text}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <ul className="space-y-3 mt-5">
+                <li className="mb-4 font-bold pl-1">
+                  <h2 className="font-bold">Community</h2>
+                </li>
+                {socialTypes.map((item: UrlTypes) => (
+                  <li key={item.id + "social"}>
+                    <Link
+                      className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
+                      aria-label={`Go to ${item.text} page`}
+                      href={item.url}
+                      target={"_blank"}
+                    >
+                      {item.text}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <ul className="space-y-3">
               <li className="mb-4 font-bold pl-1">
-                <h2 className="font-bold">Top tolls</h2>
-              </li>
-              <li>
-                <Link
-                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
-                  aria-label="Go to tools#1 page"
-                  href={"tools/tools#1"}
-                >
-                  tools#1
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
-                  aria-label="Go to tools#2 page"
-                  href={"tools/tools#2"}
-                >
-                  tools#2
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
-                  aria-label="Go to tools#3 page"
-                  href={"tools/tools#3"}
-                >
-                  tools#3
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
-                  aria-label="Go to tools#4 page"
-                  href={"tools/tools#4"}
-                >
-                  tools#4
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-very-dark-blue text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
-                  aria-label="Go to tools#5 page"
-                  href={"tools/tools#5"}
-                >
-                  tools#5
-                </Link>
-              </li>
-            </ul>
-            <ul className="space-y-3">
-              <li className="mb-4 font-bold pl-1">
-                <h2 className="font-bold">Community</h2>
+                <h2 className="font-bold">Top tools</h2>
               </li>
 
-              {footerSocial.map((item) => (
-                <li key={Math.random() * 5000}>
-                  <UrlBtn
-                    href={item.url}
-                    ariaLabel={`Footer element:- Follow us on ${item.text}`}
-                    target={item.externalLink ? "_blank" : "_top"}
-                    name={item.text}
-                    cssStyle="Zpl-1 border-b-2 sm:border-b-0 sm:border-l-2 hover:border-very-dark-blue !text-very-dark-blue"
-                  />
-                </li>
-              ))}
+              {commonTools.length > 1 &&
+                commonTools.slice(0, 6).map((item: any) => (
+                  <li key={Math.random() * 50 + "common"}>
+                    <Link
+                      className="text-very-dark-blue truncate lg:w-[200px] xl:w-[300px] inline-block text-left px-5 py-1 pl-2 border-b-2 sm:border-l-2 sm:border-b-0 border-transparent hover:border-black"
+                      aria-label={`Go to ${item.text} page`}
+                      href={`/tools/${item.slug}`}
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
             </ul>
+
             <div className="w-full lg:w-fit order-first lg:order-last hidden lg:block">
               <div className="space-y-5 text-center lg:text-left mx-auto w-[400px]">
                 <header title={"for developer"}>
                   <h2 className="font-bold text-lg">For Developers</h2>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Tempora, sunt!
+                    Codinasion is awesome, If you are a programmer you must join
+                    us.
+                    {" It's"} an open-source org.
                   </p>
                 </header>
 
                 <Btn
                   href={"https://github.com/codinasion/"}
                   target={"_blank"}
-                  ariaLabel={`Join us on Github it's an open-source`}
+                  ariaLabel={`Join Codinasion on Github it's an open-source`}
                   text={"Join Codinasion"}
                   icon={<FaGithub />}
                   cssStyle={`w-full py-3`}
@@ -276,8 +144,8 @@ function Footer() {
           </div>
         </div>
       </footer>
+      <Copyrights />
     </div>
   );
 }
-
 export default Footer;

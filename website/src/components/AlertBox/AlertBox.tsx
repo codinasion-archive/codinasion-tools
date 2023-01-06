@@ -4,10 +4,11 @@ import { MdClose } from "react-icons/md";
 interface alertType {
   title: string;
   message: string;
+  status: boolean;
 }
 interface alertProp {
   alertData: alertType;
-  close: (e: alertProp|null) => void;
+  close: (e: alertType) => void;
 }
 
 function AlertBox({ close, alertData }: alertProp) {
@@ -23,7 +24,7 @@ function AlertBox({ close, alertData }: alertProp) {
         </div>
         <button
           className="absolute right-0 top-0 p-3 text-2xl hover:scale-110"
-          onClick={() => close(null)}
+          onClick={() => close({ title: "", message: "", status: false })}
         >
           <MdClose />
         </button>

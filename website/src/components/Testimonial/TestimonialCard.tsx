@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import ProfileImg from "../ProfileImg/ProfileImg";
 
@@ -24,22 +23,28 @@ const TestimonialCard: React.FC<testimonialCard> = ({
 }) => {
   return (
     <div
-      className={`hover:shadow-xl rounded-2xl group p-5 bg-black/50 backdrop-blur-sm text-white ${cssStyle}`}
+      className={`hover:shadow-xl rounded-2xl group p-5 bg-gradient-to-tr from-very-light-blue to-white dark:from-very-dark-blue dark:via-dark-blue dark:to-dark-blue backdrop-blur-sm text-black dark:text-white ${cssStyle}`}
       id={id}
     >
       <ProfileImg
         cssStyle="group-hover:border-white group-hover:shadow-xl"
         imgUrl={profileUrl}
         name={name}
-        profileUrl={'https://github.com/codinasion'}
+        profileUrl={`https://github.com/${name}`}
       />
       <header className="mt-2" aria-label={`tool name:- ${name}`}>
-        <h2 className="text-2xl text-white font-normal" id={`user-${id}`}>
+        <h2 className="text-2xl dark:text-white font-normal" id={`user-${id}`}>
           {name}
         </h2>
-        <h3 className="text-white/50 font-light">{subTitle}</h3>
+        <h3 className="dark:text-white/50 font-light">{subTitle}</h3>
       </header>
-      <p role="contentinfo" aria-label={`${name} is user of codinasion organization`} className="mt-5 tracking-wider" >{message}</p>
+      <p
+        role="contentinfo"
+        aria-label={`${name} is user of codinasion organization`}
+        className="mt-5 tracking-wider"
+      >
+        {message}
+      </p>
     </div>
   );
 };

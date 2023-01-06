@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import UrlBtn from "../Button/UrlBtn";
 import ProfileImg from "../ProfileImg/ProfileImg";
@@ -8,16 +8,16 @@ import Btn from "../Button/Btn";
 import { FaGithub } from "react-icons/fa";
 import { HiMoon, HiSun } from "react-icons/hi";
 import Link from "next/link";
+import { TheContext } from "src/Context/Context";
+import { useRouter } from "next/router";
 
 interface menuProp {
-  themeState: string;
   setState: (e: boolean) => void;
+  toggleTheme:()=>void
 }
 
-function Menu({ themeState = "light", setState }: menuProp) {
-  const defaultImg: string =
-    "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80";
-
+function Menu({ setState, toggleTheme }: menuProp) {
+  const context = useContext(TheContext);
   const animateContainer = {
     hide: {
       opacity: 0,
@@ -44,7 +44,6 @@ function Menu({ themeState = "light", setState }: menuProp) {
 
   const handleClick = (e: any) => {
     e.preventDefault;
-    console.log("hii");
     setState(false);
   };
 
@@ -68,7 +67,7 @@ function Menu({ themeState = "light", setState }: menuProp) {
         </motion.li>
         <motion.li variants={animateItem}>
           <Link
-            href={"tools"}
+            href={"/tools"}
             aria-label="Go to tools page"
             onClick={handleClick}
             className="!p-3 w-full block rounded-2xl !py-10 bg-dark-blue"
@@ -89,14 +88,18 @@ function Menu({ themeState = "light", setState }: menuProp) {
         </motion.li>
         <motion.li variants={animateItem} className="row-span-3">
           <Link
-            href={"tools"}
+            href={"/tools"}
             aria-label="Go to dev page"
             onClick={handleClick}
             className="!p-3 w-full h-full block rounded-2xl !py-10 bg-very-dark-blue"
           >
             Dev
             <div className="flex border w-full mt-2 h-full bg-very-light-blue hover:bg-white rounded-xl items-center justify-center">
-              <ProfileImg imgUrl={defaultImg} name="JohnDoe" profileUrl="https://github.com/codinasion"/>
+              <ProfileImg
+                imgUrl={"/LOGO.png"}
+                name="JohnDoe"
+                profileUrl="https://github.com/codinasion"
+              />
             </div>
           </Link>
         </motion.li>
@@ -118,11 +121,9 @@ function Menu({ themeState = "light", setState }: menuProp) {
           <div className="p-3 h-full">
             <button
               className=" mx-auto bg-white dark:bg-very-dark-blue rounded-2xl flex justify-center items-center w-full  text-2xl px-3 h-full dark:text-very-light-blue shadow-very-dark-blue group"
-              onClick={() => {
-                alert("activate dark mode");
-              }}
+              onClick={() => toggleTheme()}
             >
-              {themeState === "dark" ? (
+              {context.theme === "dark" ? (
                 <HiSun className="group-hover:scale-110" />
               ) : (
                 <HiMoon className="group-hover:scale-110" />
@@ -137,10 +138,10 @@ function Menu({ themeState = "light", setState }: menuProp) {
             Codinasion
           </h2>
           <p className="tracking-wider" aria-labelledby="orgInfo-menu">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ea
-            et, perspiciatis sit optio quibusdam labore beatae officia deleniti
-            possimus reiciendis alias tempora. Error quaerat rerum dolorum
-            tempora et facilis.
+            We are a group of developer/programer from all over the world helps
+            other developers problems by our open-source projects. We provide a
+            wide range of programmings and tools in multiple languages which is
+            created by our independent developers.
           </p>
           <Btn
             href={"https://github.com/codinasion/"}

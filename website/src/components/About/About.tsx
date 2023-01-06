@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import Header from "../Header/Header";
 import Btn from "../Button/Btn";
 import { FaGithub } from "react-icons/fa";
@@ -10,7 +10,7 @@ function Index() {
   return (
     <div
       id="about"
-      className="max-w-[1100px] flex flex-col h-screen justify-center items-center mx-auto space-y-[30px] relative z-10 px-3 overflow-x-hidden"
+      className="max-w-[1100px] flex flex-col py-32 pb-60 justify-center items-center mx-auto space-y-[30px] relative z-10 px-3 overflow-x-hidden"
     >
       <motion.div
         initial="offscreen"
@@ -68,7 +68,7 @@ function Index() {
         >
           <Btn
             href={"https://github.com/codinasion/open-tools"}
-            ariaLabel="Contribute to open-tools with us on Github"
+            ariaLabel="Contribute open-tools on Github"
             target="_blank"
             text={"Contribute open-tools"}
             icon={<FiExternalLink />}

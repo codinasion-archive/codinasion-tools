@@ -1,12 +1,7 @@
 import React from "react";
+import { headerProp } from "src/Objs&Interfaces/Interface";
 
-interface headerProp {
-  title: string;
-  subTitle: string;
-  cssStyle?: string;
-}
-
-const Header: React.FC<headerProp> = ({ title, subTitle, cssStyle }) => {
+const Header = ({ title, subTitle, cssStyle }:headerProp) => {
   return (
     <header
       className={`text-center w-full flex flex-col items-center justify-center gap-2 ${cssStyle} dark:text-white`}
