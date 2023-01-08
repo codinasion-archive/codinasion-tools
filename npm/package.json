@@ -1,12 +1,14 @@
 {
-  "name": "open-tools",
-  "version": "0.0.3",
+  "name": "codinasion-tools",
+  "version": "0.0.0",
   "description": "Collection of open source tools",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "repository": "https://github.com/codinasion/open-tools",
+  "repository": "https://github.com/codinasion/codinasion-tools",
   "keywords": [
-    "open-tools",
+    "codinasion",
+    "tools",
+    "codinasion-tools",
     "typescript"
   ],
   "author": "harshraj8843",

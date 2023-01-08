@@ -1,6 +1,6 @@
 # Open Tools NPM Package
 
-Package Link: <https://www.npmjs.com/package/open-tools>
+Package Link: <https://www.npmjs.com/package/codinasion-tools>
 
 ---
 
