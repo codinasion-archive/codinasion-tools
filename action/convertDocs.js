@@ -151,11 +151,103 @@ export default async function convertDocs(
         // last updated (later)
         let last_updated = dateFns.format(new Date(), "yyyy-MM-dd");
         // contributors (later)
-        let contributors = [
+        // let contributors = [
+        //   {
+        //     username: "johndoe",
+        //   },
+        // ];
+
+        let contributors = [];
+        // get contributors from docs folder
+        let contributors_data_docs = await fetch(
+          `https://api.github.com/repos/${OWNER}/${REPO}/commits?path=${filePath.path.replace(
+            "README.md",
+            ""
+          )}`,
           {
-            username: "johndoe",
-          },
-        ];
+            method: "GET",
+            headers: {
+              Authorization: `token ${TOKEN}`,
+            },
+          }
+        )
+          .then((res) => res.json())
+          .then((res) => res.map((commit) => commit.author.login))
+          .catch((error) => {
+            console.log(error);
+          });
+        // remove duplicate contributors
+        contributors_data_docs = [...new Set(contributors_data_docs)];
+        for (let contributor of contributors_data_docs) {
+          // add contributors to contributors array if not already added
+          if (!contributors.includes({ username: contributor })) {
+            contributors.push({
+              username: contributor,
+            });
+          }
+        }
+
+        // get contributors from npm folder
+        let contributors_data_npm = await fetch(
+          `https://api.github.com/repos/${OWNER}/${REPO}/commits?path=${filePath.path
+            .replace("README.md", "")
+            .replace("docs", "npm/src")}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `token ${TOKEN}`,
+            },
+          }
+        )
+          .then((res) => res.json())
+          .then((res) => res.map((commit) => commit.author.login))
+          .catch((error) => {
+            console.log(error);
+          });
+
+        // remove duplicate contributors
+        contributors_data_npm = [...new Set(contributors_data_npm)];
+        for (let contributor of contributors_data_docs) {
+          // add contributors to contributors array if not already added
+          if (!contributors.includes({ username: contributor })) {
+            contributors.push({
+              username: contributor,
+            });
+          }
+        }
+
+        // get contributors from pip folder
+        let contributors_data_pip = await fetch(
+          `https://api.github.com/repos/${OWNER}/${REPO}/commits?path=${filePath.path
+            .replace("/README.md", "")
+            .replace("docs", "pip/codinasion_tools")
+            .replace("-", "_")}.py`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `token ${TOKEN}`,
+            },
+          }
+        )
+          .then((res) => res.json())
+          .then((res) => res.map((commit) => commit.author.login))
+          .catch((error) => {
+            console.log(error);
+          });
+
+        // remove duplicate contributors
+        contributors_data_pip = [...new Set(contributors_data_pip)];
+        for (let contributor of contributors_data_docs) {
+          // add contributors to contributors array if not already added
+          if (!contributors.includes({ username: contributor })) {
+            contributors.push({
+              username: contributor,
+            });
+          }
+        }
+
+        // remove duplicate contributors
+        contributors = [...new Set(contributors)];
 
         let data = {
           package: packages,
