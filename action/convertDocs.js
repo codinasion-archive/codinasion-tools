@@ -179,11 +179,8 @@ export default async function convertDocs(
         // remove duplicate contributors
         contributors_data_docs = [...new Set(contributors_data_docs)];
         for (let contributor of contributors_data_docs) {
-          // add contributors to contributors array if not already added
-          if (!contributors.includes({ username: contributor })) {
-            contributors.push({
-              username: contributor,
-            });
+          if (!contributors.includes(contributor)) {
+            contributors.push(contributor);
           }
         }
 
@@ -208,11 +205,8 @@ export default async function convertDocs(
         // remove duplicate contributors
         contributors_data_npm = [...new Set(contributors_data_npm)];
         for (let contributor of contributors_data_docs) {
-          // add contributors to contributors array if not already added
-          if (!contributors.includes({ username: contributor })) {
-            contributors.push({
-              username: contributor,
-            });
+          if (!contributors.includes(contributor)) {
+            contributors.push(contributor);
           }
         }
 
@@ -238,16 +232,18 @@ export default async function convertDocs(
         // remove duplicate contributors
         contributors_data_pip = [...new Set(contributors_data_pip)];
         for (let contributor of contributors_data_docs) {
-          // add contributors to contributors array if not already added
-          if (!contributors.includes({ username: contributor })) {
-            contributors.push({
-              username: contributor,
-            });
+          if (!contributors.includes(contributor)) {
+            contributors.push(contributor);
           }
         }
 
         // remove duplicate contributors
-        contributors = [...new Set(contributors)];
+        let all_contributors = [];
+        for (let contributor of contributors) {
+          if (!all_contributors.includes({ username: contributor })) {
+            all_contributors.push({ username: contributor });
+          }
+        }
 
         let data = {
           package: packages,
@@ -268,7 +264,7 @@ export default async function convertDocs(
           ts: ts,
           py: py,
           sh: sh,
-          contributors: contributors,
+          contributors: all_contributors,
           last_updated: last_updated,
         };
 
