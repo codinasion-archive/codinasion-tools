@@ -54,8 +54,12 @@ class ToolPackageSerializer(serializers.ModelSerializer):
 class ToolSerializer(serializers.ModelSerializer):
     slug = serializers.CharField(max_length=100, required=True)
     title = serializers.CharField(max_length=255, required=True)
-    description = serializers.CharField(required=True)
-    markdown = serializers.CharField(required=True)
+    description = serializers.CharField(required=True, allow_blank=True)
+    markdown = serializers.CharField(required=True, allow_blank=True)
+    js = serializers.CharField(required=True, allow_blank=True)
+    ts = serializers.CharField(required=True, allow_blank=True)
+    py = serializers.CharField(required=True, allow_blank=True)
+    sh = serializers.CharField(required=True, allow_blank=True)
     category = ToolCategorySerializer(many=True, required=True)
     package = ToolPackageSerializer(many=True, required=True)
     contributors = GithubUserSerializer(many=True, required=True)
@@ -72,6 +76,10 @@ class ToolSerializer(serializers.ModelSerializer):
             "title",
             "description",
             "markdown",
+            "js",
+            "ts",
+            "py",
+            "sh",
             "category",
             "package",
             "contributors",
@@ -126,8 +134,13 @@ class ToolSerializer(serializers.ModelSerializer):
 
         instance.slug = validated_data.get("slug", instance.slug)
         instance.title = validated_data.get("title", instance.title)
-        instance.description = validated_data.get("description", instance.description)
+        instance.description = validated_data.get(
+            "description", instance.description)
         instance.markdown = validated_data.get("markdown", instance.markdown)
+        instance.js = validated_data.get("js", instance.js)
+        instance.ts = validated_data.get("ts", instance.ts)
+        instance.py = validated_data.get("py", instance.py)
+        instance.sh = validated_data.get("sh", instance.sh)
         instance.last_updated = validated_data.get(
             "last_updated", instance.last_updated
         )
@@ -166,6 +179,10 @@ class ToolDataSerializer(serializers.ModelSerializer):
     title = serializers.CharField(read_only=True)
     description = serializers.CharField(read_only=True)
     markdown = serializers.CharField(read_only=True)
+    js = serializers.CharField(read_only=True)
+    ts = serializers.CharField(read_only=True)
+    py = serializers.CharField(read_only=True)
+    sh = serializers.CharField(read_only=True)
     category = ToolCategorySerializer(many=True, read_only=True)
     package = ToolPackageSerializer(many=True, read_only=True)
     contributors = GithubUserSerializer(many=True, read_only=True)
@@ -182,6 +199,10 @@ class ToolDataSerializer(serializers.ModelSerializer):
             "title",
             "description",
             "markdown",
+            "js",
+            "ts",
+            "py",
+            "sh",
             "category",
             "package",
             "contributors",
@@ -233,6 +254,7 @@ class TestimonialSerializer(serializers.ModelSerializer):
         user_data = validated_data.pop("user")
         user = GithubUserSerializer.create(GithubUserSerializer(), user_data)
         instance.user = user
-        instance.testimonial = validated_data.get("testimonial", instance.testimonial)
+        instance.testimonial = validated_data.get(
+            "testimonial", instance.testimonial)
         instance.save()
         return instance
