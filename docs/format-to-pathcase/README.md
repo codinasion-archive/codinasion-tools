@@ -17,7 +17,7 @@ category:
 <CodeBlock>
 
 ```js
-import { FormatToPathCase } from "open-tools";
+import { FormatToPathCase } from "codinasion-tools";
 
 let string = "Hello World";
 
@@ -27,7 +27,7 @@ console.log(`${ string } = ${ pathCase }`);
 ```
 
 ```ts
-import { FormatToPathCase } from "open-tools";
+import { FormatToPathCase } from "codinasion-tools";
 
 let string: string = "Hello World";
 

@@ -114,8 +114,8 @@ function Tid({ dataAll, toolsStatus }: any) {
               <span className="w-full flex items-center justify-between rounded-2xl lg:rounded-none bg-very-dark-blue p-4 text-lg text-white">
                 {`> `}
                 {activeLang == "python"
-                  ? "pip install opentoolshub"
-                  : "npm install open-tools"}
+                  ? "pip install codinasion-tools"
+                  : "npm install codinasion-tools"}
               </span>
               <div>
                 <ToolInfo

@@ -17,7 +17,7 @@ category:
 <CodeBlock>
 
 ```js
-import { FormatToTitleCase } from "open-tools";
+import { FormatToTitleCase } from "codinasion-tools";
 
 let string = "Hello World";
 
@@ -27,7 +27,7 @@ console.log(`${ string } = ${ titleCase }`);
 ```
 
 ```ts
-import { FormatToTitleCase } from "open-tools";
+import { FormatToTitleCase } from "codinasion-tools";
 
 let string: string = "Hello World";
 

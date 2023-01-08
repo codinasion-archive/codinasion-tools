@@ -17,7 +17,7 @@ category:
 <CodeBlock>
 
 ```js
-import { FormatToSnakeCase } from "open-tools";
+import { FormatToSnakeCase } from "codinasion-tools";
 
 let string = "Hello World";
 
@@ -27,7 +27,7 @@ console.log(`${ string } = ${ snakeCase }`);
 ```
 
 ```ts
-import { FormatToSnakeCase } from "open-tools";
+import { FormatToSnakeCase } from "codinasion-tools";
 
 let string: string = "Hello World";
 

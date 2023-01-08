@@ -14,7 +14,7 @@ category:
 <CodeBlock>
 
 ```js
-import { AddTwoNumbers } from "open-tools";
+import { AddTwoNumbers } from "codinasion-tools";
 
 let a = 1;
 let b = 2;
@@ -25,7 +25,7 @@ console.log(`${a} + ${b} = ${result}`);
 ```
 
 ```ts
-import { AddTwoNumbers } from "open-tools";
+import { AddTwoNumbers } from "codinasion-tools";
 
 let a: number = 1;
 let b: number = 2;

@@ -25,10 +25,10 @@ function ToolInfo({
       <h3 className="text-xl font-medium py-3">Repository</h3>
       <hr />
       <Link
-        href={`${lang==='python'?'https://github.com/codinasion/open-tools/tree/master/pip':"https://github.com/codinasion/open-tools/tree/master/npm"}`}
+        href={`${lang==='python'?'https://github.com/codinasion/codinasion-tools/tree/master/pip':"https://github.com/codinasion/codinasion-tools/tree/master/npm"}`}
         className={"font-light truncate block mt-2 max-w-[300px] "}
       >
-        {lang==='python'?'https://github.com/codinasion/open-tools/tree/master/pip':"https://github.com/codinasion/open-tools/tree/master/npm"}
+        {lang==='python'?'https://github.com/codinasion/codinasion-tools/tree/master/pip':"https://github.com/codinasion/codinasion-tools/tree/master/npm"}
       </Link>
       <div className="space-y-5">
         <div className="mt-5">

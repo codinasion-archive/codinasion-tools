@@ -23,7 +23,7 @@ class ContributorsView(APIView):
         contributors_list = []
         while True:
             contributors_data = requests.get(
-                "https://api.github.com/repos/codinasion/open-tools"
+                "https://api.github.com/repos/codinasion/codinasion-tools"
                 + "/contributors?per_page=100&page="
                 + str(page),
                 headers={

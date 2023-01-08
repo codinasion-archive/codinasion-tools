@@ -11,7 +11,7 @@ inputs:
   REPO:
     description: "repo name"
     required: true
-    default: "open-tools"
+    default: "codinasion-tools"
 
   TOKEN:
     description: "github token"

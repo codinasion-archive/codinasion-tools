@@ -17,7 +17,7 @@ category:
 <CodeBlock>
 
 ```js
-import { FormatToKebabCase } from "open-tools";
+import { FormatToKebabCase } from "codinasion-tools";
 
 let string = "Hello World";
 
@@ -27,7 +27,7 @@ console.log(`${ string } = ${ kebabCase }`);
 ```
 
 ```ts
-import { FormatToKebabCase } from "open-tools";
+import { FormatToKebabCase } from "codinasion-tools";
 
 let string: string = "Hello World";
 

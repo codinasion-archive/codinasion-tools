@@ -18,7 +18,7 @@ category:
 <CodeBlock>
 
 ```js
-import { ConvertCentimetersToInches } from "open-tools";
+import { ConvertCentimetersToInches } from "codinasion-tools";
 
 let centimeters = 0;
 
@@ -28,7 +28,7 @@ console.log(`${centimeters}cm = ${result}"`);
 ```
 
 ```ts
-import { ConvertCentimetersToInches } from "open-tools";
+import { ConvertCentimetersToInches } from "codinasion-tools";
 
 let centimeters: number = 0;
 

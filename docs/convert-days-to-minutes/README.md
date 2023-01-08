@@ -18,7 +18,7 @@ category:
 <CodeBlock>
 
 ```js
-import { ConvertDaysToMinutes } from "open-tools";
+import { ConvertDaysToMinutes } from "codinasion-tools";
 
 let days = 0;
 
@@ -28,7 +28,7 @@ console.log(`${days}d = ${minutes}m`);
 ```
 
 ```ts
-import { ConvertDaysToMinutes } from "open-tools";
+import { ConvertDaysToMinutes } from "codinasion-tools";
 
 let days: number = 0;
 

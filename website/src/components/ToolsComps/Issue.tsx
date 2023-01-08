@@ -12,7 +12,7 @@ function Issue() {
       </p>
 
       <Link
-        href={"https://github.com/codinasion/open-tools/issues/new"}
+        href={"https://github.com/codinasion/codinasion-tools/issues/new"}
         className="bg-very-dark-blue text-white text-left w-full rounded-xl p-5 py-2 flex justify-between items-center"
         target={"_blank"}
         aria-label="Create a new Issue"

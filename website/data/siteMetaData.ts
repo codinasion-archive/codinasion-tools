@@ -1,7 +1,7 @@
 const siteMetaData = {
-    title: "Open Tools",
+    title: "Codinasion Tools",
     description: "Collection of open-source tools",
-    siteUrl: "https://opentools.codinasion.org",
+    siteUrl: "https://tools.codinasion.org",
 };
 
 export default siteMetaData;

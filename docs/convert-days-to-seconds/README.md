@@ -18,7 +18,7 @@ category:
 <CodeBlock>
 
 ```js
-import { ConvertDaysToSeconds } from "open-tools";
+import { ConvertDaysToSeconds } from "codinasion-tools";
 
 let days = 0;
 
@@ -28,7 +28,7 @@ console.log(`${days}d = ${seconds}s`);
 ```
 
 ```ts
-import { ConvertDaysToSeconds } from "open-tools";
+import { ConvertDaysToSeconds } from "codinasion-tools";
 
 let days: number = 0;
 

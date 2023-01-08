@@ -1,4 +1,4 @@
-# Open Tools NPM Package
+# Codinasion Tools NPM Package
 
 Package Link: <https://www.npmjs.com/package/codinasion-tools>
 

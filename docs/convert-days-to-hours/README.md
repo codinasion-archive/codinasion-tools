@@ -18,7 +18,7 @@ category:
 <CodeBlock>
 
 ```js
-import { ConvertDaysToHours } from "open-tools";
+import { ConvertDaysToHours } from "codinasion-tools";
 
 let days = 0;
 
@@ -28,7 +28,7 @@ console.log(`${days}d = ${result}h`);
 ```
 
 ```ts
-import { ConvertDaysToHours } from "open-tools";
+import { ConvertDaysToHours } from "codinasion-tools";
 
 let days: number = 0;
 

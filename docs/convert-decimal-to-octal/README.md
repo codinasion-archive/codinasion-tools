@@ -17,7 +17,7 @@ category:
 <CodeBlock>
 
 ```js
-import { ConvertDecimalToOctal } from "open-tools";
+import { ConvertDecimalToOctal } from "codinasion-tools";
 
 let decimal = 0;
 
@@ -27,7 +27,7 @@ console.log(`${decimal} = ${octal}`);
 ```
 
 ```ts
-import { ConvertDecimalToOctal } from "open-tools";
+import { ConvertDecimalToOctal } from "codinasion-tools";
 
 let decimal: number = 0;
 

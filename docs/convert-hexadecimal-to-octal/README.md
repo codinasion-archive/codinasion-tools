@@ -17,7 +17,7 @@ category:
 <CodeBlock>
 
 ```js
-import { ConvertHexadecimalToOctal } from "open-tools";
+import { ConvertHexadecimalToOctal } from "codinasion-tools";
 
 let hexadecimal = "0";
 
@@ -27,7 +27,7 @@ console.log(`${hexadecimal} = ${octal}`);
 ```
 
 ```ts
-import { ConvertHexadecimalToOctal } from "open-tools";
+import { ConvertHexadecimalToOctal } from "codinasion-tools";
 
 let hexadecimal: string = "0";
 

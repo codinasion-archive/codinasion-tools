@@ -18,7 +18,7 @@ category:
 <CodeBlock>
 
 ```js
-import { ConvertCentimetersToFeet } from "open-tools";
+import { ConvertCentimetersToFeet } from "codinasion-tools";
 
 let centimeters = 0;
 
@@ -28,7 +28,7 @@ console.log(`${centimeters}cm = ${result}ft`);
 ```
 
 ```ts
-import { ConvertCentimetersToFeet } from "open-tools";
+import { ConvertCentimetersToFeet } from "codinasion-tools";
 
 let centimeters: number = 0;
 

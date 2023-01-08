@@ -18,7 +18,7 @@ category:
 <CodeBlock>
 
 ```js
-import { ConvertBinaryToHexadecimal } from "open-tools";
+import { ConvertBinaryToHexadecimal } from "codinasion-tools";
 
 let binary = "1010";
 
@@ -28,7 +28,7 @@ console.log(`${binary} = ${result}`);
 ```
 
 ```ts
-import { ConvertBinaryToHexadecimal } from "open-tools";
+import { ConvertBinaryToHexadecimal } from "codinasion-tools";
 
 let binary: string = "1010";
 

@@ -15,15 +15,15 @@ interface InstallPkgProp {
 function InstallPkg({ setAlertState, alertData }: InstallPkgProp) {
   return (
     <Box>
-      <h2 className="text-xl font-medium py-3">Open tools</h2>
+      <h2 className="text-xl font-medium py-3">Codinasion tools</h2>
       <hr />
       <p className="mt-5">
-        Open tools is a npm/pip pkg. Open tools provide a hundreds of basic and
+      Codinasion tools is a npm/pip pkg. Codinasion tools provide a hundreds of basic and
         advanced tools.
       </p>
       <Link
         href={
-          "https://github.com/codinasion/open-tools/archive/refs/heads/master.zip"
+          "https://github.com/codinasion/codinasion-tools/archive/refs/heads/master.zip"
         }
         target="_blank"
         download

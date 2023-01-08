@@ -18,7 +18,7 @@ category:
 <CodeBlock>
 
 ```js
-import { ConvertCelsiusToFahrenheit } from "open-tools";
+import { ConvertCelsiusToFahrenheit } from "codinasion-tools";
 
 let celsius = 0;
 
@@ -28,7 +28,7 @@ console.log(`${celsius}°C = ${result}°F`);
 ```
 
 ```ts
-import { ConvertCelsiusToFahrenheit } from "open-tools";
+import { ConvertCelsiusToFahrenheit } from "codinasion-tools";
 
 let celsius: number = 0;
 

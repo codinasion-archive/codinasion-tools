@@ -15,7 +15,7 @@ category:
 <CodeBlock>
 
 ```js
-import { SubstractTwoNumbers } from "open-tools";
+import { SubstractTwoNumbers } from "codinasion-tools";
 
 let a = 10;
 
@@ -27,7 +27,7 @@ console.log(`${ a } - ${ b } = ${ result }`);
 ```
 
 ```ts
-import { SubstractTwoNumbers } from "open-tools";
+import { SubstractTwoNumbers } from "codinasion-tools";
 
 let a: number = 10;
 

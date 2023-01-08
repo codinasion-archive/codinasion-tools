@@ -17,7 +17,7 @@ category:
 <CodeBlock>
 
 ```js
-import { FormatToCamelCase } from "open-tools";
+import { FormatToCamelCase } from "codinasion-tools";
 
 let string = "Hello World";
 
@@ -27,7 +27,7 @@ console.log(`${string} = ${camelCase}`);
 ```
 
 ```ts
-import { FormatToCamelCase } from "open-tools";
+import { FormatToCamelCase } from "codinasion-tools";
 
 let string: string = "Hello World";
 

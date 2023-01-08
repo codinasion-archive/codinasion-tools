@@ -62,7 +62,7 @@ function Footer() {
           <h2
             className={`${jura.className} text-4xl lg:text-5xl xl:text-6xl text-center txt-gradient mb-3`}
           >
-            Open-Tools
+            codinasion-tools
           </h2>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-10 text-lg sm:text-base md:gap-20 justify-center w-full text-center sm:text-left">

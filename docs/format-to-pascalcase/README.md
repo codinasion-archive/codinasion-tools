@@ -17,7 +17,7 @@ category:
 <CodeBlock>
 
 ```js
-import { FormatToPascalCase } from "open-tools";
+import { FormatToPascalCase } from "codinasion-tools";
 
 let string = "Hello World";
 
@@ -27,7 +27,7 @@ console.log(`${ string } = ${ pascalCase }`);
 ```
 
 ```ts
-import { FormatToPascalCase } from "open-tools";
+import { FormatToPascalCase } from "codinasion-tools";
 
 let string: string = "Hello World";
 

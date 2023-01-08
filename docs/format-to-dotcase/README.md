@@ -17,7 +17,7 @@ category:
 <CodeBlock>
 
 ```js
-import { FormatToDotCase } from "open-tools";
+import { FormatToDotCase } from "codinasion-tools";
 
 let string = "Hello World";
 
@@ -27,7 +27,7 @@ console.log(`${ string } = ${ dotCase }`);
 ```
 
 ```ts
-import { FormatToDotCase } from "open-tools";
+import { FormatToDotCase } from "codinasion-tools";
 
 let string: string = "Hello World";
 

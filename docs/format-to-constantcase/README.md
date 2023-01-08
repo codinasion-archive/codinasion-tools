@@ -17,7 +17,7 @@ category:
 <CodeBlock>
 
 ```js
-import { FormatToConstantCase } from "open-tools";
+import { FormatToConstantCase } from "codinasion-tools";
 
 let string = "Hello World";
 
@@ -27,7 +27,7 @@ console.log(`${ string } = ${ constantCase }`);
 ```
 
 ```ts
-import { FormatToConstantCase } from "open-tools";
+import { FormatToConstantCase } from "codinasion-tools";
 
 let string: string = "Hello World";
 

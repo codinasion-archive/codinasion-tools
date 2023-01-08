@@ -66,7 +66,7 @@ function SomeTools({
             <hr className="w-full bottom-2 border-white" />
             <Link
               href={"/tools"}
-              aria-label="Explore more tools of open-tools by codinasion"
+              aria-label="Explore more tools of codinasion-tools by codinasion"
               className="px-5 text-lg dark:text-white text-very-dark-blue hover:opacity-70 hover:scale-90"
             >
               More_tools

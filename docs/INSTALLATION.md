@@ -1,17 +1,23 @@
-# Open Tools
+# Codinasion Tools
 
-## How to install Open Tools
+## How to install Codinasion Tools
 
-You can use open-tools in your project by installing it from yarn or npm.
+You can use codinasion-tools in your project by installing it from yarn or npm or pip
 
 ### Yarn
 
 ```bash
-yarn add open-tools@latest
+yarn add codinasion-tools@latest
 ```
 
 ### NPM
 
 ```bash
-npm install open-tools@latest
+npm install codinasion-tools@latest
+```
+
+### Pip
+
+```bash
+pip install codinasion-tools
 ```

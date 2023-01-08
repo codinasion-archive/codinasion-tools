@@ -19,7 +19,7 @@ function JoinCodinasion() {
       </p>
       <Btn
         ariaLabel="Join Codinasion open source project"
-        href={"https://github.com/codinasion/open-tools"}
+        href={"https://github.com/codinasion/codinasion-tools"}
         target="_blank"
         text={"Join Codinasion"}
         cssStyle={`w-full rounded-2xl mt-5`}

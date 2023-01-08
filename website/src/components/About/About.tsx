@@ -52,7 +52,7 @@ function Index() {
           variants={scrollX(-50)}
         >
           <Btn
-            href={"https://github.com/codinasion/open-tools"}
+            href={"https://github.com/codinasion/codinasion-tools"}
             ariaLabel="Join Codinasion on Github and Contribute to open-source projects"
             target="_blank"
             text={"Join codinasion"}
@@ -67,10 +67,10 @@ function Index() {
           variants={scrollX(50)}
         >
           <Btn
-            href={"https://github.com/codinasion/open-tools"}
-            ariaLabel="Contribute open-tools on Github"
+            href={"https://github.com/codinasion/codinasion-tools"}
+            ariaLabel="Contribute codinasion-tools on Github"
             target="_blank"
-            text={"Contribute open-tools"}
+            text={"Contribute codinasion-tools"}
             icon={<FiExternalLink />}
           />
         </motion.div>

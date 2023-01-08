@@ -18,7 +18,7 @@ category:
 <CodeBlock>
 
 ```js
-import { ConvertBinaryToOctal } from "open-tools";
+import { ConvertBinaryToOctal } from "codinasion-tools";
 
 let binary = "1010";
 
@@ -28,7 +28,7 @@ console.log(`${binary} = ${result}`);
 ```
 
 ```ts
-import { ConvertBinaryToOctal } from "open-tools";
+import { ConvertBinaryToOctal } from "codinasion-tools";
 
 let binary: string = "1010";
 

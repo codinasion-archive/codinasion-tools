@@ -23,7 +23,7 @@ function ToolDocs({ markdown, lang }: ToolDocsProp) {
         <div className="mt-3">
           <div className="p-3 mt-5 rounded-xl shadow-xl dark:shadow-dark-blue bg-white dark:bg-black">
             <code className="tracking-wider">
-              {lang == "python" ? "pip install opentoolshub" : "npm install open-tools"}
+              {lang == "python" ? "pip install codinasion-tools" : "npm install codinasion-tools"}
             </code>
           </div>
         </div>

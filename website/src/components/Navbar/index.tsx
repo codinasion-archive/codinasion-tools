@@ -61,9 +61,9 @@ export default function Navbar({ setSearchBox }: navbarProp) {
       <div className="flex items-center z-50 relative w-full p-3 !justify-between text-2xl text-white">
         <div></div>
         <UrlBtn
-          name="Open-tools"
+          name="codinasion-tools"
           href="/"
-          ariaLabel="open-tools codinasion program"
+          ariaLabel="codinasion-tools codinasion program"
           cssStyle="hover:!border-transparent text-3xl  dark:txt-gradient-light"
         />
         <div></div>
@@ -124,7 +124,7 @@ export default function Navbar({ setSearchBox }: navbarProp) {
           className="text-very-dark-blue py-2 px-3 border-b-2 border-transparent hover:border-white dark:text-white text-shadow-II"
           aria-label="Go to github page"
           target={"_blank"}
-          href={"https://github.com/codinasion/open-tools"}
+          href={"https://github.com/codinasion/codinasion-tools"}
         >
           GitHub
         </Link>

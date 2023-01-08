@@ -39,7 +39,7 @@ function Collaborator({ apiData, apiStatus, more = true }: CollaboratorType) {
         )}
       </div>
       <Btn
-        ariaLabel="Collaborate to open-tools with us on Github"
+        ariaLabel="Collaborate to codinasion-tools with us on Github"
         href={"https://github.com/codinasion"}
         target="_blank"
         text={"Collaborate"}

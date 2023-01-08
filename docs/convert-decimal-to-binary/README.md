@@ -17,7 +17,7 @@ category:
 <CodeBlock>
 
 ```js
-import { ConvertDecimalToBinary } from "open-tools";
+import { ConvertDecimalToBinary } from "codinasion-tools";
 
 let decimal = 0;
 
@@ -27,7 +27,7 @@ console.log(`${decimal} = ${binary}`);
 ```
 
 ```ts
-import { ConvertDecimalToBinary } from "open-tools";
+import { ConvertDecimalToBinary } from "codinasion-tools";
 
 let decimal: number = 0;
 
