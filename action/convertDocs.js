@@ -70,64 +70,138 @@ export default async function convertDocs(
       let contentHtml = processedContent.toString();
 
       const packages = [];
+      var js = "";
+      var ts = "";
+      var py = "";
+      var sh = "";
       for (let item of matterResult.data.package) {
         packages.push({
           title: item,
         });
+        if (item === "npm") {
+          js = await fetch(
+            `https://raw.githubusercontent.com/${OWNER}/${REPO}/master/${filePath.path.replace(
+              "README.md",
+              "test.js"
+            )}`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `token ${TOKEN}`,
+              },
+            }
+          )
+            .then((res) => res.text())
+            .catch((error) => console.log(error));
+
+          ts = await fetch(
+            `https://raw.githubusercontent.com/${OWNER}/${REPO}/master/${filePath.path.replace(
+              "README.md",
+              "test.ts"
+            )}`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `token ${TOKEN}`,
+              },
+            }
+          )
+            .then((res) => res.text())
+            .catch((error) => console.log(error));
+        }
+        if (item === "pip") {
+          py = await fetch(
+            `https://raw.githubusercontent.com/${OWNER}/${REPO}/master/${filePath.path.replace(
+              "README.md",
+              "test.py"
+            )}`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `token ${TOKEN}`,
+              },
+            }
+          )
+            .then((res) => res.text())
+            .catch((error) => console.log(error));
+
+          sh = await fetch(
+            `https://raw.githubusercontent.com/${OWNER}/${REPO}/master/${filePath.path.replace(
+              "README.md",
+              "test.sh"
+            )}`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `token ${TOKEN}`,
+              },
+            }
+          )
+            .then((res) => res.text())
+            .catch((error) => console.log(error));
+        }
+
+        const categories = [];
+        for (let item of matterResult.data.category) {
+          categories.push({
+            title: item,
+          });
+        }
+
+        // last updated (later)
+        let last_updated = dateFns.format(new Date(), "yyyy-MM-dd");
+        // contributors (later)
+        let contributors = [
+          {
+            username: "johndoe",
+          },
+        ];
+
+        let data = {
+          package: packages,
+          title: matterResult.data.title
+            ? matterResult.data.title
+            : jsonFileName,
+          description: matterResult.data.description
+            ? matterResult.data.description
+            : "",
+          slug: matterResult.data.slug ? matterResult.data.slug : jsonFileName,
+          function: matterResult.data.function
+            ? matterResult.data.function
+            : "",
+          category: categories,
+          contentHtml,
+          markdown: matterResult.content,
+          js: js,
+          ts: ts,
+          py: py,
+          sh: sh,
+          contributors: contributors,
+          last_updated: last_updated,
+        };
+
+        await fs.promises.writeFile(
+          `${docsDir}/${jsonFileName}.json`,
+          JSON.stringify(data, null, 2)
+        );
+
+        await console.log(`Created ${jsonFileName}.json`);
+
+        await console.log("Sending tool data to backend...");
+        await fetch(`${BACKEND_URL}/tools-data/`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${BACKEND_ACCESS_TOKEN}`,
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .catch((error) => console.log(error));
+
+        // sleep for 5 seconds to avoid github api rate limit
+        await sleep(5000);
       }
-
-      const categories = [];
-      for (let item of matterResult.data.category) {
-        categories.push({
-          title: item,
-        });
-      }
-
-      // last updated (later)
-      let last_updated = dateFns.format(new Date(), "yyyy-MM-dd");
-      // contributors (later)
-      let contributors = [
-        {
-          username: "johndoe",
-        },
-      ];
-
-      let data = {
-        package: packages,
-        title: matterResult.data.title ? matterResult.data.title : jsonFileName,
-        description: matterResult.data.description
-          ? matterResult.data.description
-          : "",
-        slug: matterResult.data.slug ? matterResult.data.slug : jsonFileName,
-        function: matterResult.data.function ? matterResult.data.function : "",
-        category: categories,
-        contentHtml,
-        markdown: matterResult.content,
-        contributors: contributors,
-        last_updated: last_updated,
-      };
-
-      await fs.promises.writeFile(
-        `${docsDir}/${jsonFileName}.json`,
-        JSON.stringify(data, null, 2)
-      );
-
-      await console.log(`Created ${jsonFileName}.json`);
-
-      await console.log("Sending tool data to backend...");
-      await fetch(`${BACKEND_URL}/tools-data/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${BACKEND_ACCESS_TOKEN}`,
-        },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .catch((error) => console.log(error));
-
-      // sleep for 5 seconds to avoid github api rate limit
-      await sleep(5000);
     }
   }
 }
