@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.convert_hexadecimal_to_octal import ConvertHexadecimalToOctal
+from codinasion_tools.convert_hexadecimal_to_octal import ConvertHexadecimalToOctal
 
 
 class TestConvertHexadecimalToOctal(unittest.TestCase):

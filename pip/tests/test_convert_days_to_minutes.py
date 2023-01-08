@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.convert_days_to_minutes import ConvertDaysToMinutes
+from codinasion_tools.convert_days_to_minutes import ConvertDaysToMinutes
 
 
 class TestConvertDaysToMinutes(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.convert_days_to_seconds import ConvertDaysToSeconds
+from codinasion_tools.convert_days_to_seconds import ConvertDaysToSeconds
 
 
 class TestConvertDaysToSeconds(unittest.TestCase):

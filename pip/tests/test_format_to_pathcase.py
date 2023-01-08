@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.format_to_pathcase import FormatToPathCase
+from codinasion_tools.format_to_pathcase import FormatToPathCase
 
 
 class TestFormatToPathCase(unittest.TestCase):

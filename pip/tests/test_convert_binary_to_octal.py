@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.convert_binary_to_octal import ConvertBinaryToOctal
+from codinasion_tools.convert_binary_to_octal import ConvertBinaryToOctal
 
 
 class TestConvertBinaryToOctal(unittest.TestCase):

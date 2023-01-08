@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.format_to_dotcase import FormatToDotCase
+from codinasion_tools.format_to_dotcase import FormatToDotCase
 
 
 class TestFormatToDotCase(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.format_to_kebabcase import FormatToKebabCase
+from codinasion_tools.format_to_kebabcase import FormatToKebabCase
 
 
 class TestFormatToKebabCase(unittest.TestCase):

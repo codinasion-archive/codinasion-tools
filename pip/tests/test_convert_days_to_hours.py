@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.convert_days_to_hours import ConvertDaysToHours
+from codinasion_tools.convert_days_to_hours import ConvertDaysToHours
 
 
 class TestConvertDaysToHours(unittest.TestCase):

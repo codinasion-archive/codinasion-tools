@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.format_to_camelcase import FormatToCamelCase
+from codinasion_tools.format_to_camelcase import FormatToCamelCase
 
 
 class TestFormatToCamelCase(unittest.TestCase):

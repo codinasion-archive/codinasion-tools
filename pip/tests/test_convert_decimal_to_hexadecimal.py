@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.convert_decimal_to_hexadecimal import ConvertDecimalToHexadecimal
+from codinasion_tools.convert_decimal_to_hexadecimal import ConvertDecimalToHexadecimal
 
 
 class TestConvertDecimalToHexadecimal(unittest.TestCase):

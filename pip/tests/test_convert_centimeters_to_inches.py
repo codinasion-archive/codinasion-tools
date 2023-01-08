@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.convert_centimeters_to_inches import ConvertCentimetersToInches
+from codinasion_tools.convert_centimeters_to_inches import ConvertCentimetersToInches
 
 
 class TestConvertCentimetersToInches(unittest.TestCase):

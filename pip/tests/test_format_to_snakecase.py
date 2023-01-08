@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.format_to_snakecase import FormatToSnakeCase
+from codinasion_tools.format_to_snakecase import FormatToSnakeCase
 
 
 class TestFormatToSnakeCase(unittest.TestCase):

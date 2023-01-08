@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.convert_hexadecimal_to_binary import ConvertHexadecimalToBinary
+from codinasion_tools.convert_hexadecimal_to_binary import ConvertHexadecimalToBinary
 
 
 class TestConvertHexadecimalToBinary(unittest.TestCase):

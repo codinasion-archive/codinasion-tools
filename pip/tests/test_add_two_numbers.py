@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.add_two_numbers import AddTwoNumbers
+from codinasion_tools.add_two_numbers import AddTwoNumbers
 
 
 class TestAddTwoNumbers(unittest.TestCase):

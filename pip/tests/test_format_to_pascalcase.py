@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.format_to_pascalcase import FormatToPascalCase
+from codinasion_tools.format_to_pascalcase import FormatToPascalCase
 
 
 class TestFormatToPascalCase(unittest.TestCase):

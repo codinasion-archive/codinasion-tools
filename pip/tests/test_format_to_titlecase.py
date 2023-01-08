@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.format_to_titlecase import FormatToTitleCase
+from codinasion_tools.format_to_titlecase import FormatToTitleCase
 
 
 class TestFormatToTitleCase(unittest.TestCase):

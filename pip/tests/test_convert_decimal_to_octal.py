@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.convert_decimal_to_octal import ConvertDecimalToOctal
+from codinasion_tools.convert_decimal_to_octal import ConvertDecimalToOctal
 
 
 class TestConvertDecimalToOctal(unittest.TestCase):

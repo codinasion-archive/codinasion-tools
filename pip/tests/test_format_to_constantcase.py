@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.format_to_constantcase import FormatToConstantCase
+from codinasion_tools.format_to_constantcase import FormatToConstantCase
 
 
 class TestFormatToConstantCase(unittest.TestCase):

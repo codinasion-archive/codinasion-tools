@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.convert_decimal_to_binary import ConvertDecimalToBinary
+from codinasion_tools.convert_decimal_to_binary import ConvertDecimalToBinary
 
 
 class TestConvertDecimalToBinary(unittest.TestCase):

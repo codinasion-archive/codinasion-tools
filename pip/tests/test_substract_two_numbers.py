@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.substract_two_numbers import SubstractTwoNumbers
+from codinasion_tools.substract_two_numbers import SubstractTwoNumbers
 
 
 class TestSubstractTwoNumbers(unittest.TestCase):

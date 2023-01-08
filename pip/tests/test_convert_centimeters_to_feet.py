@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.convert_centimeters_to_feet import ConvertCentimetersToFeet
+from codinasion_tools.convert_centimeters_to_feet import ConvertCentimetersToFeet
 
 
 class TestConvertCentimetersToFeet(unittest.TestCase):

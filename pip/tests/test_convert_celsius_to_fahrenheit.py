@@ -1,6 +1,6 @@
 import unittest
 
-from opentoolshub.convert_celsius_to_fahrenheit import ConvertCelsiusToFahrenheit
+from codinasion_tools.convert_celsius_to_fahrenheit import ConvertCelsiusToFahrenheit
 
 
 class TestConvertCelsiusToFahrenheit(unittest.TestCase):
