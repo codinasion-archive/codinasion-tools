@@ -22,7 +22,6 @@ import Issue from "@/components/ToolsComps/Issue";
 
 function Tid({ dataAll, toolsStatus }: any) {
   const [activeLang, setLang] = useState<string>("javascript");
-  const dateRef = useRef<any>();
   const router = useRouter();
 
   const toolData: any = toolsStatus
@@ -43,13 +42,6 @@ function Tid({ dataAll, toolsStatus }: any) {
     message: "Message",
     status: false,
   });
-
-  useEffect(() => {
-    if (toolsStatus) {
-      const last_updated = new Date(toolData.apiData.last_updated);
-      dateRef.current = last_updated;
-    }
-  }, [toolData.apiData.last_updated, toolsStatus]);
 
   return toolsStatus ? (
     <>
@@ -223,6 +215,36 @@ function Tid({ dataAll, toolsStatus }: any) {
 }
 
 export default Tid;
+
+export const getStaticPaths = async () => {
+  try {
+    const res = await fetch(
+      `https://opentools.pythonanywhere.com/api/tools-data/`
+    );
+
+    if (res.status === 200) {
+      const data = await res.json();
+
+      const paths = data.slice(0, 1).map((tool: any) => {
+        return {
+          params: { tid: tool.slug },
+        };
+      });
+
+      return {
+        paths,
+        fallback: true,
+      };
+    }
+  } catch (error) {
+    console.log(error);
+    return {
+      paths: [],
+      fallback: true,
+    };
+  }
+};
+
 export const getStaticProps = async (context: any) => {
   try {
     const [res1, res2, res3, res4] = await Promise.all([
@@ -236,11 +258,12 @@ export const getStaticProps = async (context: any) => {
       fetch(`https://pypi.org/pypi/codinasion-tools/json`),
     ]);
 
-    const data1 = await res1.json();
-    const data2 = await res2.json();
-    const data3 = await res3.json();
-    const data4 = await res4.json();
     if (res1.status === 200) {
+      const data1 = await res1.json();
+      const data2 = await res2.json();
+      const data3 = await res3.json();
+      const data4 = await res4.json();
+
       return {
         props: {
           toolsStatus: true,
