@@ -20,6 +20,7 @@ import Box from "@/components/Box";
 import { GoIssueOpened } from "react-icons/go";
 import Issue from "@/components/ToolsComps/Issue";
 import siteMetaData from "@/data/siteMetaData";
+import Comment from "@/components/Comment";
 
 function Tid({ dataAll, toolsStatus }: any) {
   const [activeLang, setLang] = useState<string>("javascript");
@@ -105,6 +106,9 @@ function Tid({ dataAll, toolsStatus }: any) {
               <Keywords keywords={toolData.apiData.category} />
               <div className="hidden lg:block">
                 <Issue />
+              </div>
+              <div>
+                <Comment />
               </div>
             </div>
           </motion.div>
