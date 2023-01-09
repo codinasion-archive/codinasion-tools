@@ -1,4 +1,4 @@
-import React, {  useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Header from "../Header/Header";
 import ProfileImg from "../ProfileImg/ProfileImg";
 import Btn from "../Button/Btn";

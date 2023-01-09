@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 
 interface menuProp {
   setState: (e: boolean) => void;
-  toggleTheme:()=>void
+  toggleTheme: () => void;
 }
 
 function Menu({ setState, toggleTheme }: menuProp) {

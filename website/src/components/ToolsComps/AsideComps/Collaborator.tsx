@@ -25,10 +25,10 @@ function Collaborator({ apiData, apiStatus, more = true }: CollaboratorType) {
                 key={Math.random() * 50 + "devs"}
                 profileUrl={`https://github.com/${item.username}`}
                 name={item.username}
-                imgUrl={'https://picsum.photos/200'}
+                imgUrl={"https://picsum.photos/200"}
               />
             ))}
-        {(more && apiData.length>10) && (
+        {more && apiData.length > 10 && (
           <Link
             href="https://github.com/orgs/codinasion/teams/members/members"
             target={"_blank"}

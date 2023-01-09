@@ -8,7 +8,7 @@ interface keywordsProp {
 }
 [];
 
-function TopToolsKeywords({keywords, title}:keywordsProp) {
+function TopToolsKeywords({ keywords, title }: keywordsProp) {
   return (
     <Box>
       <h2 className="text-xl font-medium py-3">{title}</h2>

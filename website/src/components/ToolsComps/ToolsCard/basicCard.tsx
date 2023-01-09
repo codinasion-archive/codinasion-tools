@@ -17,8 +17,7 @@ const BasicCard: React.FC<ToolsCardProp> = ({
   repoUrl,
   docsUrl,
 }) => {
-  
-  const context = useContext(TheContext)
+  const context = useContext(TheContext);
   return (
     <div className="w-full h-fit p-10 bg-gradient-to-tl from-dark-blue/50 dark:from-very-dark-blue dark:via-dark-blue to-very-light-blue grid justify-center items-center dark:to-dark-blue relative overflow-hidden rounded-xl hover:scale-105 min-h-[300px]">
       <Image

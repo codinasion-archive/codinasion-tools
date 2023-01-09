@@ -1,7 +1,7 @@
 import React from "react";
 
 interface activeLangProp {
-    activeLang: string;
+  activeLang: string;
   setLang: (e: string) => void;
 }
 function ActiveLang({ activeLang, setLang }: activeLangProp) {

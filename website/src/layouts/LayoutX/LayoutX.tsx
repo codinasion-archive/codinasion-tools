@@ -3,7 +3,7 @@ import Members from "@/components/Dev/Dev";
 import Navbar from "@/components/Navbar";
 import Testimonial from "@/components/Testimonial/Testimonial";
 import React, { useState, useEffect } from "react";
-import { motion, useScroll} from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 
 // google font
 import { Rubik } from "@next/font/google";
@@ -62,7 +62,7 @@ function LayoutX({ children }: Props) {
         testimonialData,
         setTestimonialData,
         commonTools,
-        setCommonTools
+        setCommonTools,
       }}
     >
       <motion.div

@@ -27,7 +27,7 @@ function Index({
   docsUrl,
   tags,
 }: toolsCardProp) {
-  const context = useContext(TheContext)
+  const context = useContext(TheContext);
   return (
     <article className="rounded-2xl hover:opacity-80 shadow-md grad-light-01 relative overflow-hidden p-5 py-10 bg-gradient-to-tl from-dark-blue/50 dark:from-very-dark-blue dark:via-dark-blue to-very-light-blue  dark:to-dark-blue">
       <Image

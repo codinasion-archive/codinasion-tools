@@ -5,7 +5,6 @@ import { scrollY } from "src/AnimationVariants/animationVariants";
 import { TheContext } from "src/Context/Context";
 import { idRange } from "src/CommonFun/cF";
 
-
 function Testimonial() {
   const context = useContext(TheContext);
   const [testimonialData, setTestimonialData] = useState<string[]>([]);

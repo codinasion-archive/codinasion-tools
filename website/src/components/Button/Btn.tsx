@@ -12,7 +12,7 @@ interface buttonProp {
   setState?: (event: boolean) => void;
 }
 
-const Btn= ({
+const Btn = ({
   text = "button",
   href = null,
   target = "_self",
@@ -20,7 +20,7 @@ const Btn= ({
   icon,
   setState,
   state = false,
-  ariaLabel = 'Unknown link',
+  ariaLabel = "Unknown link",
 }: buttonProp) => {
   if (href === null) {
     return (
@@ -28,7 +28,7 @@ const Btn= ({
         type="button"
         onClick={() => setState && setState(!state)}
         // aria-labelledby={label}
-        
+
         className={`px-8 rounded-xl border-2 py-3 md:text-xl bg-very-dark-blue text-white flex items-center justify-center gap-2 hover:bg-very-light-blue hover:text-very-dark-blue group ${cssStyle}`}
       >
         {text}

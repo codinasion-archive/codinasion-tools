@@ -12,7 +12,7 @@ interface urlBtnProp {
 
 const UrlBtn: React.FC<urlBtnProp> = ({
   name,
-  ariaLabel='',
+  ariaLabel = "",
   href = "#",
   target = "_top",
   icon = null,

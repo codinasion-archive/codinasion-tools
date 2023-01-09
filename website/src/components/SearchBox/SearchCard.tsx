@@ -31,7 +31,6 @@ function SearchCard({
         <p>{description}</p>
         <span>Views: {views}</span>
         <div className="mt-2 flex gap-2 flex-wrap">
-         
           {tags.map((item: any) => (
             <span
               key={Math.random() * 50 + "searchItem"}

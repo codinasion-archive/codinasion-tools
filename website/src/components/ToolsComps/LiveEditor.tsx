@@ -14,7 +14,9 @@ function LiveEditor() {
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
           title="Live editor by codesandbox"
         >
-          <Link href={'https://codesandbox.io/'} target="_blank">codesandbox</Link>
+          <Link href={"https://codesandbox.io/"} target="_blank">
+            codesandbox
+          </Link>
         </iframe>
       </div>
     </div>
