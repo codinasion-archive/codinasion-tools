@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { scrollX, scrollScale } from "src/AnimationVariants/animationVariants";
+import Link from "@/components/Link";
 
 function Index() {
   return (
@@ -20,7 +21,7 @@ function Index() {
       >
         <Header
           title="Who we are"
-          subTitle="developer from all over the world"
+          subTitle="Developer from all over the world"
         />
       </motion.div>
       <motion.div>
@@ -37,11 +38,18 @@ function Index() {
           created by our independent developers. Our all time favorite repo by
           developers is{" "}
           <span className="px-2 bg-[gold] rounded-full text-black">
-            Program
+            <Link
+              style={{
+                textDecoration: "none",
+              }}
+              href="https://github.com/codinasion/program"
+            >
+              <b>Program</b>
+            </Link>
           </span>
           , offer you every type of programming in multiple languages. And
           codinasion is open-source it means any developer who know programmings
-          can contribute us.
+          can contribute.
         </motion.p>
       </motion.div>
       <div className="mx-auto space-y-2 sm:space-y-0 sm:flex w-full sm:w-fit h-fit gap-3">
@@ -52,7 +60,7 @@ function Index() {
           variants={scrollX(-50)}
         >
           <Btn
-            href={"https://github.com/codinasion/codinasion-tools"}
+            href={"https://github.com/codinasion/"}
             ariaLabel="Join Codinasion on Github and Contribute to open-source projects"
             target="_blank"
             text={"Join codinasion"}
@@ -70,7 +78,7 @@ function Index() {
             href={"https://github.com/codinasion/codinasion-tools"}
             ariaLabel="Contribute codinasion-tools on Github"
             target="_blank"
-            text={"Contribute codinasion-tools"}
+            text={"Contribute to codinasion-tools"}
             icon={<FiExternalLink />}
           />
         </motion.div>

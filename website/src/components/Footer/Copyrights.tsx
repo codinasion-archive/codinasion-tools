@@ -1,10 +1,22 @@
 import Image from "next/image";
 import React from "react";
+import Link from "@/components/Link";
 
 function Copyrights() {
   return (
     <div className="bg-dark-blue flex justify-center items-center gap-3 border-t-4 border-very-dark-blue p-1 text-white text-center">
-      <span>{`</>`} with <span className="animate-pulse">💖</span> by Codinasion</span>
+      <span>
+        {`</>`} with <span className="animate-pulse">💖</span> by{" "}
+        <Link
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+          }}
+          href="https://github.com/codinasion"
+        >
+          <b>Codinasion</b>
+        </Link>
+      </span>
       {/* <Image
         src="/LOGO.png"
         width={24}

@@ -1,4 +1,4 @@
-import Path from "../../src/components/Path";
+import Path from "@/components/Path";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import LayoutXComp from "@/layouts/LayoutX/LayoutXComp";
@@ -31,6 +31,13 @@ function Tid({ dataAll, toolsStatus }: any) {
   const related: any = toolsStatus
     ? { apiData: dataAll[1], apiStatus: true }
     : { apiData: null, apiStatus: toolsStatus };
+  const npmData: any = toolsStatus
+    ? { apiData: dataAll[2], apiStatus: true }
+    : { apiData: null, apiStatus: toolsStatus };
+  const pipData: any = toolsStatus
+    ? { apiData: dataAll[3], apiStatus: true }
+    : { apiData: null, apiStatus: toolsStatus };
+
   const [alertState, setAlertState] = useState<alertType>({
     title: "Title",
     message: "Message",
@@ -67,11 +74,11 @@ function Tid({ dataAll, toolsStatus }: any) {
               <div>
                 <ActiveLang activeLang={activeLang} setLang={setLang} />
 
-                <LiveEditor />
+                {/* <LiveEditor /> */}
                 {activeLang == "javascript" && (
                   <>
                     <ToolDocs
-                      markdown={toolData.apiData.markdown}
+                      markdown={toolData.apiData.js}
                       lang={activeLang}
                     />
                   </>
@@ -80,7 +87,7 @@ function Tid({ dataAll, toolsStatus }: any) {
                 {activeLang == "typescript" && (
                   <>
                     <ToolDocs
-                      markdown={toolData.apiData.markdown}
+                      markdown={toolData.apiData.ts}
                       lang={activeLang}
                     />
                   </>
@@ -88,7 +95,15 @@ function Tid({ dataAll, toolsStatus }: any) {
                 {activeLang == "python" && (
                   <>
                     <ToolDocs
-                      markdown={toolData.apiData.markdown}
+                      markdown={toolData.apiData.py}
+                      lang={activeLang}
+                    />
+                  </>
+                )}
+                {activeLang == "shell" && (
+                  <>
+                    <ToolDocs
+                      markdown={toolData.apiData.sh}
                       lang={activeLang}
                     />
                   </>
@@ -111,20 +126,57 @@ function Tid({ dataAll, toolsStatus }: any) {
             <div
               className={`rounded-2xl overflow-hidden !w-full relative z-20 h-fit`}
             >
-              <span className="w-full flex items-center justify-between rounded-2xl lg:rounded-none bg-very-dark-blue p-4 text-lg text-white">
-                {`> `}
-                {activeLang == "python"
-                  ? "pip install codinasion-tools"
-                  : "npm install codinasion-tools"}
-              </span>
+              {activeLang !== "shell" && (
+                <span className="w-full flex items-center justify-between rounded-2xl lg:rounded-none bg-very-dark-blue p-4 text-lg text-white">
+                  {`> `}
+                  {activeLang == "python"
+                    ? "pip install codinasion-tools"
+                    : "npm install codinasion-tools"}
+                </span>
+              )}
+
               <div>
                 <ToolInfo
                   used={toolData.apiData.used}
-                  date={toolData.apiData.last_updated}
-                  version={"0.0.3"}
+                  date={
+                    activeLang === "python" || activeLang === "shell"
+                      ? new Date(
+                          pipData.apiData.releases[
+                            pipData.apiData.info.version
+                          ][0].upload_time_iso_8601
+                        )
+                      : new Date(npmData.apiData.time.modified)
+                  }
+                  version={
+                    activeLang === "python" || activeLang === "shell"
+                      ? pipData.apiData.info.version
+                      : npmData.apiData["dist-tags"].latest
+                  }
                   license={"MIT"}
-                  UnpackedSize={"20.6 kB"}
-                  totalFile={60}
+                  UnpackedSize={
+                    activeLang === "python" || activeLang === "shell"
+                      ? (
+                          pipData.apiData.releases[
+                            pipData.apiData.info.version
+                          ][0].size / 1000
+                        )
+                          .toString()
+                          .slice(0, 4) + " kB"
+                      : (
+                          npmData.apiData.versions[
+                            npmData.apiData["dist-tags"].latest
+                          ].dist.unpackedSize / 1000
+                        )
+                          .toString()
+                          .slice(0, 4) + " kB"
+                  }
+                  totalFile={
+                    activeLang === "javascript" || activeLang === "typescript"
+                      ? npmData.apiData.versions[
+                          npmData.apiData["dist-tags"].latest
+                        ].dist.fileCount
+                      : null
+                  }
                   lang={activeLang}
                 />
                 <Collaborator
@@ -173,22 +225,26 @@ function Tid({ dataAll, toolsStatus }: any) {
 export default Tid;
 export const getServerSideProps = async (context: any) => {
   try {
-    const [res1, res2] = await Promise.all([
+    const [res1, res2, res3, res4] = await Promise.all([
       fetch(
         `https://opentools.pythonanywhere.com/api/tools-data/${context.params.tid}/?format=json`
       ),
       fetch(
         `https://opentools.pythonanywhere.com/api/tools-data/related/${context.params.tid}/?format=json`
       ),
+      fetch(`https://registry.npmjs.com/codinasion-tools`),
+      fetch(`https://pypi.org/pypi/opentoolshub/json`),
     ]);
 
     const data1 = await res1.json();
     const data2 = await res2.json();
+    const data3 = await res3.json();
+    const data4 = await res4.json();
     if (res1.status === 200) {
       return {
         props: {
           toolsStatus: true,
-          dataAll: [data1, data2],
+          dataAll: [data1, data2, data3, data4],
         },
       };
     }

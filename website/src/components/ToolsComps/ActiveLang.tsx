@@ -47,6 +47,18 @@ function ActiveLang({ activeLang, setLang }: activeLangProp) {
           style={{ width: activeLang === "python" ? "100%" : 0 }}
         ></span>
       </button>
+      <button
+        onClick={() => {
+          setLang("shell");
+        }}
+        className="p-2 relative px-3 dark:border-white border-black rounded-lg rounded-b-none"
+      >
+        Shell
+        <span
+          className="h-[2px] bg-very-dark-blue dark:bg-very-light-blue absolute bottom-0 left-0"
+          style={{ width: activeLang === "shell" ? "100%" : 0 }}
+        ></span>
+      </button>
     </div>
   );
 }

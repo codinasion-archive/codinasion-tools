@@ -23,7 +23,7 @@ function Intro() {
         className={`${jura.className} text-[4rem] dark:text-very-light-blue sm:text-[6rem] md:text-[8rem] lg:text-[10rem] txt-shadow text-center leading-[100.3%] tracking-wide`}
       >
         {" "}
-        <span className="block"> Creative</span> studio
+        <span className="block"> Codinasion Tools</span>
       </motion.h1>
       <motion.p
         initial="offscreen"

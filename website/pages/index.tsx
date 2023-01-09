@@ -25,7 +25,7 @@ export default function HomePage({ data, status }: any) {
         <SomeTools
           expendSome={true}
           title={"Most Used Tools"}
-          subTitle={"Most used and common tools used by developer"}
+          subTitle={"Our most used and common tools used by developers"}
           apiData={context.commonTools.apiData}
           apiStatus={context.commonTools.apiStatus}
         />
