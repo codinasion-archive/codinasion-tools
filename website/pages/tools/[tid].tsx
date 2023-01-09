@@ -233,7 +233,7 @@ export const getServerSideProps = async (context: any) => {
         `https://opentools.pythonanywhere.com/api/tools-data/related/${context.params.tid}/?format=json`
       ),
       fetch(`https://registry.npmjs.com/codinasion-tools`),
-      fetch(`https://pypi.org/pypi/opentoolshub/json`),
+      fetch(`https://pypi.org/pypi/codinasion-tools/json`),
     ]);
 
     const data1 = await res1.json();
