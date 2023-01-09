@@ -4,6 +4,7 @@ import Link from "next/link";
 import Btn from "../../Button/Btn";
 import { FaGithub } from "react-icons/fa";
 import ProfileImg from "../../ProfileImg/ProfileImg";
+import siteMetaData from "@/data/siteMetaData";
 
 interface CollaboratorType {
   apiStatus: boolean;
@@ -40,7 +41,7 @@ function Collaborator({ apiData, apiStatus, more = true }: CollaboratorType) {
       </div>
       <Btn
         ariaLabel="Collaborate to codinasion-tools with us on Github"
-        href={"https://github.com/codinasion/codinasion-tools"}
+        href={`${siteMetaData.repoUrl}`}
         target="_blank"
         text={"Collaborate"}
         cssStyle={`w-full rounded-2xl mt-5`}

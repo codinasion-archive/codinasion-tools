@@ -9,6 +9,7 @@ import Menu from "./Menu";
 import Link from "next/link";
 import { TheContext } from "src/Context/Context";
 import { useRouter } from "next/router";
+import siteMetaData from "@/data/siteMetaData";
 
 const jura = Jura({
   subsets: ["latin"],
@@ -124,7 +125,7 @@ export default function Navbar({ setSearchBox }: navbarProp) {
           className="text-very-dark-blue py-2 px-3 border-b-2 border-transparent hover:border-white dark:text-white text-shadow-II"
           aria-label="Go to github page"
           target={"_blank"}
-          href={"https://github.com/codinasion/codinasion-tools"}
+          href={`${siteMetaData.repoUrl}`}
         >
           GitHub
         </Link>

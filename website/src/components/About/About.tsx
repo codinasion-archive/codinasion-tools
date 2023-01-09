@@ -6,6 +6,7 @@ import { FiExternalLink } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { scrollX, scrollScale } from "src/AnimationVariants/animationVariants";
 import Link from "@/components/Link";
+import siteMetaData from "@/data/siteMetaData";
 
 function Index() {
   return (
@@ -60,7 +61,7 @@ function Index() {
           variants={scrollX(-50)}
         >
           <Btn
-            href={"https://github.com/codinasion/"}
+            href={`${siteMetaData.joinUrl}`}
             ariaLabel="Join Codinasion on Github and Contribute to open-source projects"
             target="_blank"
             text={"Join codinasion"}
@@ -75,7 +76,7 @@ function Index() {
           variants={scrollX(50)}
         >
           <Btn
-            href={"https://github.com/codinasion/codinasion-tools"}
+            href={`${siteMetaData.repoUrl}`}
             ariaLabel="Contribute codinasion-tools on Github"
             target="_blank"
             text={"Contribute to codinasion-tools"}

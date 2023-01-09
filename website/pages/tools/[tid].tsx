@@ -19,6 +19,7 @@ import Link from "next/link";
 import Box from "@/components/Box";
 import { GoIssueOpened } from "react-icons/go";
 import Issue from "@/components/ToolsComps/Issue";
+import siteMetaData from "@/data/siteMetaData";
 
 function Tid({ dataAll, toolsStatus }: any) {
   const [activeLang, setLang] = useState<string>("javascript");
@@ -218,9 +219,7 @@ export default Tid;
 
 export const getStaticPaths = async () => {
   try {
-    const res = await fetch(
-      `https://opentools.pythonanywhere.com/api/tools-data/`
-    );
+    const res = await fetch(`${siteMetaData.backendUrl}/tools-data/`);
 
     if (res.status === 200) {
       const data = await res.json();
@@ -249,13 +248,13 @@ export const getStaticProps = async (context: any) => {
   try {
     const [res1, res2, res3, res4] = await Promise.all([
       fetch(
-        `https://opentools.pythonanywhere.com/api/tools-data/${context.params.tid}/?format=json`
+        `${siteMetaData.backendUrl}/tools-data/${context.params.tid}/?format=json`
       ),
       fetch(
-        `https://opentools.pythonanywhere.com/api/tools-data/related/${context.params.tid}/?format=json`
+        `${siteMetaData.backendUrl}/tools-data/related/${context.params.tid}/?format=json`
       ),
-      fetch(`https://registry.npmjs.com/codinasion-tools`),
-      fetch(`https://pypi.org/pypi/codinasion-tools/json`),
+      fetch(`${siteMetaData.npmAPIUrl}/codinasion-tools`),
+      fetch(`${siteMetaData.pipAPIUrl}/codinasion-tools/json`),
     ]);
 
     if (res1.status === 200) {

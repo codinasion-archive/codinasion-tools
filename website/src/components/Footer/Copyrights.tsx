@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from "@/components/Link";
+import siteMetaData from "@/data/siteMetaData";
 
 function Copyrights() {
   return (
@@ -12,7 +13,7 @@ function Copyrights() {
             textDecoration: "none",
             color: "inherit",
           }}
-          href="https://github.com/codinasion"
+          href={`${siteMetaData.githubUrl}`}
         >
           <b>Codinasion</b>
         </Link>

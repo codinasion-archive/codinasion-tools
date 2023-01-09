@@ -7,6 +7,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { scrollScale } from "src/AnimationVariants/animationVariants";
 import { TheContext } from "src/Context/Context";
+import siteMetaData from "@/data/siteMetaData";
 
 interface devsProfileType {
   avatar_url: string;
@@ -45,7 +46,7 @@ const Dev = () => {
         >
           <Header
             title="Our Contributors"
-            subTitle="I’ve written a few thousand words on why traditional"
+            subTitle="Our awesome contributors"
             cssStyle="!text-very-light-blue"
           />
         </motion.div>
@@ -105,7 +106,7 @@ const Dev = () => {
           variants={scrollScale(1.2)}
         >
           <Btn
-            href={"https://github.com/codinasion/"}
+            href={`${siteMetaData.joinUrl}`}
             ariaLabel="Join Codinasion on Github"
             target={"_blank"}
             text={"Join Codinasion"}

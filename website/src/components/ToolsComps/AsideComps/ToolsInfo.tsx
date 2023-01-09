@@ -1,6 +1,7 @@
 import Box from "@/components/Box";
 import Link from "next/link";
 import SimpleDate from "./Date";
+import siteMetaData from "@/data/siteMetaData";
 
 interface toolInfoProp {
   used: number;
@@ -27,16 +28,16 @@ function ToolInfo({
       <Link
         href={`${
           lang === "python"
-            ? "https://github.com/codinasion/codinasion-tools/tree/master/pip"
+            ? `${siteMetaData.repoUrl}/tree/master/pip`
             : lang === "shell"
-            ? "https://github.com/codinasion/codinasion-tools/tree/master/backend/tools"
-            : "https://github.com/codinasion/codinasion-tools/tree/master/npm"
+            ? `${siteMetaData.repoUrl}/tree/master/backend/tools`
+            : `${siteMetaData.repoUrl}/tree/master/npm`
         }`}
         className={"font-light truncate block mt-2 max-w-[300px] "}
       >
         {lang === "python"
-          ? "https://github.com/codinasion/codinasion-tools/tree/master/pip"
-          : "https://github.com/codinasion/codinasion-tools/tree/master/npm"}
+          ? `${siteMetaData.repoUrl}/tree/master/pip`
+          : `${siteMetaData.repoUrl}/tree/master/npm`}
       </Link>
       <div className="space-y-5">
         <div className="mt-5">

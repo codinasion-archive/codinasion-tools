@@ -1,4 +1,6 @@
 import { UrlTypes } from "./Interface";
+import siteMetaData from "@/data/siteMetaData";
+
 export const basicSiteUrlTypes: UrlTypes[] = [
   {
     id: 1,
@@ -50,16 +52,16 @@ export const socialTypes: UrlTypes[] = [
   {
     id: 1,
     text: "GitHub",
-    url: "https://github.com/codinasion",
+    url: `${siteMetaData.githubUrl}`,
   },
   {
     id: 2,
     text: "Twitter",
-    url: "https://twitter.com",
+    url: `${siteMetaData.twitterUrl}`,
   },
   {
     id: 3,
     text: "Discord",
-    url: "https://Discord.com",
+    url: `${siteMetaData.discordUrl}`,
   },
 ];

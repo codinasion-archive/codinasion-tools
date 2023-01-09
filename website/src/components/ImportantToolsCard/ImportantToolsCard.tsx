@@ -9,6 +9,7 @@ import {
 } from "../../AnimationVariants/animationVariants";
 import { TheContext } from "src/Context/Context";
 import Link from "next/link";
+import siteMetaData from "@/data/siteMetaData";
 
 interface basicToolsType {
   title: string;
@@ -52,7 +53,7 @@ function ImportantToolsCard() {
               >
                 <BasicCard
                   title={item.title}
-                  repoUrl="https://github.com/codinasion/codinasion-tools"
+                  repoUrl={`${siteMetaData.repoUrl}`}
                   docsUrl={`${item.slug}`}
                 />
               </motion.div>

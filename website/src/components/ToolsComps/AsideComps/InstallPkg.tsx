@@ -4,6 +4,7 @@ import Link from "next/link";
 import { MdDownload } from "react-icons/md";
 import { ImNpm } from "react-icons/im";
 import { SiPypi } from "react-icons/si";
+import siteMetaData from "@/data/siteMetaData";
 
 interface setAlertStateType {
   title: string;
@@ -24,7 +25,7 @@ function InstallPkg({ setAlertState, alertData }: InstallPkgProp) {
         of basic and advanced tools.
       </p>
       <Link
-        href={"https://npmjs.com/package/codinasion-tools/"}
+        href={`${siteMetaData.npmUrl}`}
         target="_blank"
         download
         className="bg-very-dark-blue dark:bg-white dark:text-very-dark-blue dark:hover:bg-very-dark-blue hover:text-very-dark-blue hover:bg-white border-2 dark:hover:text-white flex items-center justify-center gap-2 text-white p-2 mt-3 text-center text-xl rounded-xl"
@@ -41,7 +42,7 @@ function InstallPkg({ setAlertState, alertData }: InstallPkgProp) {
         codinasion-tools
       </Link>
       <Link
-        href={"https://pypi.org/project/codinasion-tools/"}
+        href={`${siteMetaData.pipUrl}`}
         target="_blank"
         download
         className="bg-very-dark-blue dark:bg-white dark:text-very-dark-blue dark:hover:bg-very-dark-blue hover:text-very-dark-blue hover:bg-white border-2 dark:hover:text-white flex items-center justify-center gap-2 text-white p-2 mt-3 text-center text-xl rounded-xl"

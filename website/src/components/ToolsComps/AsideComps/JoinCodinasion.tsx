@@ -3,6 +3,7 @@ import Box from "../../Box";
 import Btn from "../../Button/Btn";
 import { FaGithub } from "react-icons/fa";
 import Link from "@/components/Link";
+import siteMetaData from "@/data/siteMetaData";
 
 function JoinCodinasion() {
   return (
@@ -27,7 +28,7 @@ function JoinCodinasion() {
       </p>
       <Btn
         ariaLabel="Join Codinasion open source project"
-        href={"https://github.com/codinasion/"}
+        href={`${siteMetaData.joinUrl}`}
         target="_blank"
         text={"Join Codinasion"}
         cssStyle={`w-full rounded-2xl mt-5`}

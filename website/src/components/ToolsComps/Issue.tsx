@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { GoIssueOpened } from "react-icons/go";
+import siteMetaData from "@/data/siteMetaData";
 
 function Issue() {
   return (
@@ -12,7 +13,7 @@ function Issue() {
       </p>
 
       <Link
-        href={"https://github.com/codinasion/codinasion-tools/issues/new"}
+        href={`${siteMetaData.repoUrl}/issues/new`}
         className="bg-very-dark-blue text-white text-left w-full rounded-xl p-5 py-2 flex justify-between items-center"
         target={"_blank"}
         aria-label="Create a new Issue"

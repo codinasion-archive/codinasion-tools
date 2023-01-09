@@ -4,6 +4,7 @@ import Btn from "../Button/Btn";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { scrollScale } from "src/AnimationVariants/animationVariants";
+import siteMetaData from "@/data/siteMetaData";
 
 const jura = Jura({
   subsets: ["latin"],
@@ -44,7 +45,7 @@ function Intro() {
         viewport={{ amount: 0.6, once: false }}
       >
         <Btn
-          href={"https://github.com/codinasion"}
+          href={`${siteMetaData.joinUrl}`}
           ariaLabel="Join Codinasion on Github"
           target="_blank"
           text={"Join Codinasion"}
