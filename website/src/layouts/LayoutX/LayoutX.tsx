@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import Members from "@/components/Dev/Dev";
 import Navbar from "@/components/Navbar";
 import Testimonial from "@/components/Testimonial/Testimonial";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 
 // google font
@@ -44,9 +44,11 @@ function LayoutX({ children }: Props) {
     apiData: [],
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (localStorage.theme === "dark") {
       document.documentElement.classList.add("dark");
+    }else{
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
