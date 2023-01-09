@@ -28,14 +28,14 @@ function InstallPkg({ setAlertState, alertData }: InstallPkgProp) {
         target="_blank"
         download
         className="bg-very-dark-blue dark:bg-white dark:text-very-dark-blue dark:hover:bg-very-dark-blue hover:text-very-dark-blue hover:bg-white border-2 dark:hover:text-white flex items-center justify-center gap-2 text-white p-2 mt-3 text-center text-xl rounded-xl"
-        onClick={(e) => {
-          e.preventDefault;
-          setAlertState({
-            title: alertData.title,
-            message: alertData.message,
-            status: alertData.status,
-          });
-        }}
+        // onClick={(e) => {
+        //   e.preventDefault;
+        //   setAlertState({
+        //     title: alertData.title,
+        //     message: alertData.message,
+        //     status: alertData.status,
+        //   });
+        // }}
       >
         <ImNpm />
         codinasion-tools
@@ -45,14 +45,14 @@ function InstallPkg({ setAlertState, alertData }: InstallPkgProp) {
         target="_blank"
         download
         className="bg-very-dark-blue dark:bg-white dark:text-very-dark-blue dark:hover:bg-very-dark-blue hover:text-very-dark-blue hover:bg-white border-2 dark:hover:text-white flex items-center justify-center gap-2 text-white p-2 mt-3 text-center text-xl rounded-xl"
-        onClick={(e) => {
-          e.preventDefault;
-          setAlertState({
-            title: alertData.title,
-            message: alertData.message,
-            status: alertData.status,
-          });
-        }}
+        // onClick={(e) => {
+        //   e.preventDefault;
+        //   setAlertState({
+        //     title: alertData.title,
+        //     message: alertData.message,
+        //     status: alertData.status,
+        //   });
+        // }}
       >
         <SiPypi />
         codinasion-tools
