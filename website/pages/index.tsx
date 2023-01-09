@@ -38,7 +38,7 @@ export default function HomePage({ data, status }: any) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   try {
     const [res1, res2, res3] = await Promise.all([
       fetch("https://opentools.pythonanywhere.com/api/tools-data/?format=json"),
@@ -60,6 +60,7 @@ export const getServerSideProps = async () => {
           status: true,
           data: [tools, testimonial, commonTools],
         },
+        revalidate: 60,
       }
     );
   } catch (error) {
@@ -68,6 +69,7 @@ export const getServerSideProps = async () => {
         status: false,
         data: null,
       },
+      revalidate: 60,
     };
   }
 };

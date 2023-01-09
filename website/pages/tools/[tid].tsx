@@ -223,7 +223,7 @@ function Tid({ dataAll, toolsStatus }: any) {
 }
 
 export default Tid;
-export const getServerSideProps = async (context: any) => {
+export const getStaticProps = async (context: any) => {
   try {
     const [res1, res2, res3, res4] = await Promise.all([
       fetch(
@@ -246,6 +246,7 @@ export const getServerSideProps = async (context: any) => {
           toolsStatus: true,
           dataAll: [data1, data2, data3, data4],
         },
+        revalidate: 60,
       };
     }
   } catch (error) {
@@ -254,6 +255,7 @@ export const getServerSideProps = async (context: any) => {
         toolsStatus: false,
         dataAll: null,
       },
+      revalidate: 60,
     };
   }
 };

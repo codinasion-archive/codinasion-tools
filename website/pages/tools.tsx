@@ -179,7 +179,7 @@ function ToolsLayout({ data, status }: any) {
 }
 
 export default ToolsLayout;
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   try {
     const [res1, res2, res3, res4, res5] = await Promise.all([
       fetch("https://opentools.pythonanywhere.com/api/tools-data/?format=json"),
@@ -207,6 +207,7 @@ export const getServerSideProps = async () => {
           status: true,
           data: [tools, category, contributes, commonTools, testimonial],
         },
+        revalidate: 60,
       }
     );
   } catch (error) {
@@ -215,6 +216,7 @@ export const getServerSideProps = async () => {
         toolsStatus: false,
         data: null,
       },
+      revalidate: 60,
     };
   }
 };
