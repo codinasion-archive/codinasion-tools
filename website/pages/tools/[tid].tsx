@@ -1,5 +1,5 @@
 import Path from "@/components/Path";
-import React, { useState } from "react";
+import React, { useContext, useLayoutEffect, useState } from "react";
 import { useRouter } from "next/router";
 import LayoutXComp from "@/layouts/LayoutX/LayoutXComp";
 import { motion } from "framer-motion";
@@ -19,9 +19,12 @@ import Issue from "@/components/ToolsComps/Issue";
 import siteMetaData from "@/data/siteMetaData";
 import Comment from "@/components/Comment";
 import Clipboards from "@/components/Clipboards/Clipboards";
+import LiveEditor from "@/components/ToolsComps/LiveEditor";
+import { TheContext } from "src/Context/Context";
 
 function Tid({ dataAll, toolsStatus }: any) {
   const [activeLang, setLang] = useState<string>("javascript");
+  const context = useContext(TheContext);
   const router = useRouter();
 
   const toolData: any = toolsStatus
@@ -43,6 +46,11 @@ function Tid({ dataAll, toolsStatus }: any) {
     status: false,
   });
 
+  useLayoutEffect(() => {
+    toolsStatus &&
+      context.setCommonTools({ apiStatus: toolsStatus, apiData: dataAll[4] });
+  }, [dataAll, toolsStatus]);
+
   return toolsStatus ? (
     <>
       <div className="w-full z-20 relative top-20 sm:top-32 sm:p-3">
@@ -54,9 +62,9 @@ function Tid({ dataAll, toolsStatus }: any) {
             className="lg:col-span-2 col-span-3 relative bg-white dark:bg-very-dark-blue dark:text-white rounded-2xl overflow-hidden"
           >
             <div className="w-full p-4 text-xl bg-very-dark-blue flex justify-between items-center tracking-wider text-white">
-              <span>
+              <div>
                 <Path path={`tools/${router.isReady && router.query["tid"]}`} />
-              </span>
+              </div>
             </div>
             <div className="space-y-5 lg:px-4 p-3 ">
               <ToolHeader
@@ -137,7 +145,7 @@ function Tid({ dataAll, toolsStatus }: any) {
                 </div>
               ) : (
                 <div className="w-full flex items-center justify-between rounded-2xl lg:rounded-none bg-very-dark-blue p-4 text-lg text-white">
-                  <span className="opacity-0">x</span>
+                  <p className="opacity-0">x</p>
                 </div>
               )}
 
@@ -259,7 +267,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context: any) => {
   try {
-    const [res1, res2, res3, res4] = await Promise.all([
+    const [res1, res2, res3, res4, res5] = await Promise.all([
       fetch(
         `${siteMetaData.backendUrl}/tools-data/${context.params.tid}/?format=json`
       ),
@@ -268,6 +276,7 @@ export const getStaticProps = async (context: any) => {
       ),
       fetch(`${siteMetaData.npmAPIUrl}/codinasion-tools`),
       fetch(`${siteMetaData.pipAPIUrl}/codinasion-tools/json`),
+      fetch(`${siteMetaData.backendUrl}/most-used-tools/?format=json`),
     ]);
 
     if (res1.status === 200) {
@@ -275,11 +284,12 @@ export const getStaticProps = async (context: any) => {
       const data2 = await res2.json();
       const data3 = await res3.json();
       const data4 = await res4.json();
+      const data5 = await res5.json();
 
       return {
         props: {
           toolsStatus: true,
-          dataAll: [data1, data2, data3, data4],
+          dataAll: [data1, data2, data3, data4, data5],
         },
         revalidate: 60,
       };

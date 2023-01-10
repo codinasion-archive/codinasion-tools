@@ -13,11 +13,7 @@ function Clipboards({ clipText, cssStyle }: clipboardType) {
     navigator.clipboard.writeText(clip);
     setClipState(true);
   };
-
-  useEffect(()=>{
-    console.log(clipState)
-  },[clipState])
-
+  
   return (
     <button
       className={`group bg-very-dark-blue ${cssStyle}`}
