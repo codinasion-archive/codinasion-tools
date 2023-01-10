@@ -4,6 +4,7 @@ import Link from "next/link";
 import Btn from "../../Button/Btn";
 import { FaGithub } from "react-icons/fa";
 import ProfileImg from "../../ProfileImg/ProfileImg";
+import siteMetaData from "@/data/siteMetaData";
 
 interface CollaboratorType {
   apiStatus: boolean;
@@ -25,10 +26,10 @@ function Collaborator({ apiData, apiStatus, more = true }: CollaboratorType) {
                 key={Math.random() * 50 + "devs"}
                 profileUrl={`https://github.com/${item.username}`}
                 name={item.username}
-                imgUrl={'https://picsum.photos/200'}
+                imgUrl={"https://picsum.photos/200"}
               />
             ))}
-        {(more && apiData.length>10) && (
+        {more && apiData.length > 10 && (
           <Link
             href="https://github.com/orgs/codinasion/teams/members/members"
             target={"_blank"}
@@ -40,7 +41,7 @@ function Collaborator({ apiData, apiStatus, more = true }: CollaboratorType) {
       </div>
       <Btn
         ariaLabel="Collaborate to codinasion-tools with us on Github"
-        href={"https://github.com/codinasion"}
+        href={`${siteMetaData.repoUrl}`}
         target="_blank"
         text={"Collaborate"}
         cssStyle={`w-full rounded-2xl mt-5`}

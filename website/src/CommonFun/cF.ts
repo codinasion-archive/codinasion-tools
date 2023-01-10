@@ -13,7 +13,7 @@ export const categoryFun = async (arr: any, category: string) => {
   for (let i = 0; i < arr.length; i++) {
     const element = arr[i];
     element.category.map((item: any) => {
-      if ((item.title.toLowerCase() == category.toLowerCase()) && category.length>2) {
+      if ((item.title.toLowerCase() == category.toLowerCase()) && category.length > 2) {
         xl.push(element);
       }
     });

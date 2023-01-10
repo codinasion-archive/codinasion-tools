@@ -4,6 +4,7 @@ import Btn from "../Button/Btn";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { scrollScale } from "src/AnimationVariants/animationVariants";
+import siteMetaData from "@/data/siteMetaData";
 
 const jura = Jura({
   subsets: ["latin"],
@@ -23,7 +24,7 @@ function Intro() {
         className={`${jura.className} text-[4rem] dark:text-very-light-blue sm:text-[6rem] md:text-[8rem] lg:text-[10rem] txt-shadow text-center leading-[100.3%] tracking-wide`}
       >
         {" "}
-        <span className="block"> Creative</span> studio
+        <span className="block"> Codinasion Tools</span>
       </motion.h1>
       <motion.p
         initial="offscreen"
@@ -44,7 +45,7 @@ function Intro() {
         viewport={{ amount: 0.6, once: false }}
       >
         <Btn
-          href={"https://github.com/codinasion"}
+          href={`${siteMetaData.joinUrl}`}
           ariaLabel="Join Codinasion on Github"
           target="_blank"
           text={"Join Codinasion"}

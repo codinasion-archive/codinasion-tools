@@ -1,28 +1,21 @@
-import { Content, Jura } from "@next/font/google";
+import { Jura } from "@next/font/google";
 import { HiMenuAlt3, HiMoon, HiSun } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
 import UrlBtn from "../Button/UrlBtn";
-import { useEffect, useState, useContext, useMemo } from "react";
+import { useEffect, useState, useContext } from "react";
 import Btn from "../Button/Btn";
 import Menu from "./Menu";
 import Link from "next/link";
 import { TheContext } from "src/Context/Context";
 import { useRouter } from "next/router";
+import siteMetaData from "@/data/siteMetaData";
 
 const jura = Jura({
   subsets: ["latin"],
   variable: "--font-jura",
   weight: ["700"],
 });
-
-interface navElementsType {
-  text: string;
-  url: string;
-  externalLink: boolean;
-  cssStyle?: string;
-}
-[];
 
 interface navbarProp {
   setSearchBox: (e: boolean) => void;
@@ -52,22 +45,21 @@ export default function Navbar({ setSearchBox }: navbarProp) {
       setThemeState("dark");
       context.setTheme("dark");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <nav
       className={`fixed top-0 w-full pt-3 z-40 flex gap-3 flex-col items-center justify-center font-extrabold ${jura.className} backdrop-blur-md`}
     >
-      <div className="flex items-center z-50 relative w-full p-3 !justify-between text-2xl text-white">
-        <div></div>
+      <div className="flex justify-between sm:justify-center items-center relative w-full p-3 text-2xl text-white">
         <UrlBtn
           name="codinasion-tools"
           href="/"
           ariaLabel="codinasion-tools codinasion program"
-          cssStyle="hover:!border-transparent text-3xl  dark:txt-gradient-light"
+          cssStyle="hover:!border-transparent text-shadow-II text-2xl sm:text-3xl !px-0 dark:txt-gradient-light"
         />
-        <div></div>
-        <div className="flex absolute right-3 md:hidden items-center gap-2">
+        <div className="flex absolute right-3 md:hidden items-center gap-2 z-20">
           <Btn
             text={""}
             icon={<FiSearch />}
@@ -124,7 +116,7 @@ export default function Navbar({ setSearchBox }: navbarProp) {
           className="text-very-dark-blue py-2 px-3 border-b-2 border-transparent hover:border-white dark:text-white text-shadow-II"
           aria-label="Go to github page"
           target={"_blank"}
-          href={"https://github.com/codinasion/codinasion-tools"}
+          href={`${siteMetaData.repoUrl}`}
         >
           GitHub
         </Link>

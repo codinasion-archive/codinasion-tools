@@ -10,10 +10,11 @@ import { HiMoon, HiSun } from "react-icons/hi";
 import Link from "next/link";
 import { TheContext } from "src/Context/Context";
 import { useRouter } from "next/router";
+import siteMetaData from "@/data/siteMetaData";
 
 interface menuProp {
   setState: (e: boolean) => void;
-  toggleTheme:()=>void
+  toggleTheme: () => void;
 }
 
 function Menu({ setState, toggleTheme }: menuProp) {
@@ -98,7 +99,7 @@ function Menu({ setState, toggleTheme }: menuProp) {
               <ProfileImg
                 imgUrl={"/LOGO.png"}
                 name="JohnDoe"
-                profileUrl="https://github.com/codinasion"
+                profileUrl={`${siteMetaData.githubUrl}`}
               />
             </div>
           </Link>
@@ -144,7 +145,7 @@ function Menu({ setState, toggleTheme }: menuProp) {
             created by our independent developers.
           </p>
           <Btn
-            href={"https://github.com/codinasion/"}
+            href={`${siteMetaData.joinUrl}`}
             target={"_blank"}
             text={"Join Codinasion"}
             ariaLabel={"Join Codinasion open source projects"}

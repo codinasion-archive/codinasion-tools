@@ -7,6 +7,7 @@ import Copyrights from "./Copyrights";
 import { basicSiteUrlTypes, socialTypes } from "src/Objs&Interfaces/Obj";
 import { UrlTypes } from "src/Objs&Interfaces/Interface";
 import { TheContext } from "src/Context/Context";
+import siteMetaData from "@/data/siteMetaData";
 
 const jura = Jura({
   subsets: ["latin"],
@@ -132,7 +133,7 @@ function Footer() {
                 </header>
 
                 <Btn
-                  href={"https://github.com/codinasion/"}
+                  href={`${siteMetaData.joinUrl}`}
                   target={"_blank"}
                   ariaLabel={`Join Codinasion on Github it's an open-source`}
                   text={"Join Codinasion"}

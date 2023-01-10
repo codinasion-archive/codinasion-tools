@@ -1,5 +1,5 @@
 import React from "react";
-import {HiOutlineArrowNarrowDown} from 'react-icons/hi'
+import { HiOutlineArrowNarrowDown } from "react-icons/hi";
 
 function Background() {
   return (
@@ -17,7 +17,6 @@ function Background() {
         <div className="w-full animate-ping h-full dark:border-very-dark-blue/20 rounded-full border-[30px]"></div>
       </div>
       <div className="w-[30%] h-screen bg-gradient-to-tr from-white via-very-light-blue absolute top-0 to-very-light-blue dark:bg-gradient-to-lr dark:from-very-dark-blue dark:to-dark-blue"></div>
-
     </div>
   );
 }

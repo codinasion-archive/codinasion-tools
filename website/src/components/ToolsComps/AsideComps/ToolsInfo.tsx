@@ -1,6 +1,7 @@
 import Box from "@/components/Box";
 import Link from "next/link";
 import SimpleDate from "./Date";
+import siteMetaData from "@/data/siteMetaData";
 
 interface toolInfoProp {
   used: number;
@@ -8,8 +9,8 @@ interface toolInfoProp {
   version: string;
   license: string;
   UnpackedSize: string;
-  totalFile: number;
-  lang: string
+  totalFile?: number;
+  lang: string;
 }
 function ToolInfo({
   used,
@@ -18,21 +19,29 @@ function ToolInfo({
   license,
   UnpackedSize,
   totalFile,
-  lang
+  lang,
 }: toolInfoProp) {
   return (
     <Box>
       <h3 className="text-xl font-medium py-3">Repository</h3>
       <hr />
       <Link
-        href={`${lang==='python'?'https://github.com/codinasion/codinasion-tools/tree/master/pip':"https://github.com/codinasion/codinasion-tools/tree/master/npm"}`}
+        href={`${
+          lang === "python"
+            ? `${siteMetaData.repoUrl}/tree/master/pip`
+            : lang === "shell"
+            ? `${siteMetaData.repoUrl}/tree/master/backend/tools`
+            : `${siteMetaData.repoUrl}/tree/master/npm`
+        }`}
         className={"font-light truncate block mt-2 max-w-[300px] "}
       >
-        {lang==='python'?'https://github.com/codinasion/codinasion-tools/tree/master/pip':"https://github.com/codinasion/codinasion-tools/tree/master/npm"}
+        {lang === "python"
+          ? `${siteMetaData.repoUrl}/tree/master/pip`
+          : `${siteMetaData.repoUrl}/tree/master/npm`}
       </Link>
       <div className="space-y-5">
         <div className="mt-5">
-          <h3 className="text-xl font-medium tran">Download</h3>
+          <h3 className="text-xl font-medium tran">Used</h3>
           <p className="border-b-[3px] p-1 py-2 border-very-light-blue relative dark:border-dark-blue after:w-[60%] after:border-[2px] after:border-dark-blue dark:after:border-very-light-blue/70 after:absolute after:left-0 after:-bottom-[3px]">
             {used}
           </p>
@@ -48,9 +57,11 @@ function ToolInfo({
         <h3 className="w-full p-2 flex justify-between items-center px-3 shadow-very-light-blue dark:shadow-dark-blue shadow-md rounded-xl">
           Unpacked Size <span>{UnpackedSize}</span>
         </h3>{" "}
-        <h3 className="w-full p-2 flex justify-between items-center px-3 shadow-very-light-blue dark:shadow-dark-blue shadow-md rounded-xl">
-          Total File <span>{totalFile}</span>
-        </h3>{" "}
+        {totalFile && (
+          <h3 className="w-full p-2 flex justify-between items-center px-3 shadow-very-light-blue dark:shadow-dark-blue shadow-md rounded-xl">
+            Total File <span>{totalFile}</span>
+          </h3>
+        )}{" "}
         <SimpleDate date={date} />
       </div>
     </Box>

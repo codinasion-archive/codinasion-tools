@@ -4,6 +4,7 @@ import { HiOutlineArrowNarrowDown } from "react-icons/hi";
 import { FaTwitter, FaDiscord, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { scrollScale } from "src/AnimationVariants/animationVariants";
+import siteMetaData from "@/data/siteMetaData";
 
 interface pageNavigatorProp {
   pageNavigator: string[];
@@ -25,7 +26,7 @@ function LayoutXComp({
             variants={scrollScale(0.5)}
           >
             <Link
-              href={"https://github.com/codinasion/"}
+              href={`${siteMetaData.githubUrl}`}
               target="_blank"
               className={
                 "glow-dark-on bg-very-light-blue w-10 aspect-square rounded-full  border-2 flex justify-center items-center"
@@ -41,7 +42,7 @@ function LayoutXComp({
             variants={scrollScale(0.5)}
           >
             <Link
-              href={"https://twitter.com"}
+              href={`${siteMetaData.twitterUrl}`}
               target="_blank"
               className={
                 "glow-dark-on  w-10 aspect-square rounded-full  border-2 flex bg-very-light-blue justify-center items-center"
@@ -58,7 +59,7 @@ function LayoutXComp({
             variants={scrollScale(0.5)}
           >
             <Link
-              href={"https://discord.com"}
+              href={`${siteMetaData.discordUrl}`}
               target="_blank"
               className={
                 "glow-dark-on bg-very-light-blue w-10 aspect-square rounded-full  border-2 flex justify-center items-center"

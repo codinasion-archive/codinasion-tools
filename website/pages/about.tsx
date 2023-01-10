@@ -3,6 +3,7 @@ import Background from "@/layouts/LayoutX/Background";
 import LayoutXComp from "@/layouts/LayoutX/LayoutXComp";
 import React, { useContext, useEffect } from "react";
 import { TheContext } from "src/Context/Context";
+import siteMetaData from "@/data/siteMetaData";
 
 function Index({ data, status }: any) {
   const context = useContext(TheContext);
@@ -31,16 +32,12 @@ function Index({ data, status }: any) {
 
 export default Index;
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   try {
     const [res1, res2, res3] = await Promise.all([
-      fetch("https://opentools.pythonanywhere.com/api/tools-data/?format=json"),
-      fetch(
-        "https://opentools.pythonanywhere.com/api/testimonials/?format=json"
-      ),
-      fetch(
-        "https://opentools.pythonanywhere.com/api/most-used-tools/?format=json"
-      ),
+      fetch(`${siteMetaData.backendUrl}/tools-data/?format=json`),
+      fetch(`${siteMetaData.backendUrl}/testimonials/?format=json`),
+      fetch(`${siteMetaData.backendUrl}/most-used-tools/?format=json`),
     ]);
 
     const tools = await res1.json();
@@ -53,6 +50,7 @@ export const getServerSideProps = async () => {
           status: true,
           data: [tools, testimonial, commonTools],
         },
+        revalidate: 60,
       }
     );
   } catch (error) {
@@ -61,6 +59,7 @@ export const getServerSideProps = async () => {
         status: false,
         data: null,
       },
+      revalidate: 60,
     };
   }
 };

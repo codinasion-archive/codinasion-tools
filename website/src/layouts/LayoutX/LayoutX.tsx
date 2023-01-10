@@ -2,8 +2,8 @@ import Footer from "@/components/Footer";
 import Members from "@/components/Dev/Dev";
 import Navbar from "@/components/Navbar";
 import Testimonial from "@/components/Testimonial/Testimonial";
-import React, { useState, useEffect } from "react";
-import { motion, useScroll} from "framer-motion";
+import React, { useState, useLayoutEffect } from "react";
+import { motion, useScroll } from "framer-motion";
 
 // google font
 import { Rubik } from "@next/font/google";
@@ -44,9 +44,11 @@ function LayoutX({ children }: Props) {
     apiData: [],
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (localStorage.theme === "dark") {
       document.documentElement.classList.add("dark");
+    }else{
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
@@ -62,7 +64,7 @@ function LayoutX({ children }: Props) {
         testimonialData,
         setTestimonialData,
         commonTools,
-        setCommonTools
+        setCommonTools,
       }}
     >
       <motion.div

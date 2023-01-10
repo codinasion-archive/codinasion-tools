@@ -5,6 +5,7 @@ import Intro from "@/components/Intro";
 import SomeTools from "@/components/ToolsComps/SomeTools";
 import LayoutXComp from "@/layouts/LayoutX/LayoutXComp";
 import { TheContext } from "src/Context/Context";
+import siteMetaData from "@/data/siteMetaData";
 
 export default function HomePage({ data, status }: any) {
   const context = useContext(TheContext);
@@ -25,7 +26,7 @@ export default function HomePage({ data, status }: any) {
         <SomeTools
           expendSome={true}
           title={"Most Used Tools"}
-          subTitle={"Most used and common tools used by developer"}
+          subTitle={"Our most used and common tools used by developers"}
           apiData={context.commonTools.apiData}
           apiStatus={context.commonTools.apiStatus}
         />
@@ -38,16 +39,12 @@ export default function HomePage({ data, status }: any) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   try {
     const [res1, res2, res3] = await Promise.all([
-      fetch("https://opentools.pythonanywhere.com/api/tools-data/?format=json"),
-      fetch(
-        "https://opentools.pythonanywhere.com/api/testimonials/?format=json"
-      ),
-      fetch(
-        "https://opentools.pythonanywhere.com/api/most-used-tools/?format=json"
-      ),
+      fetch(`${siteMetaData.backendUrl}/tools-data/?format=json`),
+      fetch(`${siteMetaData.backendUrl}/testimonials/?format=json`),
+      fetch(`${siteMetaData.backendUrl}/most-used-tools/?format=json`),
     ]);
 
     const tools = await res1.json();
@@ -60,6 +57,7 @@ export const getServerSideProps = async () => {
           status: true,
           data: [tools, testimonial, commonTools],
         },
+        revalidate: 60,
       }
     );
   } catch (error) {
@@ -68,6 +66,7 @@ export const getServerSideProps = async () => {
         status: false,
         data: null,
       },
+      revalidate: 60,
     };
   }
 };

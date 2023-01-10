@@ -14,6 +14,7 @@ import TopToolsKeywords from "@/components/ToolsComps/AsideComps/SearchKeywords"
 import Category from "@/components/ToolsComps/AsideComps/Category";
 import { categoryFun } from "src/CommonFun/cF";
 import PaginationII from "@/components/Pagination/PaginationII";
+import siteMetaData from "@/data/siteMetaData";
 
 function ToolsLayout({ data, status }: any) {
   const context = useContext(TheContext);
@@ -179,20 +180,14 @@ function ToolsLayout({ data, status }: any) {
 }
 
 export default ToolsLayout;
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   try {
     const [res1, res2, res3, res4, res5] = await Promise.all([
-      fetch("https://opentools.pythonanywhere.com/api/tools-data/?format=json"),
-      fetch(`https://opentools.pythonanywhere.com/api/category/?format=json`),
-      fetch(
-        `https://opentools.pythonanywhere.com/api/contributors/?format=json`
-      ),
-      fetch(
-        `https://opentools.pythonanywhere.com/api/most-used-tools/?format=json`
-      ),
-      fetch(
-        `https://opentools.pythonanywhere.com/api/testimonials/?format=json`
-      ),
+      fetch(`${siteMetaData.backendUrl}/tools-data/?format=json`),
+      fetch(`${siteMetaData.backendUrl}/category/?format=json`),
+      fetch(`${siteMetaData.backendUrl}/contributors/?format=json`),
+      fetch(`${siteMetaData.backendUrl}/most-used-tools/?format=json`),
+      fetch(`${siteMetaData.backendUrl}/testimonials/?format=json`),
     ]);
 
     const tools = await res1.json();
@@ -207,6 +202,7 @@ export const getServerSideProps = async () => {
           status: true,
           data: [tools, category, contributes, commonTools, testimonial],
         },
+        revalidate: 60,
       }
     );
   } catch (error) {
@@ -215,6 +211,7 @@ export const getServerSideProps = async () => {
         toolsStatus: false,
         data: null,
       },
+      revalidate: 60,
     };
   }
 };
