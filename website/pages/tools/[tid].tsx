@@ -1,11 +1,11 @@
 import Path from "@/components/Path";
-import { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import LayoutXComp from "@/layouts/LayoutX/LayoutXComp";
 import { motion } from "framer-motion";
 import AlertBox from "@/components/AlertBox/AlertBox";
 import NotFound from "pages/404";
-import LiveEditor from "@/components/ToolsComps/LiveEditor";
+// import LiveEditor from "@/components/ToolsComps/LiveEditor";
 import ToolDocs from "@/components/ToolsComps/ToolsDocs";
 import Collaborator from "@/components/ToolsComps/AsideComps/Collaborator";
 import InstallPkg from "@/components/ToolsComps/AsideComps/InstallPkg";
@@ -15,12 +15,10 @@ import SomeTools from "@/components/ToolsComps/SomeTools";
 import Keywords from "@/components/ToolsComps/Keywords";
 import ActiveLang from "@/components/ToolsComps/ActiveLang";
 import ToolHeader from "@/components/ToolsComps/ToolHeader";
-import Link from "next/link";
-import Box from "@/components/Box";
-import { GoIssueOpened } from "react-icons/go";
 import Issue from "@/components/ToolsComps/Issue";
 import siteMetaData from "@/data/siteMetaData";
 import Comment from "@/components/Comment";
+import Clipboards from "@/components/Clipboards/Clipboards";
 
 function Tid({ dataAll, toolsStatus }: any) {
   const [activeLang, setLang] = useState<string>("javascript");
@@ -123,13 +121,24 @@ function Tid({ dataAll, toolsStatus }: any) {
             <div
               className={`rounded-2xl overflow-hidden !w-full relative z-20 h-fit`}
             >
-              {activeLang !== "shell" && (
-                <span className="w-full flex items-center justify-between rounded-2xl lg:rounded-none bg-very-dark-blue p-4 text-lg text-white">
-                  {`> `}
-                  {activeLang == "python"
-                    ? "pip install codinasion-tools"
-                    : "npm install codinasion-tools"}
-                </span>
+              {activeLang !== "shell" ? (
+                <div className="w-full flex items-center justify-between rounded-2xl lg:rounded-none bg-very-dark-blue p-4 text-lg text-white">
+                  {activeLang === "python" ? (
+                    <>
+                      <p>{"> "}pip install codinasion-tools</p>
+                      <Clipboards clipText={"pip install codinasion-tools"} />
+                    </>
+                  ) : (
+                    <>
+                      <p>{"> "}npm install codinasion-tools</p>
+                      <Clipboards clipText={"npm install codinasion-tools"} />
+                    </>
+                  )}
+                </div>
+              ) : (
+                <div className="w-full flex items-center justify-between rounded-2xl lg:rounded-none bg-very-dark-blue p-4 text-lg text-white">
+                  <span className="opacity-0">x</span>
+                </div>
               )}
 
               <div>

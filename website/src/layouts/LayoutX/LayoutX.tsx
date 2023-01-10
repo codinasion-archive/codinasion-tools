@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import Members from "@/components/Dev/Dev";
 import Navbar from "@/components/Navbar";
 import Testimonial from "@/components/Testimonial/Testimonial";
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 
 // google font
