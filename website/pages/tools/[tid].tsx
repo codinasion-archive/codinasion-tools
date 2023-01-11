@@ -1,5 +1,5 @@
 import Path from "@/components/Path";
-import React, { useContext, useLayoutEffect, useState } from "react";
+import React, { useContext, useLayoutEffect, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import LayoutXComp from "@/layouts/LayoutX/LayoutXComp";
 import { motion } from "framer-motion";
@@ -50,6 +50,13 @@ function Tid({ dataAll, toolsStatus }: any) {
     toolsStatus &&
       context.setCommonTools({ apiStatus: toolsStatus, apiData: dataAll[4] });
   }, [dataAll, toolsStatus]);
+
+  useLayoutEffect(() => {
+    toolsStatus &&
+      fetch(
+        `${siteMetaData.backendUrl}/tools-data/watch/${toolData.apiData.slug}/`
+      );
+  }, []);
 
   return toolsStatus ? (
     <>
