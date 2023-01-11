@@ -15,6 +15,7 @@ import Category from "@/components/ToolsComps/AsideComps/Category";
 import { categoryFun } from "src/CommonFun/cF";
 import PaginationII from "@/components/Pagination/PaginationII";
 import siteMetaData from "@/data/siteMetaData";
+import Seo from "@/components/Seo";
 
 function ToolsLayout({ data, status }: any) {
   const context = useContext(TheContext);
@@ -76,6 +77,10 @@ function ToolsLayout({ data, status }: any) {
 
   return status ? (
     <>
+      <Seo
+        title={`Tools | ${siteMetaData.title}`}
+        description="List of our open source tools."
+      />
       <div
         id="tools"
         className="w-full z-20 relative top-20 sm:top-32 px-0 sm:p-3"

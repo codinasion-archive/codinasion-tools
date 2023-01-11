@@ -4,6 +4,7 @@ import LayoutXComp from "@/layouts/LayoutX/LayoutXComp";
 import React, { useContext, useEffect } from "react";
 import { TheContext } from "src/Context/Context";
 import siteMetaData from "@/data/siteMetaData";
+import Seo from "@/components/Seo";
 
 function Index({ data, status }: any) {
   const context = useContext(TheContext);
@@ -19,6 +20,10 @@ function Index({ data, status }: any) {
   }, [data, status]);
   return (
     <>
+      <Seo
+        title={`About Us | ${siteMetaData.title}`}
+        description="We are a group of developer/programer from all over the world helps others developer problems by our open-source projects. We provide a wide range of programmings and tools in multiple languages which is created by our independent developers. Our all time favorite repo by developers is Program, offer you every type of programming in multiple languages. And codinasion is open-source it means any developer who know programmings can contribute."
+      />
       <Background />
       <div className="min-h-screen flex justify-center items-center">
         <About />
