@@ -8,4 +8,6 @@ def ConvertHexadecimalToOctal(hexadecimal: str) -> int:
     while decimal != 0:
         octal = str(decimal % 8) + octal
         decimal = decimal // 8
+    if octal == "":
+        octal = "0"
     return int(octal)

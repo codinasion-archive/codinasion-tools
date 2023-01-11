@@ -6,6 +6,10 @@ def ConvertBinaryToHexadecimal(binary: str) -> str:
     decimal = ConvertBinaryToDecimal(binary)
     hexadecimal = ""
     while decimal > 0:
-        hexadecimal = str(decimal % 16) + hexadecimal
+        remainder = decimal % 16
+        if remainder < 10:
+            hexadecimal = str(remainder) + hexadecimal
+        else:
+            hexadecimal = chr(ord("A") + remainder - 10) + hexadecimal
         decimal = decimal // 16
     return hexadecimal

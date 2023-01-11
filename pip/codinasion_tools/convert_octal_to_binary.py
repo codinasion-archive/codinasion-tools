@@ -6,4 +6,4 @@ def ConvertOctalToBinary(octal_num: int) -> str:
     """Convert an octal number to a binary number."""
     if octal_num == 0:
         return "0"
-    return ConvertDecimalToBinary(ConvertOctalToDecimal(str(octal_num)))
+    return ConvertDecimalToBinary(ConvertOctalToDecimal(octal_num))

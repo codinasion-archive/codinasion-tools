@@ -8,4 +8,6 @@ def ConvertDecimalToHexadecimal(decimal_number: int) -> str:
         else:
             hexadecimal_number = chr(remainder + 55) + hexadecimal_number
         decimal_number = decimal_number // 16
+    if hexadecimal_number == "":
+        hexadecimal_number = "0"
     return hexadecimal_number
