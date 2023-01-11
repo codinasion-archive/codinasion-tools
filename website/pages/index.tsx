@@ -6,6 +6,7 @@ import SomeTools from "@/components/ToolsComps/SomeTools";
 import LayoutXComp from "@/layouts/LayoutX/LayoutXComp";
 import { TheContext } from "src/Context/Context";
 import siteMetaData from "@/data/siteMetaData";
+import Seo from "@/components/Seo";
 
 export default function HomePage({ data, status }: any) {
   const context = useContext(TheContext);
@@ -20,6 +21,7 @@ export default function HomePage({ data, status }: any) {
   }, [data, status]);
   return (
     <>
+      <Seo title={siteMetaData.title} description={siteMetaData.description} />
       <Background />
       <Intro />
       <div className="px-3">

@@ -21,6 +21,7 @@ import Comment from "@/components/Comment";
 import Clipboards from "@/components/Clipboards/Clipboards";
 import LiveEditor from "@/components/ToolsComps/LiveEditor";
 import { TheContext } from "src/Context/Context";
+import Seo from "@/components/Seo";
 
 function Tid({ dataAll, toolsStatus }: any) {
   const [activeLang, setLang] = useState<string>("javascript");
@@ -60,6 +61,10 @@ function Tid({ dataAll, toolsStatus }: any) {
 
   return toolsStatus ? (
     <>
+      <Seo
+        title={`${toolData.apiData.title} | ${siteMetaData.title}`}
+        description={toolData.apiData.description}
+      />
       <div className="w-full z-20 relative top-20 sm:top-32 sm:p-3">
         <div className="max-w-[1200px] relative mx-auto grid lg:grid-cols-3 gap-3">
           <motion.div
