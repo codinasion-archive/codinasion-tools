@@ -23,7 +23,8 @@ class ToolView(APIView):
             If the tool already exists, update it.
             """
             toolModel = models.ToolModel.objects.get(slug=request.data["slug"])
-            serializer = serializers.ToolSerializer(toolModel, data=request.data)
+            serializer = serializers.ToolSerializer(
+                toolModel, data=request.data)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_200_OK)
@@ -48,6 +49,17 @@ class ToolDataView(APIView):
         return Response(serializer.data)
 
 
+class ToolWatchView(APIView):
+    def get(self, request, slug, format=None):
+        """
+        Update tool view count
+        """
+        tool = models.ToolModel.objects.get(slug=slug)
+        tool.views += 1
+        tool.save()
+        return Response(status=status.HTTP_202_ACCEPTED)
+
+
 class ToolRatingView(APIView):
     def get(self, request, slug, format=None):
         """
@@ -62,7 +74,8 @@ class ToolRatingView(APIView):
         Update rating of a tool
         """
         toolModel = models.ToolModel.objects.get(slug=slug)
-        serializer = serializers.ToolRatingSerializer(toolModel, data=request.data)
+        serializer = serializers.ToolRatingSerializer(
+            toolModel, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
