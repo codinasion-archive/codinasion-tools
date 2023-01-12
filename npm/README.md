@@ -1,30 +1,47 @@
-# Codinasion Tools NPM Package
+<h1 align="center">Codinasion Tools</h1>
 
-Package Link: <https://www.npmjs.com/package/codinasion-tools>
+<div align="center">
 
----
+![LICENSE](https://img.shields.io/github/license/codinasion/codinasion-tools?color=lightgreen&style=flat-square) ![NPM](https://img.shields.io/npm/v/codinasion-tools?color=lightgreen&style=flat-square)
 
-> **Note** Before `git commit`, run `npm run check` to check if the test cases are passing.
+</div>
 
----
+<p align="center">
+A collection of open source tools
+</p>
 
-## How to add a function
+![Preview](../Preview.png)
 
-For example, we want to add a function for addition of two numbers.
+## Table of Contents
 
-1. Create a new folder `add-two-numbers` in `src` folder.
-2. Add a file `index.ts` in the folder with the TypeScript code for the function.
-3. Add a file `test.ts` in the `__test__` folder with the test cases for the function.
-4. Add an export statement in `src/index.ts` for the function.
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Usage](#usage)
 
-```txt
-src/
-├── add-two-numbers     // Function Name
-|   |
-│   ├── index.ts        // Function Code
-|   |
-│   └── __test__
-│       └── test.ts     // Test Cases
-|
-└── index.ts            // Export Statement
+## Introduction
+
+Codinasion Tools is a collection of open source tools that can be used to help you in your daily activities.
+
+## Installation
+
+```bash
+npm install codinasion-tools
 ```
+
+## Usage
+
+```js
+import { ConvertDecimalToBinary } from 'codinasion-tools';
+
+let binary = ConvertDecimalToBinary(10);
+console.log(binary); // 1010
+```
+
+---
+
+<p align="center">
+Made with 💖 by Codinasion
+</p>
+
+---
