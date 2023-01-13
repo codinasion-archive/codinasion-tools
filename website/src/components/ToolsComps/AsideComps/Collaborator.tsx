@@ -26,7 +26,11 @@ function Collaborator({ apiData, apiStatus, more = true }: CollaboratorType) {
                 key={Math.random() * 50 + "devs"}
                 profileUrl={`https://github.com/${item.username}`}
                 name={item.username}
-                imgUrl={"https://picsum.photos/200"}
+                imgUrl={
+                  item.username === "dependabot[bot]"
+                    ? "https://picsum.photos/200"
+                    : `https://github.com/${item.username}.png`
+                }
               />
             ))}
         {more && apiData.length > 10 && (

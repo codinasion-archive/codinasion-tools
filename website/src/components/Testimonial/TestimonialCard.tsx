@@ -28,7 +28,7 @@ const TestimonialCard: React.FC<testimonialCard> = ({
     >
       <ProfileImg
         cssStyle="group-hover:border-white group-hover:shadow-xl"
-        imgUrl={profileUrl}
+        imgUrl={`https://github.com/${name}.png`}
         name={name}
         profileUrl={`https://github.com/${name}`}
       />
