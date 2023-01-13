@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="codinasion-tools",
-    version="0.1.0",
+    version="0.1.1",
     author="Harsh Raj",
     author_email="harshraj8843@gmail.com",
     description="A collection of useful open source tools",
