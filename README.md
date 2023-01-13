@@ -18,7 +18,6 @@ A collection of open source tools that can be used to help you in your daily act
 
 </div>
 <hr/>
-<br/>
 
 <picture align="center">
   <source media="(prefers-color-scheme: dark)" srcset="./readme/darkBg.png">
@@ -39,11 +38,10 @@ A collection of open source tools that can be used to help you in your daily act
 <!-- - [Community](#community) -->
 
 <br/>
-<br/>
 
 ## Documentation
 
-### NPM
+#### NPM
 
 ```bash
 npm install codinasion-tools
@@ -58,7 +56,7 @@ let binary = ConvertDecimalToBinary(10);
 console.log(binary); // 1010
 ```
 
-### PIP
+#### PIP
 
 ```bash
 pip install codinasion-tools
@@ -74,21 +72,17 @@ print(binary) # 1010
 ```
 
 <br/>
-<br/>
 
 ## Next_Step
 
 All codinasion-tools and their documentation are easily available on our [Website](https://tools.codinasion.org/)
 
-<br/>
-<br/>
 
 ## Contributing
 
 If you're looking for a way to contribute, you can scan through our existing issues for something to work on.
 We want to make contributing to this project as easy and transparent as possible, and we are grateful to the community for contributing bug fixes and improvements. Read our [Contributing Guide](#) how you can take part in improving codinasion-tools.
 
-<br/>
 <br/>
 
 ---
