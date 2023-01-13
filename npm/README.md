@@ -1,30 +1,90 @@
-# Codinasion Tools NPM Package
+<p align="center">
+  <a href="https://tools.codinasion.org/" target="_blank">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="../readme/lightTxt.png">
+      <source media="(prefers-color-scheme: light)" srcset="../readme/darkTxt.png">
+      <img alt="Codinasion tools" src="./src/lightTxt.png" width="350">
+    </picture>
+  </a>
+</p>
+<p align="center">
+A collection of open source tools that can be used to help you in your daily activities.
+</p>
+<div align="center">
 
-Package Link: <https://www.npmjs.com/package/codinasion-tools>
+![LICENSE](https://img.shields.io/github/license/codinasion/codinasion-tools?color=lightgreen)
+[![NPM](https://img.shields.io/npm/v/codinasion-tools?color=lightgreen)](https://npmjs.com/package/codinasion-tools 'NPM Package')
 
----
+</div>
 
-> **Note** Before `git commit`, run `npm run check` to check if the test cases are passing.
+<hr/>
 
----
+<picture align="center">
+  <source media="(prefers-color-scheme: dark)" srcset="../readme/darkBg.png">
+  <source media="(prefers-color-scheme: light)" srcset="../readme/lightBg.png">
+  <img alt="Codinasion tools" src="./src/lightBg.png">
+</picture>
 
-## How to add a function
+<br/>
+<br/>
 
-For example, we want to add a function for addition of two numbers.
+## Table of Contents
 
-1. Create a new folder `add-two-numbers` in `src` folder.
-2. Add a file `index.ts` in the folder with the TypeScript code for the function.
-3. Add a file `test.ts` in the `__test__` folder with the test cases for the function.
-4. Add an export statement in `src/index.ts` for the function.
+- [Table of Contents](#table-of-contents)
+- [Documentation](#documentation)
+  - [How To Install](#how-to-install)
+  - [How To Use](#how-to-use)
 
-```txt
-src/
-├── add-two-numbers     // Function Name
-|   |
-│   ├── index.ts        // Function Code
-|   |
-│   └── __test__
-│       └── test.ts     // Test Cases
-|
-└── index.ts            // Export Statement
+<br/>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/codinasion/.github/master/assets/rainbow-hr.png" alt="rainbow hr" width="100%" height="70%">
+</div>
+
+## Documentation
+
+### How To Install
+
+```bash
+npm install codinasion-tools
 ```
+
+```bash
+yarn add codinasion-tools
+```
+
+### How To Use
+
+```js
+// JavaScript
+
+import { ConvertDecimalToBinary } from 'codinasion-tools';
+
+let binary = ConvertDecimalToBinary(10);
+console.log(binary); // 1010
+```
+
+```ts
+// TypeScript
+
+import { ConvertDecimalToBinary } from 'codinasion-tools';
+
+let binary: string = ConvertDecimalToBinary(10);
+console.log(binary); // 1010
+```
+
+<br/>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/codinasion/.github/master/assets/rainbow-hr.png" alt="rainbow hr" width="100%" height="70%">
+</div>
+
+<br/>
+
+<p align="center">
+Made with 💖 by Codinasion
+</p>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/codinasion/.github/master/assets/rainbow-hr.png" alt="rainbow hr" width="100%" height="70%">
+</div>
