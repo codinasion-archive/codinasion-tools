@@ -1,31 +1,51 @@
-<h1 align="center">Codinasion Tools</h1>
-
+<p align="center">
+  <a href="https://tools.codinasion.org/" target="_blank">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./readme/lightTxt.png">
+      <source media="(prefers-color-scheme: light)" srcset="./readme/darkTxt.png">
+      <img alt="Codinasion tools" src="./src/lightTxt.png" width="350">
+    </picture>
+  </a>
+</p>
+<p align="center">
+A collection of open source tools that can be used to help you in your daily activities.
+</p>
 <div align="center">
 
-![LICENSE](https://img.shields.io/github/license/codinasion/codinasion-tools?color=lightgreen&style=flat-square) ![NPM](https://img.shields.io/npm/v/codinasion-tools?color=lightgreen&style=flat-square) ![PIP](https://img.shields.io/pypi/v/codinasion-tools?color=lightgreen)
+![LICENSE](https://img.shields.io/github/license/codinasion/codinasion-tools?color=lightgreen)
+![NPM](https://img.shields.io/npm/v/codinasion-tools?color=lightgreen)
+![PIP](https://img.shields.io/pypi/v/codinasion-tools?color=lightgreen)
 
 </div>
+<hr/>
+<br/>
 
-<p align="center">
-A collection of open source tools
-</p>
+<picture align="center">
+  <source media="(prefers-color-scheme: dark)" srcset="./readme/darkBg.png">
+  <source media="(prefers-color-scheme: light)" srcset="./readme/lightBg.png">
+  <img alt="Codinasion tools" src="./src/lightBg.png">
+</picture>
 
-![Preview](Preview.png)
+<br/>
+<br/>
 
-## Table of Contents
+## Contents
 
-- [Table of Contents](#table-of-contents)
-- [Introduction](#introduction)
-- [Installation](#installation)
+<hr/>
+
+- [Documentation](#documentation)
   - [NPM](#npm)
   - [PIP](#pip)
-- [Usage](#usage)
+- [Next step](#next_step)
+- [Contributing](#contributing)
+<!-- - [Community](#community) -->
 
-## Introduction
+<br/>
+<br/>
 
-Codinasion Tools is a collection of open source tools that can be used to help you in your daily activities.
+## Documentation
 
-## Installation
+<hr/>
 
 ### NPM
 
@@ -33,21 +53,19 @@ Codinasion Tools is a collection of open source tools that can be used to help y
 npm install codinasion-tools
 ```
 
-### PIP
-
-```bash
-pip install codinasion-tools
-```
-
-## Usage
-
 ```js
-// Node.js
+// Node-js
 
 import { ConvertDecimalToBinary } from "codinasion-tools";
 
 let binary = ConvertDecimalToBinary(10);
 console.log(binary); // 1010
+```
+
+### PIP
+
+```bash
+pip install codinasion-tools
 ```
 
 ```python
@@ -58,6 +76,28 @@ from codinasion_tools import ConvertDecimalToBinary
 binary = ConvertDecimalToBinary(10)
 print(binary) # 1010
 ```
+
+<br/>
+<br/>
+
+## Next_Step
+
+<hr/>
+
+All codinasion-tools and their documentation are easily available on our [Website](https://tools.codinasion.org/)
+
+<br/>
+<br/>
+
+## Contributing
+
+<hr/>
+
+If you're looking for a way to contribute, you can scan through our existing issues for something to work on.
+We want to make contributing to this project as easy and transparent as possible, and we are grateful to the community for contributing bug fixes and improvements. Read our [Contributing Guide](#) how you can take part in improving codinasion-tools.
+
+<br/>
+<br/>
 
 ---
 
