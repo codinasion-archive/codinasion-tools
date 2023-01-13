@@ -31,8 +31,6 @@ A collection of open source tools that can be used to help you in your daily act
 
 ## Contents
 
-<hr/>
-
 - [Documentation](#documentation)
   - [NPM](#npm)
   - [PIP](#pip)
@@ -44,8 +42,6 @@ A collection of open source tools that can be used to help you in your daily act
 <br/>
 
 ## Documentation
-
-<hr/>
 
 ### NPM
 
@@ -82,16 +78,12 @@ print(binary) # 1010
 
 ## Next_Step
 
-<hr/>
-
 All codinasion-tools and their documentation are easily available on our [Website](https://tools.codinasion.org/)
 
 <br/>
 <br/>
 
 ## Contributing
-
-<hr/>
 
 If you're looking for a way to contribute, you can scan through our existing issues for something to work on.
 We want to make contributing to this project as easy and transparent as possible, and we are grateful to the community for contributing bug fixes and improvements. Read our [Contributing Guide](#) how you can take part in improving codinasion-tools.
