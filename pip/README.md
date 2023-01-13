@@ -32,7 +32,7 @@ A collection of open source tools that can be used to help you in your daily act
 
 - [Table of Contents](#table-of-contents)
 - [Documentation](#documentation)
-  - [Install](#install)
+  - [How To Install](#how-to-install)
   - [How To Use](#how-to-use)
 
 <br/>
@@ -43,7 +43,7 @@ A collection of open source tools that can be used to help you in your daily act
 
 ## Documentation
 
-### Install
+### How To Install
 
 ```bash
 pip install codinasion-tools
