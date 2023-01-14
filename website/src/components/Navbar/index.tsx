@@ -52,7 +52,7 @@ export default function Navbar({ setSearchBox }: navbarProp) {
     <nav
       className={`fixed top-0 w-full pt-3 z-40 flex gap-3 flex-col items-center justify-center font-extrabold ${jura.className} backdrop-blur-md`}
     >
-      <div className="flex justify-between sm:justify-center items-center relative w-full p-3 text-2xl text-white">
+      <div className="flex justify-between sm:justify-center items-center relative w-full p-3 text-2xl z-[45] text-white">
         <UrlBtn
           name="codinasion-tools"
           href="/"
