@@ -9,6 +9,20 @@ function ActiveLang({ activeLang, setLang }: activeLangProp) {
     <div className="top-0 border-b">
       <button
         onClick={() => {
+          setLang("tryit");
+        }}
+        className="p-2 px-3 relative dark:border-white border-black rounded-lg rounded-b-none"
+      >
+        Try It
+        <span
+          style={{
+            width: activeLang === "tryit" ? "100%" : 0,
+          }}
+          className="h-[2px] bg-very-dark-blue dark:bg-very-light-blue absolute bottom-0 left-0"
+        ></span>
+      </button>
+      <button
+        onClick={() => {
           setLang("javascript");
         }}
         className="p-2 px-3 relative dark:border-white border-black rounded-lg rounded-b-none"

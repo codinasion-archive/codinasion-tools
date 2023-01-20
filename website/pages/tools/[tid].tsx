@@ -22,9 +22,10 @@ import Clipboards from "@/components/Clipboards/Clipboards";
 import LiveEditor from "@/components/ToolsComps/LiveEditor";
 import { TheContext } from "src/Context/Context";
 import Seo from "@/components/Seo";
+import ToolUiHandler from "@/components/ToolsComps/ToolUiHandler";
 
 function Tid({ dataAll, toolsStatus }: any) {
-  const [activeLang, setLang] = useState<string>("javascript");
+  const [activeLang, setLang] = useState<string>("tryit");
   const context = useContext(TheContext);
   const router = useRouter();
 
@@ -87,6 +88,12 @@ function Tid({ dataAll, toolsStatus }: any) {
                 <ActiveLang activeLang={activeLang} setLang={setLang} />
 
                 {/* <LiveEditor /> */}
+                {activeLang == "tryit" && (
+                  <>
+                    <ToolUiHandler slug={toolData.apiData.slug} />
+                  </>
+                )}
+
                 {activeLang == "javascript" && (
                   <>
                     <ToolDocs
